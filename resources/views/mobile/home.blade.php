@@ -100,7 +100,7 @@
                 <img src="{{asset('mobileTheme/img/search1.jpg')}}" class="img-fluid">
                 <div class="p-2">
                    <p class="text-dark mb-1 fw-bold">Na Thai Town</p>
-                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> Asian <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
+                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
                    <p class="small mb-0 text-muted ml-auto"><span class="bg-light d-inline-block font-weight-bold text-muted rounded-3 py-1 px-2">25-30 min</span></p>
                 </div>
              </div>
@@ -110,7 +110,7 @@
                 <img src="{{asset('mobileTheme/img/search2.jpg')}}" class="img-fluid">
                 <div class="p-2">
                    <p class="text-dark mb-1 fw-bold">Thai Casual</p>
-                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> Asian <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
+                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
                    <p class="small mb-0 text-muted ml-auto"><span class="bg-light d-inline-block font-weight-bold text-muted rounded-3 py-1 px-2">25-30 min</span></p>
                 </div>
              </div>
@@ -120,7 +120,7 @@
                 <img src="{{asset('mobileTheme/img/search3.jpg')}}" class="img-fluid">
                 <div class="p-2">
                    <p class="text-dark mb-1 fw-bold">Italic Food</p>
-                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> Asian <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
+                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
                    <p class="small mb-0 text-muted ml-auto"><span class="bg-light d-inline-block font-weight-bold text-muted rounded-3 py-1 px-2">25-30 min</span></p>
                 </div>
              </div>
@@ -130,7 +130,7 @@
                 <img src="{{asset('mobileTheme/img/search4.jpg')}}" class="img-fluid">
                 <div class="p-2">
                    <p class="text-dark mb-1 fw-bold">The Mint Sauce</p>
-                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> Asian <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
+                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
                    <p class="small mb-0 text-muted ml-auto"><span class="bg-light d-inline-block font-weight-bold text-muted rounded-3 py-1 px-2">25-30 min</span></p>
                 </div>
              </div>
@@ -140,7 +140,7 @@
                 <img src="{{asset('mobileTheme/img/search5.jpg')}}" class="img-fluid">
                 <div class="p-2">
                    <p class="text-dark mb-1 fw-bold">Mid - Day Town</p>
-                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> Asian <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
+                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
                    <p class="small mb-0 text-muted ml-auto"><span class="bg-light d-inline-block font-weight-bold text-muted rounded-3 py-1 px-2">25-30 min</span></p>
                 </div>
              </div>
@@ -150,7 +150,7 @@
                 <img src="{{asset('mobileTheme/img/search6.jpg')}}" class="img-fluid">
                 <div class="p-2">
                    <p class="text-dark mb-1 fw-bold">Diet Town</p>
-                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> Asian <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
+                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
                    <p class="small mb-0 text-muted ml-auto"><span class="bg-light d-inline-block font-weight-bold text-muted rounded-3 py-1 px-2">25-30 min</span></p>
                 </div>
              </div>
@@ -275,7 +275,7 @@
                 </ul>
              </li>
              <li><a href="favourities#html">Favourities</a></li>
-             <li><a href="asian#html">Asian Food</a></li>
+             <li><a href="African#html">African Food</a></li>
              <li><a href="near#html">Near you</a></li>
              <li><a href="new_arrivals#html">New Arrivals</a></li>
              <li><a href="healthy#html">Healthy Food</a></li>
