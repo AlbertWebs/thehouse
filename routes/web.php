@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('mobile.index');
 });
+Route::get('/mobile/get-started', function () {
+    return view('mobile.home');
+});
+
 
 Auth::routes();
 

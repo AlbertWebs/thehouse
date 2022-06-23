@@ -1,5 +1,5 @@
 /*
-Template Name: Zomoto - Food Order Directory, Restaurants, Fast Food, Bars Mobile Template 
+Template Name: Zomoto - Food Order Directory, Restaurants, Fast Food, Bars Mobile Template
 Author: Askbootstrap
 Author URI: https://themeforest.net/user/askbootstrap
 Version: 1.0
@@ -7,7 +7,7 @@ Version: 1.0
 
 (function($) {
   "use strict";
-  
+
    $("body").on("contextmenu",function(e){
         return false;
     });
@@ -46,7 +46,7 @@ Version: 1.0
             return false;
          }
     });
-	
+
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -175,7 +175,7 @@ ga('send', 'pageview');
           disableAt: false,
           customToggle: $toggle,
           levelSpacing: 40,
-          navTitle: 'Askbootstrap',
+          navTitle: 'Shaqs House',
           levelTitles: true,
           levelTitleAsBack: true,
           pushContent: '#container',
