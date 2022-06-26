@@ -12,7 +12,7 @@
 								<div class="overlay-inner">
 									<div class="content">
 										<ul class="options">
-											<li><a href="images/gallery/1.jpg')}}" class="lightbox-image" data-fancybox="gallery-1" data-caption=""><span class="fa fa-instagram"></span></a></li>
+											<li><a href="{{asset('theme/images/gallery/1.jpg')}}" class="lightbox-image" data-fancybox="gallery-1" data-caption=""><span class="fa fa-instagram"></span></a></li>
 										</ul>
 									</div>
 								</div>
@@ -30,7 +30,7 @@
 								<div class="overlay-inner">
 									<div class="content">
 										<ul class="options">
-											<li><a href="images/gallery/2.jpg')}}" class="lightbox-image" data-fancybox="gallery-1" data-caption=""><span class="fa fa-instagram"></span></a></li>
+											<li><a href="{{asset('theme/images/gallery/2.jpg')}}" class="lightbox-image" data-fancybox="gallery-1" data-caption=""><span class="fa fa-instagram"></span></a></li>
 										</ul>
 									</div>
 								</div>
@@ -48,7 +48,7 @@
 								<div class="overlay-inner">
 									<div class="content">
 										<ul class="options">
-											<li><a href="images/gallery/3.jpg')}}" class="lightbox-image" data-fancybox="gallery-1" data-caption=""><span class="fa fa-instagram"></span></a></li>
+											<li><a href="{{asset('theme/images/gallery/3.jpg')}}" class="lightbox-image" data-fancybox="gallery-1" data-caption=""><span class="fa fa-instagram"></span></a></li>
 										</ul>
 									</div>
 								</div>
@@ -66,7 +66,7 @@
 								<div class="overlay-inner">
 									<div class="content">
 										<ul class="options">
-											<li><a href="images/gallery/4.jpg')}}" class="lightbox-image" data-fancybox="gallery-1" data-caption=""><span class="fa fa-instagram"></span></a></li>
+											<li><a href="{{asset('theme/images/gallery/4.jpg')}}" class="lightbox-image" data-fancybox="gallery-1" data-caption=""><span class="fa fa-instagram"></span></a></li>
 										</ul>
 									</div>
 								</div>
@@ -84,7 +84,7 @@
 								<div class="overlay-inner">
 									<div class="content">
 										<ul class="options">
-											<li><a href="images/gallery/5.jpg')}}" class="lightbox-image" data-fancybox="gallery-1" data-caption=""><span class="fa fa-instagram"></span></a></li>
+											<li><a href="{{asset('theme/images/gallery/5.jpg')}}" class="lightbox-image" data-fancybox="gallery-1" data-caption=""><span class="fa fa-instagram"></span></a></li>
 										</ul>
 									</div>
 								</div>
@@ -102,7 +102,7 @@
 								<div class="overlay-inner">
 									<div class="content">
 										<ul class="options">
-											<li><a href="images/gallery/6.jpg')}}" class="lightbox-image" data-fancybox="gallery-1" data-caption=""><span class="fa fa-instagram"></span></a></li>
+											<li><a href="{{asset('theme/images/gallery/6.jpg')}}" class="lightbox-image" data-fancybox="gallery-1" data-caption=""><span class="fa fa-instagram"></span></a></li>
 										</ul>
 									</div>
 								</div>
@@ -120,7 +120,7 @@
 								<div class="overlay-inner">
 									<div class="content">
 										<ul class="options">
-											<li><a href="images/gallery/7.jpg')}}" class="lightbox-image" data-fancybox="gallery-1" data-caption=""><span class="fa fa-instagram"></span></a></li>
+											<li><a href="{{asset('theme/images/gallery/7.jpg')}}" class="lightbox-image" data-fancybox="gallery-1" data-caption=""><span class="fa fa-instagram"></span></a></li>
 										</ul>
 									</div>
 								</div>
@@ -138,7 +138,7 @@
 								<div class="overlay-inner">
 									<div class="content">
 										<ul class="options">
-											<li><a href="images/gallery/8.jpg')}}" class="lightbox-image" data-fancybox="gallery-1" data-caption=""><span class="fa fa-instagram"></span></a></li>
+											<li><a href="{{asset('theme/images/gallery/8.jpg')}}" class="lightbox-image" data-fancybox="gallery-1" data-caption=""><span class="fa fa-instagram"></span></a></li>
 										</ul>
 									</div>
 								</div>

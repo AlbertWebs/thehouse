@@ -24,6 +24,10 @@ Route::get('/mobile/get-started', function () {
 });
 
 
+Route::get('/shopping-cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart');
+Route::get('/shopping-cart/checkout', [App\Http\Controllers\CartController::class, 'checkout'])->name('checkout');
+Route::get('/dashboard', [App\Http\Controllers\CartController::class, 'dashboard'])->name('dashboard');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

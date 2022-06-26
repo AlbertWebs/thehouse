@@ -13,8 +13,8 @@
 							<div class="title">Delicious Food For The Last 2 Decades</div>
 							<h1>We Make <br> An <span>Excelllent</span> <br> Food</h1>
 							<div class="btns-box">
-								<a href="about.html" class="theme-btn btn-style-one"><span class="txt">Discover More</span></a>
-								<a href="contact.html" class="theme-btn btn-style-two"><span class="txt">Order Online</span></a>
+								<a href="{{url('/')}}/#" class="theme-btn btn-style-one"><span class="txt">Discover More</span></a>
+								<a href="{{url('/')}}/menu" class="theme-btn btn-style-two"><span class="txt">Order Online</span></a>
 							</div>
 						</div>
 					</div>
@@ -29,8 +29,8 @@
 							<div class="title">Delicious Food For The Last 2 Decades</div>
 							<h1>We Serve The <br> <span>Good Taste</span> Of <br> Food</h1>
 							<div class="btns-box">
-								<a href="about.html" class="theme-btn btn-style-one"><span class="txt">Discover More</span></a>
-								<a href="contact.html" class="theme-btn btn-style-two"><span class="txt">Order Online</span></a>
+								<a href="{{url('/')}}/#" class="theme-btn btn-style-one"><span class="txt">Discover More</span></a>
+								<a href="{{url('/')}}/menu" class="theme-btn btn-style-two"><span class="txt">Order Online</span></a>
 							</div>
 						</div>
 					</div>
@@ -45,8 +45,8 @@
 							<div class="title">Delicious Food For The Last 2 Decades</div>
 							<h1>We Make <br> An <span>Excelllent</span> <br> Food</h1>
 							<div class="btns-box">
-								<a href="about.html" class="theme-btn btn-style-one"><span class="txt">Discover More</span></a>
-								<a href="contact.html" class="theme-btn btn-style-two"><span class="txt">Order Online</span></a>
+								<a href="{{url('/')}}/#" class="theme-btn btn-style-one"><span class="txt">Discover More</span></a>
+								<a href="{{url('/')}}/menu" class="theme-btn btn-style-two"><span class="txt">Order Online</span></a>
 							</div>
 						</div>
 					</div>
@@ -1236,7 +1236,7 @@
 
 						<!-- Default Form -->
 						<div class="default-form">
-							<form method="post" action="https://codexlayer.com/html/comida_punto/contact.html">
+							<form method="post" action="https://codexlayer.com/html/comida_punto/{{url('/')}}/menu">
 								<div class="row clearfix">
 
 									<!-- Form Group -->

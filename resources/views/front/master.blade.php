@@ -53,7 +53,7 @@
 						<!-- Info List -->
 						<ul class="info-list">
 							<li><a href="tel:+254723014032"><span class="icon flaticon-phone-call"></span> (+254) 72 301 4032</a></li>
-							<li><a href="mailto:hello@shaqshouse.co.ke"><span class="icon flaticon-email"></span> hello@shaqshouse.co.ke</a></li>
+							<li><a href="mailto:chomazone@shaqshouse.co.ke"><span class="icon flaticon-email"></span> chomazone@shaqshouse.co.ke</a></li>
 							<li><a href="coptact.html"><span class="icon flaticon-placeholder"></span> 22 Ananas Building,  Kiserian</a></li>
 						</ul>
 					</div>
@@ -121,7 +121,7 @@
 
 						<!-- Login Box -->
 						<div class="login-box">
-							<a href="login.html" class="flaticon-user-1"></a>
+							<a href="{{url('/')}}/dashboard" class="flaticon-user-1"></a>
 						</div>
 
 						<!-- Cart Box -->
@@ -259,7 +259,7 @@
 @yield('content')
 
 	<!-- Main Footer -->
-    <footer class="main-footer" style="background-image: url(images/background/pattern-1.png)">
+    <footer class="main-footer" style="background-image: url('{{asset('theme/images/background/pattern-1.png')}}')">
 		<div class="auto-container">
         	<!--Widgets Section-->
             <div class="widgets-section">
@@ -296,7 +296,7 @@
 		<!-- Footer Bottom -->
 		<div class="footer-bottom">
 			<div class="auto-container">
-				<div class="copyright">Copyright © {{date('Y')}} <a href="#">Shaq's House Restaurant</a> by <a href="https://venshaq.com">Venshaqs Holdings Limited</a>. All Rights Reserved.</div>
+				<div class="copyright">Copyright © {{date('Y')}} <a href="#">Shaq's Choma Zone</a> by <a href="https://venshaq.com">Venshaqs Holdings Limited</a>. All Rights Reserved.</div>
 			</div>
 		</div>
 	</footer>
@@ -309,9 +309,9 @@
 <div class="search-popup">
 	<button class="close-search style-two"><span class="flaticon-multiply"></span></button>
 	<button class="close-search"><span class="flaticon-multiply"></span></button>
-	<form method="post" action="https://codexlayer.com/html/comida_punto/blog.html">
+	<form method="post" action="#">
 		<div class="form-group">
-			<input type="search" name="search-field" value="" placeholder="Search Here" required="">
+			<input type="search" name="search-field" value="" placeholder="Search your meal here......" required="">
 			<button type="submit"><i class="fa fa-search"></i></button>
 		</div>
 	</form>
@@ -332,9 +332,14 @@
 <script src="{{asset('theme/js/jquery.paroller.min.js')}}"></script>
 <script src="{{asset('theme/js/owl.js')}}"></script>
 <script src="{{asset('theme/js/wow.js')}}"></script>
+<script src="{{asset('theme/js/jquery.bootstrap-touchspin.js')}}"></script>
 <script src="{{asset('theme/js/nav-tool.js')}}"></script>
 <script src="{{asset('theme/js/jquery-ui.js')}}"></script>
 <script src="{{asset('theme/js/script.js')}}"></script>
+
+
+
+
 
 </body>
 
