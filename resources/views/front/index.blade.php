@@ -107,7 +107,7 @@
 							<div class="overlay-box">
 								<div class="overlay-inner">
 									<div class="content">
-										<h2><a href="#">Desert</a></h2>
+										<h2><a href="#">Dessert</a></h2>
 										<a href="#" class="view">View Menu</a>
 									</div>
 								</div>

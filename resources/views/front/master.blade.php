@@ -14,8 +14,7 @@
 
 <link href="{{asset('theme/fonts.googleapis.com/css2f1f3.css?family=Kaushan+Script&amp;family=Lato:wght@100;300;400;700;900&amp;family=Playfair+Display:wght@400;500;600;700;800;900&amp;display=swap')}}" rel="stylesheet">
 
-<link rel="shortcut icon" href="images/favicon.png')}}" type="image/x-icon">
-<link rel="icon" href="images/favicon.png')}}" type="image/x-icon">
+@include('favicon')
 
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js')}}"></script><![endif]-->
 <!--[if lt IE 9]><script src="{{asset('theme/js/respond.js')}}"></script><![endif]-->
@@ -95,7 +94,7 @@
                                 <li><a href="#">Lunch</a>
 
 								</li>
-                                <li><a href="#">Desert</a>
+                                <li><a href="#">Dessert</a>
 
 								</li>
                                 <li><a href="#">Dinner</a>
@@ -107,7 +106,7 @@
                                 <li><a href="#">Snacks</a>
 
 								</li>
-								<li><a href="contact.html">Find Us</a></li>
+								<li><a href="#">Find Us</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -199,7 +198,7 @@
 
 						<!-- Login Box -->
 						<div class="login-box">
-							<a href="login.html" class="flaticon-user-1"></a>
+							<a href="{{url('/')}}/dashboard" class="flaticon-user-1"></a>
 						</div>
 
 						<!-- Cart Box -->

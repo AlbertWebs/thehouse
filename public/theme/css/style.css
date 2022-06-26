@@ -12394,6 +12394,7 @@ img{
 
 .styled-form .form-group button{
 	padding:13px 65px;
+    border-radius:10px;
 }
 
 .styled-form .form-group .users{
@@ -12434,8 +12435,8 @@ img{
 	color:#ffffff;
 	font-size:16px;
 	margin:0px 10px;
-	padding:14px 26px;
-	border-radius:0px;
+	padding:14px 14px;
+	/* border-radius:0px; */
 	display:inline-block;
 	background-color:#415dae;
 	transition:all 500ms ease;
@@ -12443,6 +12444,7 @@ img{
 	-webkit-transition:all 500ms ease;
 	-ms-transition:all 500ms ease;
 	-o-transition:all 500ms ease;
+    border-radius:10px;
 }
 
 .styled-form .form-group .btns-box .google-btn{
@@ -12450,7 +12452,7 @@ img{
 	color:#ffffff;
 	font-size:16px;
 	margin:0px 10px;
-	padding:14px 26px;
+    padding:14px 14px;
 	border-radius:0px;
 	display:inline-block;
 	background-color:#cf4332;
@@ -12459,6 +12461,7 @@ img{
 	-webkit-transition:all 500ms ease;
 	-ms-transition:all 500ms ease;
 	-o-transition:all 500ms ease;
+    border-radius:10px;
 }
 
 .styled-form .form-group .btns-box a .social-icon{
