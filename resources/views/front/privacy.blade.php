@@ -9,7 +9,7 @@
         <div class="title-box">
             <h2>{{$terms->title}}</h2>
             <div class="text">
-                <p style="color:#000000">{{$terms->content}}</p>
+                <p style="color:#000000">{!!html_entity_decode($terms->content)!!}</p>
             </div>
         </div>
         @endforeach
