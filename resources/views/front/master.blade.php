@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Shaqs House Restaurant | Homepage 01</title>
+<title>Shaqs House Restaurant | Pilau, Biryani, Nyama Choma, Burgers</title>
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -15,6 +15,19 @@
 <link href="{{asset('theme/fonts.googleapis.com/css2f1f3.css?family=Kaushan+Script&amp;family=Lato:wght@100;300;400;700;900&amp;family=Playfair+Display:wght@400;500;600;700;800;900&amp;display=swap')}}" rel="stylesheet">
 
 @include('favicon')
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/62b9a3dfb0d10b6f3e7981d9/1g6iig8kr';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js')}}"></script><![endif]-->
 <!--[if lt IE 9]><script src="{{asset('theme/js/respond.js')}}"></script><![endif]-->
