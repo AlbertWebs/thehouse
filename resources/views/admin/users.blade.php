@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="wrap" >
-        
+
 
         <!-- HEADER SECTION -->
         @include('admin.top')
@@ -18,11 +18,11 @@
 
         <!--PAGE CONTENT -->
         <div id="content">
-             
+
             <div class="inner" style="min-height: 700px;">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <h1> List Of Clients</h1>
+                    <div class="col-lg-12 text-center">
+                        <h2> List Of Clients</h2>
                     </div>
                 </div>
                   <hr />
@@ -36,7 +36,7 @@
                 </div>
                   <!--END BLOCK SECTION -->
                 <hr />
-                 
+
                  <!-- COMMENT AND NOTIFICATION  SECTION -->
                    <div class="row">
                         <div class="col-lg-12">
@@ -70,21 +70,21 @@
                                                     @endif
                                                 </tr>
                                             @endforeach
-                                                
+
                                             </tbody>
                                         </table>
                                     </div>
-                                
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 <!-- END COMMENT AND NOTIFICATION  SECTION -->
-                
 
 
 
-                
+
+
             </div>
 
         </div>

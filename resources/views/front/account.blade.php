@@ -76,8 +76,8 @@
 										<div class="column col-lg-6 col-md-6 col-sm-12">
 											<h4><span class="icon flaticon-edit"></span>Billing Address</h4>
 											<ul class="address-list">
-												<li>First name & Last name</li>
-												<li>Company name</li>
+												<li>{{Auth::User()->name}}</li>
+												<li>Shaq's House</li>
 												<li>Street address</li>
 												<li>Town / City</li>
 												<li>10001</li>

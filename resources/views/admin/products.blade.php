@@ -62,21 +62,21 @@
                                             @foreach($Product as $value)
                                                 <tr class="odd gradeX">
                                                     <td>{{$value->id}}</td>
-                                                    <td>{{$value->name}}
+                                                    <td>{{$value->title}}
                                                     <hr>
                                                     Price : {{$value->price}} <br>
                                                     Web Code : {{$value->code}}
                                                     </td>
                                                     <td>
                                                         <?php
-                                                            $CatID = $value->cat;
+                                                            $CatID = $value->cat_id;
                                                             $TheCategory = DB::table('category')->where('id',$CatID)->get();
                                                             foreach ($TheCategory as $key => $valuee) {
                                                                 echo $valuee->cat;
                                                             }
                                                         ?>
                                                     </td>
-                                                    <td class="center"><img with="100" height="100" src="{{url('/')}}/uploads/product/{{$value->image_one}}"></td>
+                                                    <td class="center"><img with="100" height="100" src="{{url('/')}}/uploads/menu/{{$value->thumbnail}}"></td>
                                                     <td class="center"><a href="{{url('/admin')}}/editProduct/{{$value->id}}"   class="btn btn-info"><i class="icon-pencil icon-white"></i> Edit</a></td>
                                                     <td class="center"><a onclick="return confirm('Do you want to delete this product?')" href="{{url('/admin')}}/deleteProduct/{{$value->id}}"   class="btn btn-danger"><i class="icon-trash icon-white"></i> Del</a></td>
 

@@ -24,6 +24,8 @@ use App\Models\Term;
 
 use App\Models\Privacy;
 
+use App\Models\Menu;
+
 use App\Models\Gallery;
 
 use App\Models\Admin;
@@ -1117,14 +1119,9 @@ public function addProduct(){
 
 public function add_Product(Request $request){
 
-    $path = 'uploads/product';
+    $path = 'uploads/menu';
     if(isset($request->image_one)){
-        $fileSize = $request->file('image_one')->getClientSize();
-            if($fileSize>=1800000){
-            Session::flash('message', "File Exceeded the maximum allowed Size");
-            Session::flash('messageError', "An error occured, You may have exceeded the maximum size for an image you uploaded");
-            return Redirect::back();
-            }else{
+
 
             $file = $request->file('image_one');
             $filename = str_replace(' ', '', $file->getClientOriginalName());
@@ -1134,17 +1131,12 @@ public function add_Product(Request $request){
             $image_one = str_replace(' ', '',$image_main_temp);
             $file->move($path, $image_one);
             }
-    }else{
+    else{
         $image_one = $request->pro_img_cheat;
     }
 
     if(isset($request->image_two)){
-        $fileSize = $request->file('image_two')->getClientSize();
-         if($fileSize>=1800000){
-            Session::flash('message', "File Exceeded the maximum allowed Size");
-            Session::flash('messageError', "An error occured, You may have exceeded the maximum size for an image you uploaded");
 
-         }else{
 
             $file = $request->file('image_two');
             $filename = str_replace(' ', '', $file->getClientOriginalName());
@@ -1153,44 +1145,45 @@ public function add_Product(Request $request){
             $image_main_temp = $new_timestamp.'image'.$filename;
             $image_two = str_replace(' ', '',$image_main_temp);
             $file->move($path, $image_two);
-         }
+
     }else{
-        $image_two = $request->pro_img_cheat;
+        $image_two = "0";
     }
 
 
-    if(isset($request->image_three)){
-        $fileSize = $request->file('image_three')->getClientSize();
-        if($fileSize>=1800000){
-           Session::flash('message', "File Exceeded the maximum allowed Size");
-           Session::flash('messageError', "An error occured, You may have exceeded the maximum size for an image you uploaded");
+    // if(isset($request->image_three)){
+    //     $fileSize = $request->file('image_three')->getClientSize();
+    //     if($fileSize>=1800000){
+    //        Session::flash('message', "File Exceeded the maximum allowed Size");
+    //        Session::flash('messageError', "An error occured, You may have exceeded the maximum size for an image you uploaded");
 
-        }else{
+    //     }else{
 
-            $file = $request->file('image_three');
-            $filename = str_replace(' ', '', $file->getClientOriginalName());
-            $timestamp = new Datetime();
-            $new_timestamp = $timestamp->format('Y-m-d H:i:s');
-            $image_main_temp = $new_timestamp.'image'.$filename;
-            $image_three = str_replace(' ', '',$image_main_temp);
-            $file->move($path, $image_three);
-        }
-    }else{
-        $image_three = $request->pro_img_cheat;
-    }
+    //         $file = $request->file('image_three');
+    //         $filename = str_replace(' ', '', $file->getClientOriginalName());
+    //         $timestamp = new Datetime();
+    //         $new_timestamp = $timestamp->format('Y-m-d H:i:s');
+    //         $image_main_temp = $new_timestamp.'image'.$filename;
+    //         $image_three = str_replace(' ', '',$image_main_temp);
+    //         $file->move($path, $image_three);
+    //     }
+    // }else{
+    //     $image_three = $request->pro_img_cheat;
+    // }
     //Additional images
 
 
-    $Product = new Product;
-    $Product->name = $request->name;
+    $Product = new Menu;
+    $Product->title = $request->name;
     $Product->content = $request->content;
+    $Product->meta = $request->meta;
     $Product->price = $request->price;
     $Product->code = $request->code;
-    $Product->cat = $request->cat;
-    $Product->sub_cat = $request->sub_cat;
-    $Product->image_one = $image_one;
-    $Product->image_two = $image_two;
-    $Product->image_three = $image_three;
+    $Product->cat_id = $request->cat;
+    $Product->slung = \Str::slug($request->title);
+    $Product->thumbnail = $image_one;
+    $Product->image = $image_two;
+    // $Product->image_three = $image_three;
     $Product->price_raw = $request->price;
 
     $Product->save();
@@ -1200,9 +1193,9 @@ public function add_Product(Request $request){
 }
 
 public function Products(){
-    $Product = Product::all();
+    $Product = Menu::all();
     $page_title = 'list';
-    $page_name = 'All Products';
+    $page_name = 'All in Menu';
     return view('admin.products',compact('page_title','Product','page_name'));
 }
 
@@ -1297,7 +1290,7 @@ public function swap_status($id,$status){
 }
 
 public function editProduct($id){
-    $Product = Product::find($id);
+    $Product = Menu::find($id);
     $page_title = 'formfiletext';
     $page_name = 'Edit Product';
     return view('admin.editProduct',compact('page_title','Product','page_name'));
@@ -1308,14 +1301,9 @@ public function editProduct($id){
 
 
 public function edit_Product(Request $request, $id){
-    $path = 'uploads/product';
+    $path = 'uploads/menu';
     if(isset($request->image_one)){
-        $fileSize = $request->file('image_one')->getClientSize();
-            if($fileSize>=1800000){
-            Session::flash('message', "File Exceeded the maximum allowed Size");
-            Session::flash('messageError', "An error occured, You may have exceeded the maximum size for an image you uploaded");
-            return Redirect::back();
-            }else{
+
 
             $file = $request->file('image_one');
             $filename = str_replace(' ', '', $file->getClientOriginalName());
@@ -1324,18 +1312,13 @@ public function edit_Product(Request $request, $id){
             $image_main_temp = $new_timestamp.'image'.$filename;
             $image_one = str_replace(' ', '',$image_main_temp);
             $file->move($path, $image_one);
-            }
+
     }else{
         $image_one = $request->image_one_cheat;
     }
 
     if(isset($request->image_two)){
-        $fileSize = $request->file('image_two')->getClientSize();
-         if($fileSize>=1800000){
-            Session::flash('message_image_two', "File Exceeded the maximum allowed Size");
-            Session::flash('messageError', "An error occured, You may have exceeded the maximum size for an image you uploaded");
 
-         }else{
 
             $file = $request->file('image_two');
             $filename = str_replace(' ', '', $file->getClientOriginalName());
@@ -1344,19 +1327,13 @@ public function edit_Product(Request $request, $id){
             $image_main_temp = $new_timestamp.'image'.$filename;
             $image_two = str_replace(' ', '',$image_main_temp);
             $file->move($path, $image_two);
-         }
+
     }else{
         $image_two = $request->image_two_cheat;
     }
 
 
     if(isset($request->image_three)){
-        $fileSize = $request->file('image_three')->getClientSize();
-        if($fileSize>=1800000){
-           Session::flash('message_image_three', "File Exceeded the maximum allowed Size");
-           Session::flash('messageError', "An error occured, You may have exceeded the maximum size for an image you uploaded");
-
-        }else{
 
             $file = $request->file('image_three');
             $filename = str_replace(' ', '', $file->getClientOriginalName());
@@ -1365,7 +1342,7 @@ public function edit_Product(Request $request, $id){
             $image_main_temp = $new_timestamp.'image'.$filename;
             $image_three = str_replace(' ', '',$image_main_temp);
             $file->move($path, $image_three);
-        }
+
     }else{
         $image_three = $request->image_three_cheat;
     }
@@ -1374,24 +1351,24 @@ public function edit_Product(Request $request, $id){
 
 
     $updateDetails = array(
-        'name' => $request->name,
+        'title' => $request->name,
+        'slung' => \Str::slug($request->name),
         'content' => $request->content,
-        'image_one' =>$image_one,
-        'image_two' =>$image_two,
-        'image_three' =>$image_three,
+        'thumbnail' =>$image_one,
+        'image' =>$image_two,
         'price' =>$request->price,
         'code' =>$request->code,
-        'cat' =>$request->cat,
-        'sub_cat' =>$request->sub_cat,
+        'cat_id' =>$request->cat,
+        'meta' =>$request->meta,
         'price_raw'=>$request->price,
     );
-    DB::table('product')->where('id',$id)->update($updateDetails);
+    DB::table('menus')->where('id',$id)->update($updateDetails);
     Session::flash('message', "Changes have been saved");
     return Redirect::back();
 }
 
 public function deleteProduct($id){
-    DB::table('product')->where('id',$id)->delete();
+    DB::table('menu')->where('id',$id)->delete();
     return Redirect::back();
 }
 

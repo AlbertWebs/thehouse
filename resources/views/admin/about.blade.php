@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="wrap" >
-        
+
 
         <!-- HEADER SECTION -->
         @include('admin.top')
@@ -18,11 +18,11 @@
 
         <!--PAGE CONTENT -->
         <div id="content">
-             
+
             <div class="inner" style="min-height: 700px;">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <h1> About US </h1>
+                    <div class="col-lg-12 text-center">
+                        <h2> About US </h2>
                     </div>
                 </div>
                   <hr />
@@ -37,13 +37,13 @@
                   <!--END BLOCK SECTION -->
                 <hr />
                    <!-- CHART & CHAT  SECTION -->
-              
+
                  <!--END CHAT & CHAT SECTION -->
-               
+
                   <!-- Inner Content Here -->
-                 
+
             <div class="inner">
-                
+
 
               <div class="row">
                <center>
@@ -54,9 +54,9 @@
 
                  <form class="form-horizontal" method="post"  action="{{url('/admin/about_save')}}" enctype="multipart/form-data">
                     @foreach($About as $value)
-                    
 
-          
+
+
                         <div class="col-lg-12">
                             <div class="box">
                                 <header>
@@ -78,10 +78,10 @@
                                     </ul>
                                 </header>
                                 <div id="div-1" class="body collapse in">
-                                    
+
                                         <textarea name="content" id="wysihtml5" class="form-control" rows="10">{{$value->content}}</textarea>
 
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                     <div class="col-lg-12 text-center">
                       <button type="submit" class="btn btn-success"><i class="icon-check icon-white"></i> Save Changes</button>
                     </div>
-                    
+
                     <input type="hidden" name="image_cheat" value="{{$value->image}}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     @endforeach
@@ -117,7 +117,7 @@
 
 
 
-                
+
             </div>
 
         </div>

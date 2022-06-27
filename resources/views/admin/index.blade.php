@@ -41,7 +41,7 @@
                  <!--END CHAT & CHAT SECTION -->
                  <!-- COMMENT AND NOTIFICATION  SECTION -->
                 <div class="row">
-                    <div class="col-lg-7">
+                    <div class="col-lg-4">
 
                         <div class="chat-panel panel panel-success">
                             <div class="panel-heading">
@@ -92,7 +92,7 @@
 
 
                     </div>
-                    <div class="col-lg-5">
+                    <div class="col-lg-4">
 
                        <div class="panel panel-danger">
                             <div class="panel-heading">
@@ -154,10 +154,7 @@
 
 
                     </div>
-                </div>
-
-                       <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-4">
 
                         <div class="chat-panel panel panel-success">
                             <div class="panel-heading">
@@ -205,14 +202,7 @@
 
 
                     </div>
-
-                    </div>
-                <!-- END COMMENT AND NOTIFICATION  SECTION -->
-
-
-
-
-
+                </div>
             </div>
 
         </div>

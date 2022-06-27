@@ -62,77 +62,28 @@
 		<div class="auto-container">
 			<div class="row clearfix">
 
+                <?php $Category = DB::table('category')->limit(4)->get(); ?>
+                @foreach($Category as $cat)
 				<!-- Menu Block -->
 				<div class="menu-block col-lg-3 col-md-6 col-sm-12">
 					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
 						<div class="image">
-							<img src="{{asset('theme/images/resource/menu-1.jpg')}}" alt="" />
+							<img class="menu-img" src="{{url('/')}}/uploads/categories/{{$cat->image}}" alt="{{$cat->cat}}" />
 							<!-- Overlay Box -->
 							<div class="overlay-box">
 								<div class="overlay-inner">
 									<div class="content">
-										<h2><a href="#">Lunch</a></h2>
-										<a href="#" class="view">View Menu</a>
+										<h2><a href="{{url('/')}}/menu/{{$cat->slung}}">{{$cat->cat}}</a></h2>
+										<a href="{{url('/')}}/menu/{{$cat->slung}}" class="view">View Menu</a>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+                @endforeach
 
-				<!-- Menu Block -->
-				<div class="menu-block col-lg-3 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="150ms" data-wow-duration="1500ms">
-						<div class="image">
-							<img src="{{asset('theme/images/resource/menu-2.jpg')}}" alt="" />
-							<!-- Overlay Box -->
-							<div class="overlay-box">
-								<div class="overlay-inner">
-									<div class="content">
-										<h2><a href="#">Dinner</a></h2>
-										<a href="#" class="view">View Menu</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 
-				<!-- Menu Block -->
-				<div class="menu-block col-lg-3 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-						<div class="image">
-							<img src="{{asset('theme/images/resource/menu-3.jpg')}}" alt="" />
-							<!-- Overlay Box -->
-							<div class="overlay-box">
-								<div class="overlay-inner">
-									<div class="content">
-										<h2><a href="#">Dessert</a></h2>
-										<a href="#" class="view">View Menu</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Menu Block -->
-				<div class="menu-block col-lg-3 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="450ms" data-wow-duration="1500ms">
-						<div class="image">
-							<img src="{{asset('theme/images/resource/menu-4.jpg')}}" alt="" />
-							<!-- Overlay Box -->
-							<div class="overlay-box">
-								<div class="overlay-inner">
-									<div class="content">
-										<h2><a href="#">Breakfast</a></h2>
-										<a href="#" class="view">View Menu</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 
 			</div>
 		</div>
