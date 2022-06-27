@@ -187,31 +187,23 @@
 						<!-- Cart Box -->
 						<div class="cart-box">
 							<div class="dropdown">
-								<button class="cart-box-btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flaticon-shopping-cart-1"></span><span class="total-cart">2</span></button>
+								<button class="cart-box-btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flaticon-shopping-cart-1"></span><span class="total-cart">1</span></button>
 								<div class="dropdown-menu pull-right cart-panel" aria-labelledby="dropdownMenu2">
 
 									<div class="cart-product">
 										<div class="inner">
 											<div class="cross-icon"><span class="icon fa fa-remove"></span></div>
-											<div class="image"><img src="{{asset('theme/images/resource/post-thumb-1.jpg')}}" alt="" /></div>
-											<h3><a href="shop-single.html">Product 01</a></h3>
+											<div class="image"><img src="{{asset('theme/images/resource/menu-1.jpg')}}" alt="" /></div>
+											<h3><a href="shop-single.html">Menu 1</a></h3>
 											<div class="quantity-text">Quantity 1</div>
-											<div class="price">$99.00</div>
+											<div class="price">KES 99.00</div>
 										</div>
 									</div>
-									<div class="cart-product">
-										<div class="inner">
-											<div class="cross-icon"><span class="icon fa fa-remove"></span></div>
-											<div class="image"><img src="{{asset('theme/images/resource/post-thumb-2.jpg')}}" alt="" /></div>
-											<h3><a href="shop-single.html">Product 02</a></h3>
-											<div class="quantity-text">Quantity 1</div>
-											<div class="price">$99.00</div>
-										</div>
-									</div>
-									<div class="cart-total">Sub Total: <span>$198</span></div>
+
+									<div class="cart-total">Sub Total: <span>KES 99</span></div>
 									<ul class="btns-boxed">
-										<li><a href="shopping-cart.html">View Cart</a></li>
-										<li><a href="checkout.html">CheckOut</a></li>
+										<li><a href="{{url('/')}}/shopping-cart">View Cart</a></li>
+										<li><a href="{{url('/')}}/shopping-cart/checkout">CheckOut</a></li>
 									</ul>
 
 								</div>
