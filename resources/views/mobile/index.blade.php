@@ -5,7 +5,7 @@
     <div class="text-center">
        <div class="fixed-top fixed-top-logo text-center p-4">
           <a href="home1.html">
-          <img src="{{asset('mobileTheme/img/logo.png')}}" class="height-70" alt="logo"  />
+          <img src="{{asset('uploads/VENSHAQ001-41.png')}}" class="height-70" alt="logo"  />
           </a>
        </div>
        <div class="index_slider text-white d-flex align-items-center justify-content-center p-4">
