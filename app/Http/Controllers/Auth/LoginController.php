@@ -74,7 +74,7 @@ class LoginController extends Controller
             if (auth()->user()->is_admin == 1) {
                 return redirect()->route('admin.home');
             }else{
-                return redirect()->route('my-course');
+                return redirect()->route('dashboard');
             }
         }else{
             Session::flash('error', "email-address or password are wrong.");

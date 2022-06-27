@@ -15,4 +15,8 @@ class ClientController extends Controller
     {
         $this->middleware('auth');
     }
+
+    public function dashboard(){
+       return view('front.account');
+    }
 }

@@ -225,7 +225,7 @@
 	<!-- End Welcome Section -->
 
 	<!-- Trending Section -->
-	<section class="trending-section" style="background-image: url('{{asset('theme/images/background/1.jpg')}}')">
+	<section class="trending-section" style="background-image: url('{{asset('theme/images/background/4.jpg')}}')">
 		<div class="auto-container">
 			<!-- Sec Title -->
 			<div class="sec-title light centered">
@@ -328,7 +328,7 @@
 
 			<!-- Button Box -->
 			<div class="btn-box text-center">
-				<a href="menu.html" class="theme-btn btn-style-two"><span class="txt">View Full Menu</span></a>
+				<a href="{{url('/')}}/menu" class="theme-btn btn-style-two"><span class="txt">View Full Menu</span></a>
 			</div>
 
 		</div>
@@ -341,7 +341,7 @@
 			<!-- Sec Title -->
 			<div class="sec-title centered">
 				<div class="title">Our Menu</div>
-				<h2>Enjoy Restaurants Specialties</h2>
+				<h2>Enjoy Shaq's Zone Specialties</h2>
 			</div>
 
 			<!-- Menu Info Tabs -->
@@ -519,7 +519,7 @@
 
 								<!-- Button Box -->
 								<div class="btn-box text-center">
-									<a href="menu.html" class="theme-btn btn-style-three"><span class="txt">View All Products</span></a>
+									<a href="{{url('/')}}/menu" class="theme-btn btn-style-three"><span class="txt">View All Products</span></a>
 								</div>
 
 							</div>
@@ -684,7 +684,7 @@
 
 								<!-- Button Box -->
 								<div class="btn-box text-center">
-									<a href="menu.html" class="theme-btn btn-style-three"><span class="txt">View All Products</span></a>
+									<a href="{{url('/')}}/menu" class="theme-btn btn-style-three"><span class="txt">View All Products</span></a>
 								</div>
 							</div>
 						</div>
@@ -848,7 +848,7 @@
 
 								<!-- Button Box -->
 								<div class="btn-box text-center">
-									<a href="menu.html" class="theme-btn btn-style-three"><span class="txt">View All Products</span></a>
+									<a href="{{url('/')}}/menu" class="theme-btn btn-style-three"><span class="txt">View All Products</span></a>
 								</div>
 							</div>
 						</div>
@@ -1012,7 +1012,7 @@
 
 								<!-- Button Box -->
 								<div class="btn-box text-center">
-									<a href="menu.html" class="theme-btn btn-style-three"><span class="txt">View All Products</span></a>
+									<a href="{{url('/')}}/menu" class="theme-btn btn-style-three"><span class="txt">View All Products</span></a>
 								</div>
 							</div>
 						</div>
@@ -1176,7 +1176,7 @@
 
 								<!-- Button Box -->
 								<div class="btn-box text-center">
-									<a href="menu.html" class="theme-btn btn-style-three"><span class="txt">View All Menu</span></a>
+									<a href="{{url('/')}}/menu" class="theme-btn btn-style-three"><span class="txt">View All Menu</span></a>
 								</div>
 							</div>
 						</div>
@@ -1200,7 +1200,7 @@
 					<div class="pull-right">
 						<!-- Button Box -->
 						<div class="btn-box text-right">
-							<a href="menu.html" class="theme-btn btn-style-two"><span class="txt">Order Now</span></a>
+							<a href="{{url('/')}}/menu" class="theme-btn btn-style-two"><span class="txt">Order Now</span></a>
 						</div>
 					</div>
 				</div>

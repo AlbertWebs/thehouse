@@ -17,6 +17,7 @@ class CreateMenusTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slung');
+            $table->integer('cat_id');
             $table->string('meta');
             $table->text('content');
             $table->string('thumbnail');

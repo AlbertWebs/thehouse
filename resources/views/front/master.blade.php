@@ -88,25 +88,16 @@
 								<li class="current dropdown"><a href="#">Menu</a>
 
 								</li>
-                                <li><a href="#">Breakfast</a>
+                                <?php
+                                   $Category = DB::table('category')->limit('7')->get();
+                                ?>
+                                @foreach ($Category as $cat)
+                                <li><a href="{{url('/')}}/menu/{{$cat->slung}}">{{$cat->cat}}</a>
 
 								</li>
-                                <li><a href="#">Lunch</a>
+                                @endforeach
 
-								</li>
-                                <li><a href="#">Dessert</a>
 
-								</li>
-                                <li><a href="#">Dinner</a>
-
-								</li>
-                                <li><a href="#">Drinks</a>
-
-								</li>
-                                <li><a href="#">Snacks</a>
-
-								</li>
-								<li><a href="#">Find Us</a></li>
 							</ul>
 						</div>
 					</nav>

@@ -16,9 +16,9 @@ use App\Http\Controllers\AdminsController;
 |
 */
 
-Route::get('/', function () {
-    return view('front.index');
-});
+// Route::get('/', function () {
+//     return view('front.index');
+// });
 Route::get('/mobile', function () {
     return view('mobile.index');
 });
@@ -26,7 +26,9 @@ Route::get('/mobile/get-started', function () {
     return view('mobile.home');
 });
 
-
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+Route::get('/menu', [App\Http\Controllers\HomeController::class, 'menu'])->name('menu');
+Route::get('/menu/{slung}', [App\Http\Controllers\HomeController::class, 'menus'])->name('menus');
 Route::get('/shopping-cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart');
 Route::get('/shopping-cart/checkout', [App\Http\Controllers\CartController::class, 'checkout'])->name('checkout');
 
@@ -34,7 +36,7 @@ Route::get('/shopping-cart/checkout', [App\Http\Controllers\CartController::clas
 
 
 Auth::routes();
-
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/dashboard', [App\Http\Controllers\ClientController::class, 'dashboard'])->name('dashboard');
 
 // SocialMedia

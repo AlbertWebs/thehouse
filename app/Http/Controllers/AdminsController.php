@@ -1020,6 +1020,7 @@ public function add_Category(Request $request){
     $image = $filename;
     $Category = new Category;
     $Category->cat = $request->name;
+    $Category->slung = \Str::slug($request->name);
     $Category->image = $image;
 
     $Category->save();
@@ -1046,7 +1047,8 @@ public function edit_Category(Request $request, $id){
         }
     $updateDetails = array(
         'cat'=>$request->name,
-        'image'=>$image
+        'image'=>$image,
+        'slung'=>\Str::slug($request->name),
 
     );
     DB::table('category')->where('id',$id)->update($updateDetails);
