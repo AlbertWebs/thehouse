@@ -2,12 +2,23 @@
 
 @section('content')
 	<!-- Trending Section -->
+
+
+
+
+	<!-- Trending Section -->
     <section class="trending-section" style="background-image: url('{{asset('theme/images/background/4.jpg')}}')">
+        <?php $Cat = DB::table('category')->get(); ?>
+        <div class="sec-title light centered">
+            <div class="title">All in Menu</div>
+            {{-- <h2>{{$c->cat}}</h2> --}}
+        </div>
         <div class="auto-container">
+            @foreach ($Cat as $c)
             <!-- Sec Title -->
             <div class="sec-title light centered">
-                <div class="title">All in Menu</div>
-                <h2>Breakfast</h2>
+                {{-- <div class="title">All in Menu</div> --}}
+                <h2>{{$c->cat}}</h2>
             </div>
             <div class="row clearfix">
 
@@ -16,12 +27,12 @@
                     <div class="inner-box">
                         <div class="content">
                             <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-5.jpg')}}" alt="" /></a>
+                                <a href="{{url('/')}}/shopping-cart/add-to-cart/1"><img src="{{asset('theme/images/resource/menu-5.jpg')}}" alt="" /></a>
                             </div>
-                            <div class="price">$6.99</div>
-                            <h4><a href="shop-single.html">Pepperoni Pizza</a></h4>
+                            <div class="price">KES650.99</div>
+                            <h4><a href="{{url('/')}}/shopping-cart/add-to-cart/1">Pepperoni Pizza</a></h4>
                             <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><span class="fa fa-shopping-basket" aria-hidden="true"></span>  Add To Basket</a>
+                            <a href="{{url('/')}}/shopping-cart/add-to-cart/1" class="cart-btn theme-btn"><span class="fa fa-shopping-basket" aria-hidden="true"></span>  Add To Basket</a>
                         </div>
                     </div>
                 </div>
@@ -31,12 +42,12 @@
                     <div class="inner-box">
                         <div class="content">
                             <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-6.jpg')}}" alt="" /></a>
+                                <a href="{{url('/')}}/shopping-cart/add-to-cart/1"><img src="{{asset('theme/images/resource/menu-6.jpg')}}" alt="" /></a>
                             </div>
-                            <div class="price">$12.99</div>
-                            <h4><a href="shop-single.html">Bolognese Pasta</a></h4>
+                            <div class="price">KES250.99</div>
+                            <h4><a href="{{url('/')}}/shopping-cart/add-to-cart/1">Bolognese Pasta</a></h4>
                             <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
+                            <a href="{{url('/')}}/shopping-cart/add-to-cart/1" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
                         </div>
                     </div>
                 </div>
@@ -46,12 +57,12 @@
                     <div class="inner-box">
                         <div class="content">
                             <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-7.jpg')}}" alt="" /></a>
+                                <a href="{{url('/')}}/shopping-cart/add-to-cart/1"><img src="{{asset('theme/images/resource/menu-7.jpg')}}" alt="" /></a>
                             </div>
-                            <div class="price">$8.99</div>
-                            <h4><a href="shop-single.html">Spaghetti </a></h4>
+                            <div class="price">KES450.99</div>
+                            <h4><a href="{{url('/')}}/shopping-cart/add-to-cart/1">Spaghetti </a></h4>
                             <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
+                            <a href="{{url('/')}}/shopping-cart/add-to-cart/1" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
                         </div>
                     </div>
                 </div>
@@ -61,12 +72,12 @@
                     <div class="inner-box">
                         <div class="content">
                             <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-8.jpg')}}" alt="" /></a>
+                                <a href="{{url('/')}}/shopping-cart/add-to-cart/1"><img src="{{asset('theme/images/resource/menu-8.jpg')}}" alt="" /></a>
                             </div>
-                            <div class="price">$4.99</div>
-                            <h4><a href="shop-single.html">Mega Cheese Burger</a></h4>
+                            <div class="price">KES650.99</div>
+                            <h4><a href="{{url('/')}}/shopping-cart/add-to-cart/1">Mega Cheese Burger</a></h4>
                             <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
+                            <a href="{{url('/')}}/shopping-cart/add-to-cart/1" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
                         </div>
                     </div>
                 </div>
@@ -76,12 +87,12 @@
                     <div class="inner-box">
                         <div class="content">
                             <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-9.jpg')}}" alt="" /></a>
+                                <a href="{{url('/')}}/shopping-cart/add-to-cart/1"><img src="{{asset('theme/images/resource/menu-9.jpg')}}" alt="" /></a>
                             </div>
-                            <div class="price">$3.99</div>
-                            <h4><a href="shop-single.html">Fresh Lime Drinks</a></h4>
+                            <div class="price">KES250.99</div>
+                            <h4><a href="{{url('/')}}/shopping-cart/add-to-cart/1">Fresh Lime Drinks</a></h4>
                             <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
+                            <a href="{{url('/')}}/shopping-cart/add-to-cart/1" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
                         </div>
                     </div>
                 </div>
@@ -91,303 +102,23 @@
                     <div class="inner-box">
                         <div class="content">
                             <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-10.jpg')}}" alt="" /></a>
+                                <a href="{{url('/')}}/shopping-cart/add-to-cart/1"><img src="{{asset('theme/images/resource/menu-10.jpg')}}" alt="" /></a>
                             </div>
-                            <div class="price">$2.99</div>
-                            <h4><a href="shop-single.html">Caramel Macchiato</a></h4>
+                            <div class="price">KES150.99</div>
+                            <h4><a href="{{url('/')}}/shopping-cart/add-to-cart/1">Caramel Macchiato</a></h4>
                             <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- Menu Block Two -->
-                 <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-5.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$6.99</div>
-                            <h4><a href="shop-single.html">Pepperoni Pizza</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Menu Block Two -->
-                <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-6.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$12.99</div>
-                            <h4><a href="shop-single.html">Bolognese Pasta</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- Menu Block Two -->
-                 <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-5.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$6.99</div>
-                            <h4><a href="shop-single.html">Pepperoni Pizza</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Menu Block Two -->
-                <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-6.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$12.99</div>
-                            <h4><a href="shop-single.html">Bolognese Pasta</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- Menu Block Two -->
-                 <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-5.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$6.99</div>
-                            <h4><a href="shop-single.html">Pepperoni Pizza</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Menu Block Two -->
-                <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-6.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$12.99</div>
-                            <h4><a href="shop-single.html">Bolognese Pasta</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
+                            <a href="{{url('/')}}/shopping-cart/add-to-cart/1" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
                         </div>
                     </div>
                 </div>
 
             </div>
 
-
-        </div>
-        {{--  --}}
-        <div class="auto-container">
-        <hr style="width:100%; border:1px solid #ffffff;">
-        </div>
-        <div class="auto-container">
-            <!-- Sec Title -->
-            <div class="sec-title light centered">
-
-                <h2 class="title">Lunch</h2>
-            </div>
-            <div class="row clearfix">
-
-                <!-- Menu Block Two -->
-                <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-5.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$6.99</div>
-                            <h4><a href="shop-single.html">Pepperoni Pizza</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><span class="fa fa-shopping-basket" aria-hidden="true"></span>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Menu Block Two -->
-                <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-6.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$12.99</div>
-                            <h4><a href="shop-single.html">Bolognese Pasta</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Menu Block Two -->
-                <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-7.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$8.99</div>
-                            <h4><a href="shop-single.html">Spaghetti </a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Menu Block Two -->
-                <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-8.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$4.99</div>
-                            <h4><a href="shop-single.html">Mega Cheese Burger</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Menu Block Two -->
-                <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-9.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$3.99</div>
-                            <h4><a href="shop-single.html">Fresh Lime Drinks</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Menu Block Two -->
-                <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-10.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$2.99</div>
-                            <h4><a href="shop-single.html">Caramel Macchiato</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- Menu Block Two -->
-                 <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-5.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$6.99</div>
-                            <h4><a href="shop-single.html">Pepperoni Pizza</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Menu Block Two -->
-                <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-6.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$12.99</div>
-                            <h4><a href="shop-single.html">Bolognese Pasta</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- Menu Block Two -->
-                 <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-5.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$6.99</div>
-                            <h4><a href="shop-single.html">Pepperoni Pizza</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Menu Block Two -->
-                <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-6.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$12.99</div>
-                            <h4><a href="shop-single.html">Bolognese Pasta</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- Menu Block Two -->
-                 <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-5.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$6.99</div>
-                            <h4><a href="shop-single.html">Pepperoni Pizza</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Menu Block Two -->
-                <div class="menu-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="content">
-                            <div class="menu-image">
-                                <a href="shop-single.html"><img src="{{asset('theme/images/resource/menu-6.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="price">$12.99</div>
-                            <h4><a href="shop-single.html">Bolognese Pasta</a></h4>
-                            <div class="text">Lorem ipsum dolor sit amet consectetur.</div>
-                            <a href="shop-single.html" class="cart-btn theme-btn"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Add To Basket</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="auto-container">
+                <hr style="width:100%; border:1px solid #ffffff;">
 
             </div>
+            @endforeach
 
 
         </div>

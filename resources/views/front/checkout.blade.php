@@ -115,10 +115,10 @@
                             <div class="shop-order-box">
                                 <ul class="order-list">
                                     <li>Prodcut<span>TOTAL</span></li>
-                                    <li>Pizza<span>$65.00</span></li>
-                                    <li>Subtotal<span class="dark">$65.00</span></li>
+                                    <li>Pizza<span>KES 65.00</span></li>
+                                    <li>Subtotal<span class="dark">KES 65.00</span></li>
                                     <li>Shipping And Handling<span>Free Shipping</span></li>
-                                    <li class="total">TOTAL<span class="dark">$65.00</span></li>
+                                    <li class="total">TOTAL<span class="dark">KES 65.00</span></li>
                                 </ul>
 
 

@@ -32,7 +32,10 @@ Route::get('/menu/{slung}', [App\Http\Controllers\HomeController::class, 'menus'
 Route::get('/shopping-cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart');
 Route::get('/shopping-cart/checkout', [App\Http\Controllers\CartController::class, 'checkout'])->name('checkout');
 
-
+Route::get('/terms-and-conditions', [App\Http\Controllers\HomeController::class, 'terms'])->name('terms-and-conditions');
+Route::get('/privacy-policy', [App\Http\Controllers\HomeController::class, 'privacy'])->name('privacy-policy');
+Route::get('/copyright-statement', [App\Http\Controllers\HomeController::class, 'copyright'])->name('copyright');
+Route::get('/delivery-policy', [App\Http\Controllers\HomeController::class, 'delivery'])->name('delivery');
 
 
 Auth::routes();
