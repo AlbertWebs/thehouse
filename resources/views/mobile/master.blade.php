@@ -5,8 +5,11 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="Pilau, Hot Burgers, Nyama Choma, Mbuzi Choma, Beef, Pizza and More Powered By Shaq's House Limited">
       <meta name="author" content="Designekta Studios">
+      <link rel="icon" type="image/png" href="{{asset('uploads/VENSHAQ001-41.png')}}">
       @include('favicon')
       <title>Shaq's Choma Zone - Food Order Directory</title>
+      <link rel="icon" type="image/png" href="{{asset('uploads/VENSHAQ001-41.png')}}">
+
       <link href="{{asset('mobileTheme/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
       <link href="{{asset('mobileTheme/vendor/icons/css/materialdesignicons.min.css')}}" rel="stylesheet" type="text/css">
       <link rel="stylesheet" type="text/css" href="{{asset('mobileTheme/vendor/slick/slick.min.css')}}" />
