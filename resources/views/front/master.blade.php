@@ -117,20 +117,23 @@
 						<!-- Cart Box -->
 						<div class="cart-box">
 							<div class="dropdown">
-								<button class="cart-box-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flaticon-shopping-cart-1"></span><span class="total-cart">1</span></button>
+								<button class="cart-box-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flaticon-shopping-cart-1"></span><span class="total-cart">{{ \Cart::getTotalQuantity()}}
+                                </span></button>
 								<div class="dropdown-menu pull-right cart-panel" aria-labelledby="dropdownMenu1">
-
+                                    <?php $cartItems = \Cart::getContent(); ?>
+                                    @foreach ($cartItems as $cartitems)
 									<div class="cart-product">
 										<div class="inner">
 											<div class="cross-icon"><span class="icon fa fa-remove"></span></div>
 											<div class="image"><img src="{{asset('theme/images/resource/menu-1.jpg')}}" alt="" /></div>
-											<h3><a href="shop-single.html">Menu 1</a></h3>
-											<div class="quantity-text">Quantity 1</div>
-											<div class="price">KES 99.00</div>
+											<h3><a href="#">{{$cartitems->name}}</a></h3>
+											<div class="quantity-text">Quantity {{$cartitems->quantity}}</div>
+											<div class="price">KES {{$cartitems->price}}</div>
 										</div>
 									</div>
+                                    @endforeach
 
-									<div class="cart-total">Sub Total: <span>KES 99</span></div>
+									<div class="cart-total">Sub Total: <span>KES {{\Cart::getSubTotal();}}</span></div>
 									<ul class="btns-boxed">
 										<li><a href="{{url('/')}}/shopping-cart">View Cart</a></li>
 										<li><a href="{{url('/')}}/shopping-cart/checkout">CheckOut</a></li>
@@ -186,21 +189,24 @@
 
 						<!-- Cart Box -->
 						<div class="cart-box">
-							<div class="dropdown">
-								<button class="cart-box-btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flaticon-shopping-cart-1"></span><span class="total-cart">1</span></button>
-								<div class="dropdown-menu pull-right cart-panel" aria-labelledby="dropdownMenu2">
-
+                            <div class="dropdown">
+								<button class="cart-box-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flaticon-shopping-cart-1"></span><span class="total-cart">{{ \Cart::getTotalQuantity()}}
+                                </span></button>
+								<div class="dropdown-menu pull-right cart-panel" aria-labelledby="dropdownMenu1">
+                                    <?php $cartItems = \Cart::getContent(); ?>
+                                    @foreach ($cartItems as $cartitems)
 									<div class="cart-product">
 										<div class="inner">
 											<div class="cross-icon"><span class="icon fa fa-remove"></span></div>
 											<div class="image"><img src="{{asset('theme/images/resource/menu-1.jpg')}}" alt="" /></div>
-											<h3><a href="shop-single.html">Menu 1</a></h3>
-											<div class="quantity-text">Quantity 1</div>
-											<div class="price">KES 99.00</div>
+											<h3><a href="#">{{$cartitems->name}}</a></h3>
+											<div class="quantity-text">Quantity {{$cartitems->quantity}}</div>
+											<div class="price">KES {{$cartitems->price}}</div>
 										</div>
 									</div>
+                                    @endforeach
 
-									<div class="cart-total">Sub Total: <span>KES 99</span></div>
+									<div class="cart-total">Sub Total: <span>KES {{\Cart::getSubTotal();}}</span></div>
 									<ul class="btns-boxed">
 										<li><a href="{{url('/')}}/shopping-cart">View Cart</a></li>
 										<li><a href="{{url('/')}}/shopping-cart/checkout">CheckOut</a></li>

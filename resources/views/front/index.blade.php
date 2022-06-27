@@ -197,7 +197,7 @@
 							<div class="price">KES {{$menu->price}}</div>
 							<h4><a href="{{url('/')}}/menu/{{$menu->slung}}">{{$menu->title}}</a></h4>
 							<div class="text">{{$menu->meta}}</div>
-							<a href="{{url('/')}}/menu/{{$menu->slung}}" class="cart-btn theme-btn">Add To Basket</a>
+							<a href="{{url('/')}}/shopping-cart/add-to-cart/{{$menu->id}}" class="cart-btn theme-btn">Add To Basket</a>
 						</div>
 					</div>
 				</div>

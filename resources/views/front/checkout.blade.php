@@ -19,9 +19,9 @@
     <div class="auto-container">
 
         <!--Default Links-->
-        <ul class="default-links">
+        {{-- <ul class="default-links">
             <li>Returning customer? <a href="account.html" data-toggle="modal" data-target="#schedule-box">Click here to login</a></li>
-        </ul>
+        </ul> --}}
 
         <!--Billing Details-->
         <div class="billing-details">
@@ -35,77 +35,39 @@
                                 <div class="row clearfix">
 
                                     <!--Form Group-->
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">First name <sup>*</sup></div>
-                                        <input type="text" name="field-name" value="" placeholder="First Name">
+                                    <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                        <div class="field-label">Name <sup>*</sup></div>
+                                        <input type="text" name="name" value="{{Auth::User()->name}}" >
                                     </div>
 
                                     <!--Form Group-->
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Last name <sup>*</sup></div>
-                                        <input type="text" name="field-name" value="" placeholder="Last Name">
+                                    <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                    <div class="field-label">Email <sup>*</sup></div>
+                                    <input type="text" name="email" value="{{Auth::User()->email}}">
                                     </div>
 
-                                    <!--Form Group-->
-                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <div class="field-label">Company name </div>
-                                        <input type="text" name="field-name" value="" placeholder="Company name">
-                                    </div>
+
 
                                     <!--Form Group-->
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="field-label">Address <sup>*</sup></div>
-                                        <input type="email" name="field-name" value="" placeholder="Street Address">
-                                        <input class="address-two" type="email" name="field-name" value="" placeholder="Apartment, Suit unit etc (optional)">
+                                        <input type="email" name="field-name" value="{{Auth::User()->address}}" placeholder="Apartment, Suit unit etc (optional)">
                                     </div>
 
                                     <!--Form Group-->
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <div class="field-label">Town / City <sup>*</sup></div>
-                                        <input type="text" name="field-name" value="" placeholder="Town /City">
+                                        <div class="field-label">Mobile<sup>*</sup></div>
+                                        <input type="text" name="field-name" value="{{Auth::User()->mobile}}" placeholder="254723014032">
                                     </div>
 
-                                    <!--Form Group-->
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">State / Country <sup>*</sup> </div>
-                                        <select name="country">
-                                            <option>Select an option</option>
-                                            <option>Pakistan</option>
-                                            <option>USA</option>
-                                            <option>CANADA</option>
-                                            <option>INDIA</option>
-                                        </select>
-                                    </div>
 
-                                    <!--Form Group-->
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Postcode / Zip <sup>*</sup></div>
-                                        <input type="text" name="code" value="" placeholder="Postcode / Zip">
-                                    </div>
-
-                                    <!--Form Group-->
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Email Address <sup>*</sup></div>
-                                        <input type="text" name="field-name" value="" placeholder="Email Address">
-                                    </div>
-
-                                    <!--Form Group-->
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Phone <sup>*</sup></div>
-                                        <input type="text" name="field-name" value="" placeholder="Select an option">
-                                    </div>
-
-                                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="check-box"><input type="checkbox" name="shipping-option" id="account-option"> &ensp; <label for="account-option">Creat an account?</label></div>
-                                    </div>
-
-                                    <div class="form-group sec-title col-md-12 col-xs-12"><h2>Ship to Different Address</h2></div>
 
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="field-label">Order Notes</div>
-                                        <textarea placeholder="Note about your order. e.g. special note for delivery"></textarea>
+                                        <textarea placeholder="Note about your order. e.g. special note for delivery">{{Auth::User()->notes}}</textarea>
                                     </div>
 
+                                    <button type="button" class=" btn-style-two"><span class="txt fa fa-pencil"> Update</span></button>
                                 </div>
                             </div>
                         </div>
@@ -114,11 +76,16 @@
                             <div class="sec-title"><h2>Your Order</h2></div>
                             <div class="shop-order-box">
                                 <ul class="order-list">
-                                    <li>Prodcut<span>TOTAL</span></li>
-                                    <li>Pizza<span>KES 65.00</span></li>
-                                    <li>Subtotal<span class="dark">KES 65.00</span></li>
+                                    <li>Product<span>TOTAL</span></li>
+                                    <?php $cartItems = \Cart::getContent(); ?>
+                                    @foreach ($cartItems as $cartitems)
+                                    <li style="color:#000000">{{$cartitems->name}}<span>KES {{$cartitems->price}}</span></li>
+                                    <hr>
+                                    @endforeach
+                                    <li>Subtotal<span class="dark">KES {{\Cart::getSubTotal()}}</span></li>
                                     <li>Shipping And Handling<span>Free Shipping</span></li>
-                                    <li class="total">TOTAL<span class="dark">KES 65.00</span></li>
+                                    <li class="total">TOTAL<span class="dark"><?php $Shipping = 100; $Total = \Cart::getTotal(); ?>
+                                        KES {{$Total+$Shipping}}</span></li>
                                 </ul>
 
 
@@ -130,30 +97,48 @@
                                             <li>
                                                 <div class="radio-option">
                                                     <input type="radio" name="payment-group" id="payment-2" checked>
-                                                    <label for="payment-2"><strong>Direct Bank Transfer</strong>
-                                                        <span class="small-text">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</span>
+                                                    <label for="payment-2"><strong>M-PESA Express</strong>
+                                                        <span class="small-text">
+                                                            <input type="text" name="verify" placeholder="Enter Your M-PESA Number 254723000000">
+                                                            <br>
+                                                            <button type="button" class=" btn-style-two"><span class="txt">Pay Now</span></button>
+                                                        </span>
                                                     </label>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="radio-option">
                                                     <input type="radio" name="payment-group" id="payment-1">
-                                                    <label for="payment-1"><strong>Cheque Payment</strong>
-                                                        <span class="small-text">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</span>
+                                                    <label for="payment-1"><strong>M-PESA</strong>
+                                                        <span class="small-text">
+                                                          <ol style="color:#000000">
+                                                            <li>1. Go To M-PESA</li>
+                                                            <li>2. Select Lipa Na M-PESA</li>
+                                                            <li>3. Buy Goods</li>
+                                                            <li>4. Enter Till Number 942527</li>
+                                                            <li>5. Enter Amount {{$Total+$Shipping}}</li>
+                                                            <li>6. Enter your PIN to confirm</li>
+                                                          </ol>
+                                                          <input type="text" name="verify" placeholder="Enter Transaction Code">
+                                                          <br>
+                                                            <button type="button" class=" btn-style-two"><span class="txt">Verify Payment</span></button>
+                                                        </span>
                                                     </label>
                                                 </div>
                                             </li>
 
-                                            <li>
+                                            {{-- <li>
                                                 <div class="radio-option">
                                                     <input type="radio" name="payment-group" id="payment-3">
-                                                    <label for="payment-3"><strong>Paypal</strong><img src="images/resource/paypall.jpg" alt="" /> <a href="#" class="what-paypall">What is PayPal?</a></label>
+                                                    <label for="payment-3"><strong>Paypal</strong>
+                                                        <img src="{{asset('theme/images/resource/paypall.jpg')}}" alt="Shaq's House Lipa Na M-PESA" />
+                                                        <a href="https://paypal.com" class="what-paypall">What is PayPal?</a></label>
                                                 </div>
-                                            </li>
+                                            </li> --}}
                                         </ul>
                                     </div>
 
-                                    <button type="button" class="theme-btn btn-style-three"><span class="txt">Place Order</span></button>
+
 
                                 </div>
                                 <!--End Place Order-->

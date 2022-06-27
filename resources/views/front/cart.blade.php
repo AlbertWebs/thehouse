@@ -29,47 +29,41 @@
 									<thead class="cart-header">
 										<tr>
 											<th class="prod-column">Product Name</th>
-											<th class="price">Price</th>
+											<th class="price">Price(KES)</th>
 											<th>Quantity</th>
 											<th>Remove</th>
 										</tr>
 									</thead>
 
 									<tbody>
-										<tr>
+                                        @foreach ($cartItems as $cartitems)
+                                        <tr>
 											<td class="prod-column">
 												<div class="column-box">
-													<figure class="prod-thumb"><a href="#"><img src="images/resource/products/shop-thumb-1.jpg" alt=""></a></figure>
-													<h6 class="prod-title">Bacon Burger</h6>
+													<figure class="prod-thumb"><a href="#"><img src="{{url('/')}}/uploads/menu/{{ $cartitems->attributes->image }}" alt=""></a></figure>
+													<h6 class="prod-title">{{$cartitems->name}} </h6>
 												</div>
 											</td>
-											<td class="price">$24.00</td>
-											<td class="qty"><div class="item-quantity"><div class="quantity-spinner"><button type="button" class="minus"><span class="fa fa-minus"></span></button><input type="text" name="product" value="2" class="prod_qty" /><button type="button" class="plus"><span class="fa fa-plus"></span></button></div></div></td>
-											<td class="remove-btn"><a href="#" class="fa fa-trash-o"></a></td>
+											<td class="price">{{$cartitems->price}}</td>
+											<td class="qty">
+                                                <div class="item-quantity">
+                                                    <div class="quantity-spinner">
+                                                        <button type="button" class="minus">
+                                                            <span class="fa fa-minus"></span>
+                                                        </button>
+                                                        <input type="text" name="product" value="{{$cartitems->quantity}}" class="prod_qty" />
+                                                        <button type="button" class="plus">
+                                                            <span class="fa fa-plus"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </td>
+											<td class="remove-btn"><a href="{{ url('/shopping-cart') }}/remove/{{$cartitems->id}}" class="fa fa-trash-o"></a></td>
 										</tr>
+                                        @endforeach
 
-										<tr>
-											<td class="prod-column">
-												<div class="column-box">
-													<figure class="prod-thumb"><a href="#"><img src="images/resource/products/shop-thumb-1.jpg" alt=""></a></figure>
-													<h6 class="prod-title">Bacon Burger</h6>
-												</div>
-											</td>
-											<td class="price">$24.00</td>
-											<td class="qty"><div class="item-quantity"><div class="quantity-spinner"><button type="button" class="minus"><span class="fa fa-minus"></span></button><input type="text" name="product" value="2" class="prod_qty" /><button type="button" class="plus"><span class="fa fa-plus"></span></button></div></div></td>
-											<td class="remove-btn"><a href="#" class="fa fa-trash-o"></a></td>
-										</tr>
-										<tr>
-											<td class="prod-column">
-												<div class="column-box">
-													<figure class="prod-thumb"><a href="#"><img src="images/resource/products/shop-thumb-1.jpg" alt=""></a></figure>
-													<h6 class="prod-title">Bacon Burger</h6>
-												</div>
-											</td>
-											<td class="price">$24.00</td>
-											<td class="qty"><div class="item-quantity"><div class="quantity-spinner"><button type="button" class="minus"><span class="fa fa-minus"></span></button><input type="text" name="product" value="2" class="prod_qty" /><button type="button" class="plus"><span class="fa fa-plus"></span></button></div></div></td>
-											<td class="remove-btn"><a href="#" class="fa fa-trash-o"></a></td>
-										</tr>
+
+
                                         <tr>
                                             {{-- Add Drinks --}}
                                         </tr>
@@ -113,7 +107,7 @@
 									<strong>Subtotal</strong>
 								</div>
 								<div class="pull-right">
-									$24.00
+									KES {{\Cart::getSubTotal()}}
 								</div>
 							</li>
 							<li class="clearfix">
@@ -121,7 +115,7 @@
 									<strong>Shipping</strong>
 								</div>
 								<div class="pull-right">
-									<span>Flat rate: $24.00 <br>Express Delivery <br>In Stock</span>
+									<span>Flat rate: KES 100 <br>Express Delivery</span>
 								</div>
 							</li>
 							<li class="clearfix">
@@ -129,7 +123,8 @@
 									<strong>Total</strong>
 								</div>
 								<div class="pull-right">
-									$30.00
+                                    <?php $Shipping = 100; $Total = \Cart::getTotal(); ?>
+									KES {{$Total+$Shipping}}
 								</div>
 							</li>
 						</ul>

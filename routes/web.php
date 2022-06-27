@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AdminsController;
+use App\Http\Controllers\CartController;
+
 
 
 /*
@@ -29,8 +31,12 @@ Route::get('/mobile/get-started', function () {
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/menu', [App\Http\Controllers\HomeController::class, 'menu'])->name('menu');
 Route::get('/menu/{slung}', [App\Http\Controllers\HomeController::class, 'menus'])->name('menus');
-Route::get('/shopping-cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart');
+Route::get('/shopping-cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.list');
 Route::get('/shopping-cart/checkout', [App\Http\Controllers\CartController::class, 'checkout'])->name('checkout');
+Route::get('/shopping-cart/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('shopping-cart');
+
+Route::get('/shopping-cart/remove/{id}', [CartController::class, 'removeCart'])->name('cart.remove');
+Route::get('/shopping-cart/clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 
 Route::get('/terms-and-conditions', [App\Http\Controllers\HomeController::class, 'terms'])->name('terms-and-conditions');
 Route::get('/privacy-policy', [App\Http\Controllers\HomeController::class, 'privacy'])->name('privacy-policy');
