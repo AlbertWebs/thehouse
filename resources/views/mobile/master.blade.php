@@ -3,10 +3,10 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="Shaqs House">
+      <meta name="description" content="Pilau, Hot Burgers, Nyama Choma, Mbuzi Choma, Beef, Pizza and More Powered By Shaq's House Limited">
       <meta name="author" content="Designekta Studios">
       @include('favicon')
-      <title>Shaqs House - Food Order Directory</title>
+      <title>Shaq's Choma Zone - Food Order Directory</title>
       <link href="{{asset('mobileTheme/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
       <link href="{{asset('mobileTheme/vendor/icons/css/materialdesignicons.min.css')}}" rel="stylesheet" type="text/css">
       <link rel="stylesheet" type="text/css" href="{{asset('mobileTheme/vendor/slick/slick.min.css')}}" />
