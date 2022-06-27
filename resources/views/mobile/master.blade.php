@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="Shaqs House">
       <meta name="author" content="Designekta Studios">
-      <link rel="icon" type="image/png" href="{{asset('mobileTheme/img/logo.png')}}">
+      @include('favicon')
       <title>Shaqs House - Food Order Directory</title>
       <link href="{{asset('mobileTheme/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
       <link href="{{asset('mobileTheme/vendor/icons/css/materialdesignicons.min.css')}}" rel="stylesheet" type="text/css">
