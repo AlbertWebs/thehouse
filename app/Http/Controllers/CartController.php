@@ -13,9 +13,6 @@ class CartController extends Controller
        return view('front.cart', compact('cartItems'));
     }
 
-    public function checkout(){
-        return view('front.checkout');
-    }
 
     public function dashboard(){
         return view('front.account');

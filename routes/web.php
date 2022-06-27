@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+
 
 
 
@@ -45,6 +47,7 @@ Route::get('/delivery-policy', [App\Http\Controllers\HomeController::class, 'del
 
 
 Auth::routes();
+Route::get('/shopping-cart/checkout', [App\Http\Controllers\CheckoutController::class, 'checkout'])->name('checkout');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/dashboard', [App\Http\Controllers\ClientController::class, 'dashboard'])->name('dashboard');
 
