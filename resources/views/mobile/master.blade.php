@@ -6,7 +6,7 @@
       <meta name="description" content="Pilau, Hot Burgers, Nyama Choma, Mbuzi Choma, Beef, Pizza and More Powered By Shaq's House Limited">
       <meta name="author" content="Designekta Studios">
       <link rel="icon" type="image/png" href="{{asset('uploads/VENSHAQ001-41.png')}}">
-      @include('favicon')
+      {{-- @include('favicon') --}}
       <title>Shaq's Choma Zone - Food Order Directory</title>
       <link rel="icon" type="image/png" href="{{asset('uploads/VENSHAQ001-41.png')}}">
 
