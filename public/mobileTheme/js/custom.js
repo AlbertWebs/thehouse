@@ -175,7 +175,7 @@ ga('send', 'pageview');
           disableAt: false,
           customToggle: $toggle,
           levelSpacing: 40,
-          navTitle: 'Shaqs House',
+          navTitle: "Shaq's House",
           levelTitles: true,
           levelTitleAsBack: true,
           pushContent: '#container',
