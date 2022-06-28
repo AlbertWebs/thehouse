@@ -9,7 +9,7 @@
       {{-- @include('favicon') --}}
       <title>Shaq's Choma Zone - Food Order Directory</title>
       <link rel="icon" type="image/png" href="{{asset('uploads/VENSHAQ001-41.png')}}">
-
+      <link rel="manifest" href="{{asset('manifest.json')}}">
       <link href="{{asset('mobileTheme/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
       <link href="{{asset('mobileTheme/vendor/icons/css/materialdesignicons.min.css')}}" rel="stylesheet" type="text/css">
       <link rel="stylesheet" type="text/css" href="{{asset('mobileTheme/vendor/slick/slick.min.css')}}" />
