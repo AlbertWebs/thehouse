@@ -42,9 +42,10 @@ Route::get('/mobile/verification-code', function () {
     return view('mobile.verification-code');
 });
 
-Route::get('/mobile/location', function () {
-    return view('mobile.location');
-});
+Route::get('/mobile/location', [App\Http\Controllers\MobileController::class, 'location'])->name('mobile.location');
+// Route::get('/mobile/location', function () {
+//     return view('mobile.location');
+// });
 
 Route::get('/mobile/sign-up', function () {
     return view('mobile.sign-up');
