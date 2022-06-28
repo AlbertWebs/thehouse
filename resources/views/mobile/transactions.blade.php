@@ -37,7 +37,7 @@
        </div>
        <div class="ml-auto"><span class="bg-danger fs-5 text-white fw-bold rounded px-2 py-1">kes 80.00</span></div>
     </div>
-    <p class="text-muted mb-4 mt-5">28 Aug 2022</p>
+
     <div class="d-flex align-items-center border-bottom pb-3 mb-3">
        <div>
           <p class="mb-0">Payment For Kacchi</p>
