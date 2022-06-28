@@ -1,0 +1,15 @@
+{
+    "short_name": "Shaq's",
+    "name": "Shaq's House",
+    "icons": [
+      {
+        "src":"favicon/apple-icon-180x180.png",
+        "sizes": "180x180",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "https:://shaqshouse.co.ke/mobile",
+    "background_color": "000",
+    "Theme_color": "536878",
+    "display": "standalone"
+  }
