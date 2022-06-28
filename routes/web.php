@@ -46,6 +46,45 @@ Route::get('/mobile/location', function () {
     return view('mobile.location');
 });
 
+Route::get('/mobile/sign-up', function () {
+    return view('mobile.sign-up');
+});
+
+Route::get('/mobile/shopping-cart', function () {
+    return view('mobile.shopping-cart');
+});
+
+Route::get('/mobile/menu', function () {
+    return view('mobile.menu');
+});
+
+Route::get('/mobile/search', function () {
+    return view('mobile.search');
+});
+
+Route::get('/mobile/profile', function () {
+    return view('mobile.profile');
+});
+
+Route::get('/mobile/edit-profile', function () {
+    return view('mobile.edit-profile');
+});
+
+Route::get('/mobile/offers', function () {
+    return view('mobile.offers');
+});
+
+Route::get('/mobile/profile/transactions', function () {
+    return view('mobile.transactions');
+});
+
+Route::get('/mobile/profile/orders', function () {
+    return view('mobile.orders');
+});
+
+
+
+
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/menu', [App\Http\Controllers\HomeController::class, 'menu'])->name('menu');

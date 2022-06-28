@@ -100,7 +100,7 @@
                 <img src="{{asset('mobileTheme/img/search1.jpg')}}" class="img-fluid">
                 <div class="p-2">
                    <p class="text-dark mb-1 fw-bold">Na Thai Town</p>
-                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
+                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> kes $29 </span></p>
                    <p class="small mb-0 text-muted ml-auto"><span class="bg-light d-inline-block font-weight-bold text-muted rounded-3 py-1 px-2">25-30 min</span></p>
                 </div>
              </div>
@@ -110,7 +110,7 @@
                 <img src="{{asset('mobileTheme/img/search2.jpg')}}" class="img-fluid">
                 <div class="p-2">
                    <p class="text-dark mb-1 fw-bold">Thai Casual</p>
-                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
+                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> kes $29 </span></p>
                    <p class="small mb-0 text-muted ml-auto"><span class="bg-light d-inline-block font-weight-bold text-muted rounded-3 py-1 px-2">25-30 min</span></p>
                 </div>
              </div>
@@ -120,7 +120,7 @@
                 <img src="{{asset('mobileTheme/img/search3.jpg')}}" class="img-fluid">
                 <div class="p-2">
                    <p class="text-dark mb-1 fw-bold">Italic Food</p>
-                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
+                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> kes $29 </span></p>
                    <p class="small mb-0 text-muted ml-auto"><span class="bg-light d-inline-block font-weight-bold text-muted rounded-3 py-1 px-2">25-30 min</span></p>
                 </div>
              </div>
@@ -130,7 +130,7 @@
                 <img src="{{asset('mobileTheme/img/search4.jpg')}}" class="img-fluid">
                 <div class="p-2">
                    <p class="text-dark mb-1 fw-bold">The Mint Sauce</p>
-                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
+                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> kes $29 </span></p>
                    <p class="small mb-0 text-muted ml-auto"><span class="bg-light d-inline-block font-weight-bold text-muted rounded-3 py-1 px-2">25-30 min</span></p>
                 </div>
              </div>
@@ -140,7 +140,7 @@
                 <img src="{{asset('mobileTheme/img/search5.jpg')}}" class="img-fluid">
                 <div class="p-2">
                    <p class="text-dark mb-1 fw-bold">Mid - Day Town</p>
-                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
+                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> kes $29 </span></p>
                    <p class="small mb-0 text-muted ml-auto"><span class="bg-light d-inline-block font-weight-bold text-muted rounded-3 py-1 px-2">25-30 min</span></p>
                 </div>
              </div>
@@ -150,7 +150,7 @@
                 <img src="{{asset('mobileTheme/img/search6.jpg')}}" class="img-fluid">
                 <div class="p-2">
                    <p class="text-dark mb-1 fw-bold">Diet Town</p>
-                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> sf. $29 </span></p>
+                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> kes $29 </span></p>
                    <p class="small mb-0 text-muted ml-auto"><span class="bg-light d-inline-block font-weight-bold text-muted rounded-3 py-1 px-2">25-30 min</span></p>
                 </div>
              </div>
@@ -158,30 +158,6 @@
        </section>
     </div>
  </div>
- <footer class="bg-white body_rounded mt-n5 fixed-bottom osahan-footer-nav shadow">
-    <div class="row p-0 align-items-center">
-       <div class="col text-center">
-          <a href="home1#html" class="text-warning">
-             <h1 class="mb-0"><span class="mdi mdi-home-outline"></span></h1>
-          </a>
-          <span class="mdi mdi-circle-medium text-warning"></span></a>
-       </div>
-       <div class="col text-center">
-          <a href="search2#html" class="text-muted">
-             <h1 class="mb-0"><span class="mdi mdi-magnify"></span></h1>
-          </a>
-       </div>
-       <div class="col text-center">
-          <a href="orders1#html" class="text-muted">
-             <h1 class="mb-0"><span class="mdi mdi-page-next-outline"></span></h1>
-          </a>
-       </div>
-       <div class="col text-center">
-          <a href="profile1#html" class="text-muted">
-             <h1 class="mb-0"><span class="mdi mdi-account-outline"></span></h1>
-          </a>
-       </div>
-    </div>
- </footer>
+ @include('mobile.horizontal-nav')
 @include('mobile.main-nav')
 @endsection

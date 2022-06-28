@@ -23,9 +23,16 @@
      </li>
        @endforeach
 
-
        <li>
-          <a href="#"><i class="mdi mdi-account-circle-outline mr-2"></i>My Profile</a>
+            <a href="{{url('/')}}/mobile/shopping-cart"><i class="mdi mdi-cart mr-2"></i>Your Cart</a>
+
+        </li>
+        <li>
+            <a href="{{url('/')}}/mobile/search"><i class="mdi mdi-magnify mr-2"></i>Search</a>
+
+        </li>
+       <li>
+          <a href="{{url('/')}}/mobile/profile"><i class="mdi mdi-account-circle-outline mr-2"></i>My Profile</a>
 
        </li>
 
