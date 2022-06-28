@@ -16,7 +16,7 @@
     </div>
  </div>
  <section>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d54784.595796125344!2d75.79344025952051!3d30.885619285392156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sfood%20points!5e0!3m2!1sen!2sin!4v1617257772304!5m2!1sen!2sin" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63818.141944585215!2d36.71411478845313!3d-1.3961431893213294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f05cf50f94e8d%3A0x51c29656e6fd8ca9!2sOngata%20Rongai!5e0!3m2!1sen!2ske!4v1656394588417!5m2!1sen!2ske" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
  </section>
  <section class="bg-light body_rounded position-relative mt-n5 p-3">
     <h6 class="mb-3 fw-bold">Select Location</h6>
@@ -32,8 +32,8 @@
     <input type="radio" class="btn-check" name="options-outlined" id="other" autocomplete="off">
     <label class="btn btn-outline-primary btn-sm px-3 rounded-3 mr-2" for="other">Other</label>
     <div class="p-3 fixed-bottom">
-       <a href="{{url('/')}}/mobile" class="btn btn-danger btn-block box_rounded w-100 py-3">Save Address</a>
+       <a href="{{url('/')}}/mobile/get-started" class="btn btn-danger btn-block box_rounded w-100 py-3">Save Address</a>
     </div>
  </section
-@include('mobile.main-nav')
+{{-- @include('mobile.main-nav') --}}
 @endsection
