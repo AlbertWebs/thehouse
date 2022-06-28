@@ -3,11 +3,11 @@
 @section('content')
 <div class="bg-white d-flex align-items-center p-3 gurdeep-osahan-inner-header shadow-sm">
     <div class="left mr-auto">
-       <a href="home1.html" class="back_button"><i class="btn_detail mdi mdi-chevron-left bg-dark text-white"></i></a>
+       <a href="{{url('/')}}/mobile/get-started" class="back_button"><i class="btn_detail mdi mdi-chevron-left bg-dark text-white"></i></a>
     </div>
     <div class="center mx-auto"></div>
     <div class="right ml-auto d-flex align-items-center">
-       <a href="favourities.html" class="fav_button mr-2"><i class="btn_detail mdi mdi-heart bg-danger text-white"></i></a>
+       <a href="{{url('/')}}/mobile/offers" class="fav_button mr-2"><i class="btn_detail mdi mdi-heart bg-danger text-white"></i></a>
        <a class="toggle btn_detail bg-dark text-white" href="#">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
@@ -26,7 +26,7 @@
        <img src="{{asset('mobileTheme/img/covertop.jpg')}}" class="img-fluid">
     </section>
     <section class="bg-light body_rounded mt-n5 position-relative p-3 row">
-       <a class="col-6 pr-2" href="detail1.html">
+       <a class="col-6 pr-2" href="{{url('/')}}/mobile/menu/details">
           <div class="bg-white box_rounded overflow-hidden mb-3">
              <img src="{{asset('mobileTheme/img/search1.jpg')}}" class="img-fluid">
              <div class="p-2">
@@ -36,7 +36,7 @@
              </div>
           </div>
        </a>
-       <a class="col-6 pl-2" href="detail1.html">
+       <a class="col-6 pl-2" href="{{url('/')}}/mobile/menu/details">
           <div class="bg-white box_rounded overflow-hidden mb-3">
              <img src="{{asset('mobileTheme/img/search2.jpg')}}" class="img-fluid">
              <div class="p-2">
@@ -46,7 +46,7 @@
              </div>
           </div>
        </a>
-       <a class="col-6 pr-2" href="detail1.html">
+       <a class="col-6 pr-2" href="{{url('/')}}/mobile/menu/details">
           <div class="bg-white box_rounded overflow-hidden mb-3">
              <img src="{{asset('mobileTheme/img/search3.jpg')}}" class="img-fluid">
              <div class="p-2">
@@ -56,7 +56,7 @@
              </div>
           </div>
        </a>
-       <a class="col-6 pl-2" href="detail1.html">
+       <a class="col-6 pl-2" href="{{url('/')}}/mobile/menu/details">
           <div class="bg-white box_rounded overflow-hidden mb-3">
              <img src="{{asset('mobileTheme/img/search4.jpg')}}" class="img-fluid">
              <div class="p-2">
@@ -66,7 +66,7 @@
              </div>
           </div>
        </a>
-       <a class="col-6 pr-2" href="detail1.html">
+       <a class="col-6 pr-2" href="{{url('/')}}/mobile/menu/details">
           <div class="bg-white box_rounded overflow-hidden mb-3">
              <img src="{{asset('mobileTheme/img/search5.jpg')}}" class="img-fluid">
              <div class="p-2">
@@ -76,7 +76,7 @@
              </div>
           </div>
        </a>
-       <a class="col-6 pl-2" href="detail1.html">
+       <a class="col-6 pl-2" href="{{url('/')}}/mobile/menu/details">
           <div class="bg-white box_rounded overflow-hidden mb-3">
              <img src="{{asset('mobileTheme/img/search6.jpg')}}" class="img-fluid">
              <div class="p-2">

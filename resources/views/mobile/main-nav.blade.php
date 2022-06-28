@@ -41,19 +41,19 @@
     </ul>
     <ul class="bottom-nav">
        <li class="email">
-          <a class="text-danger" href="home1#html">
+          <a class="text-danger" href="{{url('/')}}/mobile/get-started">
              <p class="h5 m-0"><i class="mdi mdi-home"></i></p>
              Home
           </a>
        </li>
        <li class="github">
-          <a href="faq#html">
-             <p class="h5 m-0"><i class="mdi mdi-head-question-outline"></i></p>
-             FAQ
+          <a href="{{url('/')}}/mobile/shopping-cart">
+             <p class="h5 m-0"><i class="mdi mdi-cart"></i></p>
+             Your Cart
           </a>
        </li>
        <li class="ko-fi">
-          <a href="contact-us#html">
+          <a href="tel:+254723014032">
              <p class="h5 m-0"><i class="mdi mdi-headphones"></i></p>
              Help
           </a>
