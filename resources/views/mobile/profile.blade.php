@@ -5,7 +5,7 @@
     <section class="p-3 bg-primary">
        <div class="d-flex align-items-center gurdeep-osahan-inner-header pb-5">
           <div class="left mr-auto">
-             <a href="profile1.html" class="back_button"><i class="btn_detail shadow-sm mdi mdi-chevron-left bg-white text-dark"></i></a>
+             <a href="{{url('/')}}/mobile/menu" class="back_button"><i class="btn_detail shadow-sm mdi mdi-chevron-left bg-white text-dark"></i></a>
           </div>
           <div class="center mx-auto">
              <h6 class="text-dark mb-0"></h6>

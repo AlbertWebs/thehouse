@@ -62,6 +62,10 @@ Route::get('/mobile/search', function () {
     return view('mobile.search');
 });
 
+Route::get('/mobile/checkout', function () {
+    return view('mobile.checkout');
+});
+
 Route::get('/mobile/profile', function () {
     return view('mobile.profile');
 });

@@ -3,10 +3,10 @@
 @section('content')
 <div class="d-flex align-items-center gurdeep-osahan-inner-header bg-light p-3">
     <div class="left mr-auto">
-       <a href="{{url('/')}}/mobile/get-started" class="back_button"><i class="btn_detail shadow-sm mdi mdi-chevron-left bg-dark text-white shadow-sm"></i></a>
+       <a href="{{url('/')}}/mobile/shopping-cart" class="back_button"><i class="btn_detail shadow-sm mdi mdi-chevron-left bg-dark text-white shadow-sm"></i></a>
     </div>
     <div class="center mx-auto">
-       <p class="mb-0">DELIVERING TO <a href="#" class="text-primary">HOME<span class="mr-1 mdi mdi-chevron-down"></span></a></p>
+       <p class="mb-0">M-PESA EXPRESS <a href="#" class="text-primary">.<span class="mr-1 mdi mdi-chevron-down"></span></a></p>
     </div>
     <div class="right ml-auto d-flex align-items-center">
        <a class="toggle btn_detail bg-primary shadow-sm text-white" href="#">
@@ -66,15 +66,33 @@
 
        </div>
     </section>
-    <section class="fixed-bottom p-3">
-       <div class="d-flex align-items-center box_rounded overflow-hidden">
-          <a href="{{url('/')}}/mobile/profile" class="btn btn-warning btn-block rounded-0 w-25 py-3"><i class="mdi mdi-account-plus-outline"></i></a>
-          <a href="{{url('/')}}/mobile/checkout" class="btn btn-primary btn-block fw-bold rounded-0 w-75 py-3 d-flex align-items-center px-3">
-          Checkout <span class="ml-auto">(KES 53.00)</span>
-          </a>
-       </div>
-    </section>
+    <section class="bg-white body_rounded mt-n5 position-relative p-4">
+        <form class="">
+
+           <div class="d-flex align-items-center mb-3">
+                <span class="mdi mdi-phone box_rounded p-2 btn btn-light mr-3 text-primary"></span>
+                <div class="form-floating border-bottom w-100">
+                <input type="text" class="form-control border-0 pl-0" id="floatingInputValue"  placeholder="+254" required>
+                <label for="floatingInputValue" class="pl-0">M-PESA Number</label>
+                </div>
+           </div>
+
+
+
+
+           <div class="fixed-bottom p-3">
+            <button href="track.html" class="btn btn-danger text-left box_rounded w-100 py-3 d-flex align-items-center px-4">Pay Now <span class="ml-auto"></span>KES 53.60</span></button>
+         </div>
+        </form>
+     </section>
  </div>
+
+
+
+
+
+
+
 
 @include('mobile.main-nav')
 @endsection

@@ -24,7 +24,7 @@
        @endforeach
 
        <li>
-            <a href="{{url('/')}}/mobile/shopping-cart"><i class="mdi mdi-cart mr-2"></i>Your Cart</a>
+            <a href="{{url('/')}}/mobile/shopping-cart"><i class="mdi mdi-cart mr-2"></i>Your Cart(3)</a>
 
         </li>
         <li>
