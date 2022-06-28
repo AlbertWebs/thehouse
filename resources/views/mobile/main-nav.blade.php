@@ -1,7 +1,7 @@
 <nav id="main-nav">
     <ul class="second-nav">
        <li>
-          <a href="{{url('/')}}"><i class="mdi mdi-home mr-2"></i> Home</a>
+          <a href="{{url('/')}}/mobile/menu"><i class="mdi mdi-home mr-2"></i> Home</a>
        </li>
 
        <?php
