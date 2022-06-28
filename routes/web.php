@@ -30,6 +30,23 @@ Route::get('/mobile/get-started', function () {
     return view('mobile.home');
 });
 
+Route::get('/mobile/sign-in', function () {
+    return view('mobile.sign-in');
+});
+
+Route::get('/mobile/veryfy-number', function () {
+    return view('mobile.veryfy-number');
+});
+
+Route::get('/mobile/verification-code', function () {
+    return view('mobile.verification-code');
+});
+
+Route::get('/mobile/location', function () {
+    return view('mobile.location');
+});
+
+
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/menu', [App\Http\Controllers\HomeController::class, 'menu'])->name('menu');
 Route::get('/menu/{slung}', [App\Http\Controllers\HomeController::class, 'menus'])->name('menus');

@@ -24,7 +24,7 @@
        </div>
        <div class="fixed-bottom text-center p-4">
           <a href="{{url('/')}}/mobile/get-started" class="btn btn-danger btn-lg btn-block w-100 mb-2 box_rounded">Get Started</a>
-          <a href="signin.html" class="btn btn-warning search_item btn-lg btn-block w-100 box_rounded">Login</a>
+          <a href="{{url('/')}}/mobile/sign-in" class="btn btn-warning search_item btn-lg btn-block w-100 box_rounded">Login</a>
        </div>
     </div>
  </div>
