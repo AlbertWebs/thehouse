@@ -5,6 +5,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Auth\LoginControllers;
+
 
 
 
@@ -46,6 +48,8 @@ Route::get('/mobile/verification-code', function () {
 Route::get('/mobile/get-started', [App\Http\Controllers\MobileController::class, 'index'])->name('mobile.home');
 Route::get('/mobile/location', [App\Http\Controllers\MobileController::class, 'location'])->name('mobile.location');
 Route::get('/mobile/sign-up', [App\Http\Controllers\MobileController::class, 'sign_up'])->name('mobile.sign-up');
+Route::get('/mobile/logout', [App\Http\Controllers\Auth\LoginControllers::class, 'logout']);
+
 
 
 Route::get('/mobile/shopping-cart', function () {

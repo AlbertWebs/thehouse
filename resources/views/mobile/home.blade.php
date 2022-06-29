@@ -1,4 +1,4 @@
-@extends('mobile.master-location')
+@extends('mobile.master-home')
 
 @section('content')
 <div class="padding_bottom">

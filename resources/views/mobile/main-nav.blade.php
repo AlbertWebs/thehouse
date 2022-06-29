@@ -35,6 +35,10 @@
           <a href="{{url('/')}}/mobile/profile"><i class="mdi mdi-account-circle-outline mr-2"></i>My Profile</a>
 
        </li>
+       <li>
+        <a href="{{url('/')}}/mobile/logout"><i class="mdi mdi-power mr-2"></i>Logout</a>
+
+     </li>
 
     </ul>
     </li>
