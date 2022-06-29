@@ -34,7 +34,7 @@
         </form>
      </section>
      <div class="p-4 fixed-bottom">
-        <a href="{{url('/')}}/mobile/location" class="btn btn-warning btn-block box_rounded w-100 py-3">Next</a>
+        <a href="{{url('/')}}/mobile/get-started" class="btn btn-warning btn-block box_rounded w-100 py-3">Next</a>
      </div>
  </div>
  @include('mobile.main-nav')

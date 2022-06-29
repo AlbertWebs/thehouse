@@ -43,13 +43,8 @@ Route::get('/mobile/verification-code', function () {
 });
 
 Route::get('/mobile/location', [App\Http\Controllers\MobileController::class, 'location'])->name('mobile.location');
-// Route::get('/mobile/location', function () {
-//     return view('mobile.location');
-// });
+Route::get('/mobile/sign-up', [App\Http\Controllers\MobileController::class, 'sign_up'])->name('mobile.sign-up');
 
-Route::get('/mobile/sign-up', function () {
-    return view('mobile.sign-up');
-});
 
 Route::get('/mobile/shopping-cart', function () {
     return view('mobile.shopping-cart');

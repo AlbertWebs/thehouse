@@ -48,6 +48,13 @@
               </div>
            </div>
            <div class="d-flex align-items-center mb-3">
+                <span class="mdi mdi-email-outline box_rounded p-2 btn btn-light mr-3 text-primary"></span>
+                <div class="form-floating border-bottom w-100">
+                <input type="text" class="form-control border-0 pl-0" id="floatingInputValue"  value="{{ $currentUserInfo->regionName }}, {{ $currentUserInfo->cityName }}">
+                <label for="floatingInputValue" class="pl-0">Your Delivery Address</label>
+                </div>
+            </div>
+           <div class="d-flex align-items-center mb-3">
               <span class="mdi mdi-key-variant box_rounded p-2 btn btn-light mr-3 text-primary"></span>
               <div class="form-floating border-bottom w-100">
                  <input type="password" class="form-control border-0 pl-0" id="floatingInputValue" placeholder="name@example.com" value="name@example.com">

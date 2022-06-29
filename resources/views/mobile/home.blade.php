@@ -1,4 +1,4 @@
-@extends('mobile.master')
+@extends('mobile.master-location')
 
 @section('content')
 <div class="padding_bottom">
@@ -156,6 +156,11 @@
              </div>
           </a>
        </section>
+       <div class="text-center">
+        <div class="spinner-border spinner-border-sm" role="status">
+           <span class="visually-hidden">Loading...</span>
+        </div>
+     </div>
     </div>
  </div>
  @include('mobile.horizontal-nav')

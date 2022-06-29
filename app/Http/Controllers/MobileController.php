@@ -15,4 +15,15 @@ class MobileController extends Controller
 
         return view('mobile.location', compact('currentUserInfo'));
     }
+
+    public function sign_up(Request $request)
+    {
+        // $ip = $request->ip();
+        $ip = '197.156.140.165';
+        $currentUserInfo = Location::get($ip);
+
+        return view('mobile.sign-up', compact('currentUserInfo'));
+    }
+
+
 }

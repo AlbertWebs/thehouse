@@ -15,10 +15,14 @@
        </a>
     </div>
  </div>
- <section>
-    {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63818.141944585215!2d36.71411478845313!3d-1.3961431893213294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f05cf50f94e8d%3A0x51c29656e6fd8ca9!2sOngata%20Rongai!5e0!3m2!1sen!2ske!4v1656394588417!5m2!1sen!2ske" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe> --}}
- </section>
+ {{-- <section>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63818.141944585215!2d36.71411478845313!3d-1.3961431893213294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f05cf50f94e8d%3A0x51c29656e6fd8ca9!2sOngata%20Rongai!5e0!3m2!1sen!2ske!4v1656394588417!5m2!1sen!2ske" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+ </section> --}}
  <section class="bg-light body_rounded position-relative mt-n5 p-3">
+
+    <strong>Name:</strong>Albert Muhatia<br>
+    <strong>Email:</strong>albertmuhatia@gmail.com<br>
+    <strong>Mobile:</strong>+254723014032<br><br>
     <h6 class="mb-3 fw-bold">Select Location</h6>
     <form class="form-floating pb-2 d-flexs align-items-center mb-3">
        <input type="email" class="form-control bg-white border-0 shadow-sm form-control-sm w-100" id="floatingInputValue" placeholder="" value="{{ $currentUserInfo->regionName }}, {{ $currentUserInfo->cityName }}" autofocus>
