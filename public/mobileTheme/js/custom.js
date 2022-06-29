@@ -168,6 +168,97 @@ ga('send', 'pageview');
           });
       });
 
+      //Login
+    $( document ).ready(function() {
+          $(".loading-img").hide();
+
+    });
+
+    $('#submitLogin').submit(function(e) {
+        e.preventDefault();
+        var actionurl = e.currentTarget.action;
+        $(".loading-img").show();
+        $.ajax({
+            url: actionurl,
+            type: 'post',
+            dataType: 'json',
+            data: $('#submitLogin').serialize(),
+            success: function(data) {
+               $(".loading-img").hide();
+               var host = window.location.protocol + "//" + window.location.host + "/mobile/get-started";
+               if(data['message'] == "Success"){
+                  window.location.replace(host);
+               }else{
+                  alert('Wrong Username or Password');
+               }
+            }
+        });
+    });
+
+    $('#submitSignUp').submit(function(e) {
+        e.preventDefault();
+        var actionurl = e.currentTarget.action;
+        $(".loading-img").show();
+        $.ajax({
+            url: actionurl,
+            type: 'post',
+            dataType: 'json',
+            data: $('#submitSignUp').serialize(),
+            success: function(data) {
+               $(".loading-img").hide();
+               var host = window.location.protocol + "//" + window.location.host + "/mobile/veryfy-number";
+               if(data['message'] == "Success"){
+                  window.location.replace(host);
+               }else{
+                  alert(data['message']);
+               }
+            }
+        });
+    });
+
+    $('#Veryfy-Form').submit(function(e) {
+        e.preventDefault();
+        var actionurl = e.currentTarget.action;
+        $(".loading-img").show();
+        $.ajax({
+            url: actionurl,
+            type: 'post',
+            dataType: 'json',
+            data: $('#Veryfy-Form').serialize(),
+            success: function(data) {
+               $(".loading-img").hide();
+               var host = window.location.protocol + "//" + window.location.host + "/mobile/verification-code";
+               if(data['message'] == "Success"){
+                  window.location.replace(host);
+               }else{
+                  alert(data['message']);
+               }
+            }
+        });
+    });
+
+    $('#Veryfy').submit(function(e) {
+        e.preventDefault();
+        var actionurl = e.currentTarget.action;
+        $(".loading-img").show();
+        $.ajax({
+            url: actionurl,
+            type: 'post',
+            dataType: 'json',
+            data: $('#Veryfy').serialize(),
+            success: function(data) {
+               $(".loading-img").hide();
+               var host = window.location.protocol + "//" + window.location.host + "/mobile/get-started";
+               if(data['message'] == "Success"){
+                  window.location.replace(host);
+               }else{
+                  alert(data['message']);
+                  window.location.reload();
+               }
+            }
+        });
+    });
+
       var $main_nav = $('#main-nav');
       var $toggle = $('.toggle');
 

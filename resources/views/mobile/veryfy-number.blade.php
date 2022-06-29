@@ -26,11 +26,21 @@
     <section class="bg-white body_rounded mt-n5 position-relative p-4">
        <h5 class="mb-3">Verify your phone number</h5>
        <p class="text-muted small mb-5">We have sent you an sms with a code to number (+41) 10492490</p>
-       <form class="">
-          <input class="form-control bg-dark search_item p-3 box_rounded border-0 text-white" type="text" placeholder="Enter Phone Number">
-          <div class="p-4 fixed-bottom">
+       <form class="" id="Veryfy-Form" action="{{url('/')}}/mobile/send-verification">
+          @csrf
+          <input class="form-control bg-dark search_item p-3 box_rounded border-0 text-white" name="mobile" value="{{Auth::User()->mobile}}" type="text" placeholder="Enter Phone Number">
+          {{-- <div class="p-4 fixed-bottom">
              <a href="{{url('/')}}/mobile/verification-code" class="btn btn-danger btn-block box_rounded w-100 py-3">Send</a>
+          </div> --}}
+          <input type="hidden" value="Auth::User()->id" name="user">
+          <div class="p-4 fixed-bottom">
+            <button type="submit" class="btn btn-danger btn-block box_rounded w-100 py-3">Send</button>
+            <br>
+            <div class="text-center">
+                <img width="30" src="{{asset('/mobileTheme/img/loading.gif')}}" class="loading-img">
+            </div>
           </div>
+
        </form>
     </section>
  </div>

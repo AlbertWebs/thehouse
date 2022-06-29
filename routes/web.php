@@ -26,9 +26,9 @@ use App\Http\Controllers\CheckoutController;
 Route::get('/mobile', function () {
     return view('mobile.index');
 });
-Route::get('/mobile/get-started', function () {
-    return view('mobile.home');
-});
+// Route::get('/mobile/get-started', function () {
+//     return view('mobile.home');
+// });
 
 Route::get('/mobile/sign-in', function () {
     return view('mobile.sign-in');
@@ -42,6 +42,8 @@ Route::get('/mobile/verification-code', function () {
     return view('mobile.verification-code');
 });
 
+
+Route::get('/mobile/get-started', [App\Http\Controllers\MobileController::class, 'index'])->name('mobile.home');
 Route::get('/mobile/location', [App\Http\Controllers\MobileController::class, 'location'])->name('mobile.location');
 Route::get('/mobile/sign-up', [App\Http\Controllers\MobileController::class, 'sign_up'])->name('mobile.sign-up');
 
@@ -86,9 +88,10 @@ Route::get('/mobile/profile/orders', function () {
     return view('mobile.orders');
 });
 
-
-
-
+Route::post('/mobile/verify', [App\Http\Controllers\MobileController::class, 'verify'])->name('send-verify');
+Route::post('/mobile/send-verification', [App\Http\Controllers\MobileController::class, 'send_verification'])->name('send-verification');
+Route::post('/mobile/login', [App\Http\Controllers\MobileController::class, 'login'])->name('mobile.login');
+Route::post('/mobile/sign-up', [App\Http\Controllers\MobileController::class, 'sign_up_post'])->name('mobile.login');
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/menu', [App\Http\Controllers\HomeController::class, 'menu'])->name('menu');

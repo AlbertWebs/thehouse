@@ -26,16 +26,22 @@
     <section class="bg-white body_rounded mt-n5 position-relative p-4">
         <h5 class="mb-3">Phone Verification</h5>
         <p class="text-muted small mb-5">Enter your OTP code here</p>
-        <form class="d-flex align-items-center verification-form">
-           <input type="number" class="form-control" value="6">
-           <input type="number" class="form-control" value="8">
+        <form class="d-flex align-items-center verification-form" action="{{url('/')}}/mobile/verify" id="Veryfy">
+            @csrf
+           <input name="code" type="number" class="form-control w-100 py-3" placeholder="0000" max="9999" value="">
+           {{-- <input type="number" class="form-control" value="8">
            <input type="number" class="form-control" value="2">
-           <input type="number" class="form-control" value="5">
+           <input type="number" class="form-control" value="5"> --}}
+           <div class="p-4 fixed-bottom">
+            <button type="submit" class="btn btn-warning btn-block box_rounded w-100 py-3">Next</button>
+            <br>
+            <div class="text-center">
+                <img width="30" src="{{asset('/mobileTheme/img/loading.gif')}}" class="loading-img">
+            </div>
+         </div>
         </form>
      </section>
-     <div class="p-4 fixed-bottom">
-        <a href="{{url('/')}}/mobile/get-started" class="btn btn-warning btn-block box_rounded w-100 py-3">Next</a>
-     </div>
+
  </div>
  @include('mobile.main-nav')
 @endsection

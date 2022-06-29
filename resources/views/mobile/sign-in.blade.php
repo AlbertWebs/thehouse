@@ -26,22 +26,28 @@
     <section class="bg-white body_rounded mt-n5 position-relative p-4">
        <h1>Welcome!</h1>
        <p class="text-muted">Sign in continue</p>
-       <form class="">
+       <form class="" action="{{url('/')}}/mobile/login" id="submitLogin">
+          @csrf
           <div class="d-flex align-items-center mb-3">
              <span class="mdi mdi-email-outline box_rounded p-2 btn btn-light mr-3 text-primary"></span>
              <div class="form-floating border-bottom w-100">
-                <input type="email" class="form-control border-0 pl-0" id="floatingInputValue" placeholder="name@example.com" value="name@example.com">
+                <input type="email" class="form-control border-0 pl-0" id="floatingInputValue" placeholder="name@example.com" name="email">
                 <label for="floatingInputValue" class="pl-0">EMAIL</label>
              </div>
           </div>
           <div class="d-flex align-items-center mb-3">
              <span class="mdi mdi-key-variant box_rounded p-2 btn btn-light mr-3 text-primary"></span>
              <div class="form-floating border-bottom w-100">
-                <input type="password" class="form-control border-0 pl-0" id="floatingInputValue" placeholder="name@example.com" value="name@example.com">
+                <input type="password" class="form-control border-0 pl-0" id="floatingInputValue" placeholder="name@example.com" name="password">
                 <label for="floatingInputValue" class="pl-0">PASSWORD</label>
              </div>
           </div>
-          <a href="{{url('/')}}/mobile/veryfy-number" class="mt-4 btn btn-outline-primary py-3 box_rounded w-100">Sign in</a>
+          <button type="submit" class="mt-4 btn btn-outline-primary py-3 box_rounded w-100">Sign in</button>
+          <br>
+          <div class="text-center">
+            <img width="30" src="{{asset('/mobileTheme/img/loading.gif')}}" class="loading-img">
+         </div>
+          {{-- <a href="{{url('/')}}/mobile/veryfy-number" class="mt-4 btn btn-outline-primary py-3 box_rounded w-100">Sign in</a> --}}
           <p class="text-center mt-4"><a href="#" class="text-muted">OR</a></p>
           <p class="text-center mt-4">
                 <a style="background-color: #4267B2; color:#ffffff" href="{{url('/')}}/mobile/facebook" class="btn btn-outline-primary btn-sm px-3 rounded-3 mr-2 text-center"><span class="mdi mdi-facebook"></span>  Facebook Sign Up</a>
@@ -53,4 +59,9 @@
     </section>
  </div>
  @include('mobile.main-nav')
+ <script>
+$( document ).ready(function() {
+  alert('Update')
+});
+</script>
 @endsection

@@ -25,45 +25,58 @@
     </section>
     <section class="bg-white body_rounded mt-n5 position-relative p-4">
         <h5 class="mb-4">Create an account</h5>
-        <form class="">
+        <form class="" action="{{url('/')}}/mobile/sign-up" id="submitSignUp">
+            @csrf
            <div class="d-flex align-items-center mb-3">
               <span class="mdi mdi-account-outline box_rounded p-2 btn btn-light mr-3 text-primary"></span>
               <div class="form-floating border-bottom w-100">
-                 <input type="text" class="form-control border-0 pl-0" id="floatingInputValue" placeholder="Albert">
+                 <input type="text" class="form-control border-0 pl-0" id="floatingInputValue" name="name" placeholder="Albert" autocomplete="off">
                  <label for="floatingInputValue" class="pl-0">Name</label>
               </div>
            </div>
            <div class="d-flex align-items-center mb-3">
-            <span class="mdi mdi-account-outline box_rounded p-2 btn btn-light mr-3 text-primary"></span>
+            <span class="mdi mdi-phone box_rounded p-2 btn btn-light mr-3 text-primary"></span>
             <div class="form-floating border-bottom w-100">
-               <input type="text" class="form-control border-0 pl-0" id="floatingInputValue"  value="+254">
+               <input type="text" class="form-control border-0 pl-0" id="floatingInputValue" name="mobile"  value="+254" autocomplete="off">
                <label for="floatingInputValue" class="pl-0">Mobile</label>
             </div>
          </div>
            <div class="d-flex align-items-center mb-3">
               <span class="mdi mdi-email-outline box_rounded p-2 btn btn-light mr-3 text-primary"></span>
               <div class="form-floating border-bottom w-100">
-                 <input type="email" class="form-control border-0 pl-0" id="floatingInputValue" placeholder="name@example.com" value="name@example.com">
+                 <input type="email" class="form-control border-0 pl-0" id="floatingInputValue" name="email" placeholder="name@example.com" value="name@example.com" autocomplete="off">
                  <label for="floatingInputValue" class="pl-0">EMAIL</label>
               </div>
            </div>
            <div class="d-flex align-items-center mb-3">
-                <span class="mdi mdi-email-outline box_rounded p-2 btn btn-light mr-3 text-primary"></span>
+                <span class="mdi mdi-map box_rounded p-2 btn btn-light mr-3 text-primary"></span>
                 <div class="form-floating border-bottom w-100">
-                <input type="text" class="form-control border-0 pl-0" id="floatingInputValue"  value="{{ $currentUserInfo->regionName }}, {{ $currentUserInfo->cityName }}">
+                <input type="text" class="form-control border-0 pl-0" id="floatingInputValue" name="address"  value="{{ $currentUserInfo->regionName }}, {{ $currentUserInfo->cityName }}" autocomplete="off">
                 <label for="floatingInputValue" class="pl-0">Your Delivery Address</label>
                 </div>
             </div>
            <div class="d-flex align-items-center mb-3">
               <span class="mdi mdi-key-variant box_rounded p-2 btn btn-light mr-3 text-primary"></span>
               <div class="form-floating border-bottom w-100">
-                 <input type="password" class="form-control border-0 pl-0" id="floatingInputValue" placeholder="name@example.com" value="name@example.com">
+                 <input type="password" class="form-control border-0 pl-0" id="floatingInputValue" name="password" placeholder="name@example.com" value="name@example.com" autocomplete="off">
                  <label for="floatingInputValue" class="pl-0">PASSWORD</label>
               </div>
            </div>
-           <a href="#" class="mt-5 btn btn-primary py-3 box_rounded w-100">Create an account</a>
 
+           <div class="d-flex align-items-center mb-3">
+                <span class="mdi mdi-key-variant box_rounded p-2 btn btn-light mr-3 text-primary"></span>
+                <div class="form-floating border-bottom w-100">
+                <input type="password" class="form-control border-0 pl-0" id="floatingInputValue" name="password_confirm" placeholder="name@example.com" value="name@example.com" autocomplete="off">
+                <label for="floatingInputValue" class="pl-0">PASSWORD CONFIRM</label>
+                </div>
+            </div>
+           {{-- <a href="#" class="mt-5 btn btn-primary py-3 box_rounded w-100"></a> --}}
 
+           <button type="submit" class="mt-5 btn btn-primary py-3 box_rounded w-100">Create an account</button>
+           <br>
+           <div class="text-center">
+             <img width="30" src="{{asset('/mobileTheme/img/loading.gif')}}" class="loading-img">
+          </div>
             <p class="text-center mt-4">
                  <a style="background-color: #4267B2; color:#ffffff" href="{{url('/')}}/mobile/sign-in" class="btn btn-outline-primary btn-sm px-3 rounded-3 mr-2 text-center"><span class="mdi mdi-facebook"></span>  Facebook Sign Up</a>
                  <a style="background-color: #DB4437; color:#ffffff" href="{{url('/')}}/mobile/sign-in" class="btn btn-outline-primary btn-sm px-3 rounded-3 mr-2 text-center"><span class="mdi mdi-google"></span>  Google Sign Up</a>
