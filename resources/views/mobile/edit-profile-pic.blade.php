@@ -45,6 +45,7 @@
          <div class="text-center">
            <img width="30" src="{{asset('/mobileTheme/img/loading.gif')}}" class="loading-img">
         </div>
+        <input type="hidden" name="fake_avatar" value="{{Auth::User()->image}}">
        </form>
     </section>
  </div>

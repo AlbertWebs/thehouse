@@ -309,34 +309,16 @@ Route::group(['prefix'=>'admin'], function(){
 
 Auth::routes();
 Route::group(['prefix'=>'mobile'], function(){
-
-    Route::get('', function () {
-        return view('mobile.index');
-    });
-    // Route::get('/get-started', function () {
-    //     return view('mobile.home');
-    // });
-
-    Route::get('/sign-in', function () {
-        return view('mobile.sign-in');
-    });
-
-    Route::get('/veryfy-number', function () {
-        return view('mobile.veryfy-number');
-    });
-
-    Route::get('/verification-code', function () {
-        return view('mobile.verification-code');
-    });
-
-
-
+    Route::get('/', [App\Http\Controllers\MobileController::class, 'index'])->name('index');
+    Route::get('/veryfy-number', [App\Http\Controllers\MobileController::class, 'veryfy_number'])->name('veryfy-number');
+    Route::get('/verification-code', [App\Http\Controllers\MobileController::class, 'verification_code'])->name('verification-code');
+    Route::get('/sign-in', [App\Http\Controllers\MobileController::class, 'sign_in'])->name('sign-in');
     Route::post('/update-profile', [App\Http\Controllers\MobileController::class, 'update_profile'])->name('update-profile');
     Route::post('/verify', [App\Http\Controllers\MobileController::class, 'verify'])->name('send-verify');
     Route::post('/send-verification', [App\Http\Controllers\MobileController::class, 'send_verification'])->name('send-verification');
     Route::post('/login', [App\Http\Controllers\MobileLoginController::class, 'login'])->name('mobile.login');
     Route::post('/sign-up', [App\Http\Controllers\MobileLoginController::class, 'sign_up_post'])->name('mobile.login');
-    Route::get('/get-started', [App\Http\Controllers\MobileController::class, 'index'])->name('mobile.home');
+    Route::get('/get-started', [App\Http\Controllers\MobileController::class, 'index'])->name('mobile.index');
     Route::get('/location', [App\Http\Controllers\MobileController::class, 'location'])->name('mobile.location');
     Route::get('/sign-up', [App\Http\Controllers\MobileLoginController::class, 'sign_up'])->name('mobile.sign-up');
     Route::get('/logout', [App\Http\Controllers\MobileLoginController::class, 'logouts']);
@@ -345,38 +327,33 @@ Route::group(['prefix'=>'mobile'], function(){
     Route::get('/menu/{slung}', [App\Http\Controllers\MobileController::class, 'category'])->name('category');
     Route::get('/edit-profile-pic', [App\Http\Controllers\MobileController::class, 'edit_profile_pic'])->name('edit-profile-pic');
     Route::post('/edit-profile-pic', [App\Http\Controllers\MobileController::class, 'edit_profile_pic_post'])->name('edit-profile-pic-post');
+    Route::get('/search', [App\Http\Controllers\MobileController::class, 'search'])->name('search');
+    Route::get('/shopping-cart', [App\Http\Controllers\MobileController::class, 'shopping_cart'])->name('shopping-cart');
+    Route::get('/checkout', [App\Http\Controllers\MobileController::class, 'checkout'])->name('checkout');
+    Route::get('/offers', [App\Http\Controllers\MobileController::class, 'offers'])->name('offers');
 
 
-    Route::get('/shopping-cart', function () {
-        return view('mobile.shopping-cart');
-    });
-
-    Route::get('/search', function () {
-        return view('mobile.search');
-    });
-
-    Route::get('/checkout', function () {
-        return view('mobile.checkout');
-    });
+    Route::group(['prefix'=>'profile'], function(){
+        Route::get('/', [App\Http\Controllers\MobileController::class, 'profile'])->name('profile');
+        Route::get('/edit-profile', [App\Http\Controllers\MobileController::class, 'edit_profile'])->name('edit-profile');
+        Route::get('/transactions', [App\Http\Controllers\MobileController::class, 'transactions'])->name('transactions');
+        Route::get('/orders', [App\Http\Controllers\MobileController::class, 'orders'])->name('orders');
 
 
-    Route::get('/profile', function () {
-        return view('mobile.profile');
-    });
+        Route::get('/', function () {
+            return view('mobile.profile');
+        });
 
-    Route::get('/edit-profile', function () {
-        return view('mobile.edit-profile');
-    });
+        Route::get('/edit-profile', function () {
+            return view('mobile.edit-profile');
+        });
 
-    Route::get('/offers', function () {
-        return view('mobile.offers');
-    });
+        Route::get('/transactions', function () {
+            return view('mobile.transactions');
+        });
 
-    Route::get('/profile/transactions', function () {
-        return view('mobile.transactions');
-    });
-
-    Route::get('/profile/orders', function () {
-        return view('mobile.orders');
+        Route::get('/orders', function () {
+            return view('mobile.orders');
+        });
     });
 });

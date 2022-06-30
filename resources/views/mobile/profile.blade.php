@@ -29,7 +29,7 @@
     <section class="p-3 bg-light body_rounded mt-n5 ">
        <div class="pb-3 border-bottom">
           <p class="text-muted mb-2">Account</p>
-          <a href="{{url('/')}}/mobile/edit-profile" class="shadow-sm text-dark d-flex align-items-center mb-1 p-2 bg-white rounded">
+          <a href="{{url('/')}}/mobile/profile/edit-profile" class="shadow-sm text-dark d-flex align-items-center mb-1 p-2 bg-white rounded">
              <p class="h5 text-primary mb-0"><i class="mdi mdi-account-outline"></i></p>
              <p class="ml-3 mb-0">Profile</p>
              <p class="h5 ml-auto text-muted mb-0"><i class="mdi mdi-chevron-right"></i></p>

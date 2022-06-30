@@ -26,6 +26,52 @@ class MobileController extends Controller
         return view('mobile.home');
     }
 
+
+    public function orders(){
+        return view('mobile.orders');
+    }
+
+    public function transactions(){
+        return view('mobile.transactions');
+    }
+
+    public function edit_profile(){
+        return view('mobile.edit-profile');
+    }
+
+    public function profile(){
+        return view('mobile.profile');
+    }
+
+    public function sign_in(){
+        return view('mobile.sign-in');
+    }
+
+    public function offers(){
+        return view('mobile.offers');
+    }
+
+    public function veryfy_number(){
+        return view('mobile.veryfy-number');
+    }
+
+    public function verification_code(){
+        return view('mobile.verification-code');
+    }
+
+    public function search(){
+        return view('mobile.search');
+    }
+
+    public function shopping_cart(){
+        return view('mobile.shopping-cart');
+    }
+
+    public function checkout(){
+        return view('mobile.checkout');
+    }
+
+
     public function menu($menu){
         $Menu = DB::table('menus')->where('slung', $menu)->get();
         return view('mobile.details', compact('Menu'));
@@ -166,6 +212,9 @@ class MobileController extends Controller
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('uploads/users'), $filename);
             // $data['image']= $filename;
+        }
+        else{
+            $filename = $request->fake_avatar;
         }
         $updateDetails = array(
            'image'=>$filename,

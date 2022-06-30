@@ -271,7 +271,7 @@ ga('send', 'pageview');
             data: $('#update-user').serialize(),
             success: function(data) {
                $(".loading-img").hide();
-               var host = window.location.protocol + "//" + window.location.host + "/mobile/edit-profile";
+               var host = window.location.protocol + "//" + window.location.host + "/mobile/profile/edit-profile";
                if(data['message'] == "Success"){
                   window.location.replace(host);
                }else{
