@@ -19,7 +19,7 @@
           </div>
        </div>
        <div class="d-flex align-items-center">
-          <img src="{{asset('mobileTheme/img/albert.jpg')}}" class="img-fluid box_rounded profile_img">
+          <img src="{{url('/')}}/uploads/users/{{Auth::User()->image}}" class="img-fluid box_rounded profile_img">
           <div class="text-white ml-3">
              <p class="mb-1 fw-bold h6">Albert Muhatia</p>
              <p class="mb-0 small">Edit Profile</p>

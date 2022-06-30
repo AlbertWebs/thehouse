@@ -31,6 +31,11 @@ class MobileController extends Controller
         return view('mobile.details', compact('Menu'));
     }
 
+    public function menus($menu){
+        $Menu = DB::table('menus')->get();
+        return view('mobile.menu', compact('Menu'));
+    }
+
     public function category($menu){
         $Menu = DB::table('category')->where('slung', $menu)->get();
         return view('mobile.menu', compact('Menu'));
@@ -151,6 +156,21 @@ class MobileController extends Controller
     }
 
     public function edit_profile_pic(){
+        $User = User::find(Auth::User()->id);
+        return view('mobile.edit-profile-pic', compact('User'));
+    }
+
+    public function edit_profile_pic_post(Request $request){
+        if($request->file('avatar')){
+            $file= $request->file('avatar');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('uploads/users'), $filename);
+            // $data['image']= $filename;
+        }
+        $updateDetails = array(
+           'image'=>$filename,
+        );
+        DB::table('users')->where('id', Auth::User()->id)->update($updateDetails);
         $User = User::find(Auth::User()->id);
         return view('mobile.edit-profile-pic', compact('User'));
     }

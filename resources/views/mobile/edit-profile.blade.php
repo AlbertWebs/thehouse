@@ -19,7 +19,7 @@
           </div>
        </div>
        <div class="d-flex align-items-center">
-        <a onclick="return confirm('Edit Your Profile Picture?')" href="{{url('/')}}/mobile/edit-profile-pic"><img src="{{asset('mobileTheme/img/albert.jpg')}}" class="img-fluid box_rounded profile_img"></a>
+        <a onclick="return confirm('Edit Your Profile Picture?')" href="{{url('/')}}/mobile/edit-profile-pic"><img src="{{url('/')}}/uploads/users/{{Auth::User()->image}}" class="img-fluid box_rounded profile_img"></a>
         <div class="text-white ml-3">
            <p class="mb-1 fw-bold h6">Albert Muhatia</p>
            <p class="mb-0 small">Editing Profile</p>

@@ -344,6 +344,7 @@ Route::group(['prefix'=>'mobile'], function(){
     Route::get('/menus/{slung}', [App\Http\Controllers\MobileController::class, 'menu'])->name('menu');
     Route::get('/menu/{slung}', [App\Http\Controllers\MobileController::class, 'category'])->name('category');
     Route::get('/edit-profile-pic', [App\Http\Controllers\MobileController::class, 'edit_profile_pic'])->name('edit-profile-pic');
+    Route::post('/edit-profile-pic', [App\Http\Controllers\MobileController::class, 'edit_profile_pic_post'])->name('edit-profile-pic-post');
 
 
     Route::get('/shopping-cart', function () {
