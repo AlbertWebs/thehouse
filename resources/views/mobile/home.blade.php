@@ -5,7 +5,7 @@
     <section class="bg-warning p-3">
        <div class="location_search">
           <p class="text-dark mb-1 fw-bold">DELIVERING TO</p>
-          <p>300 One Street, Langata <span class="mr-1 mdi mdi-chevron-down text-dark"></span></p>
+          <p> {{Auth::User()->location}} <span class="mr-1 mdi mdi-chevron-down text-dark"></span></p>
        </div>
        <div class="d-flex align-items-center">
           <div class="search_item shadow-sm p-1 input-group bg-white rounded-3 mr-3">

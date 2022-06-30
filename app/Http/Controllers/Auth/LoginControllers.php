@@ -15,7 +15,7 @@ use Str;
 use Session;
 use Redirect;
 
-class LoginController extends Controller
+class LoginControllers extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -59,6 +59,8 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
 
     public function login(Request $request)
     {

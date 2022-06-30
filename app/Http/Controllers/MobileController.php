@@ -12,9 +12,30 @@ use App\Models\Code;
 
 class MobileController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
         return view('mobile.home');
     }
+
+    public function menu($menu){
+        $Menu = DB::table('menus')->where('slung', $menu)->get();
+        return view('mobile.details', compact('Menu'));
+    }
+
+    public function category($menu){
+        $Menu = DB::table('category')->where('slung', $menu)->get();
+        return view('mobile.menu', compact('Menu'));
+    }
+
     public function location(Request $request)
     {
         // $ip = $request->ip();
@@ -24,70 +45,8 @@ class MobileController extends Controller
         return view('mobile.location', compact('currentUserInfo'));
     }
 
-    public function sign_up(Request $request)
-    {
-        // $ip = $request->ip();
-        $ip = '197.156.140.165';
-        $currentUserInfo = Location::get($ip);
 
-        return view('mobile.sign-up', compact('currentUserInfo'));
-    }
 
-    public function login(Request $request){
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            $Username = Auth::User()->email;
-                return response()->json([
-                    "message" => "Success"
-                ]);
-        }else{
-                return response()->json([
-                    "message" => "Fail"
-                ]);
-        }
-    }
-
-    public function sign_up_post(Request $request){
-         $name = $request->name;
-         $email = $request->email;
-         $mobile = $request->mobile;
-         $address = $request->address;
-         $password = $request->password;
-         $password_confirm = $request->password_confirm;
-
-         $User = DB::table('users')->where('email',$email)->get();
-         $Check = count($User);
-
-         if($password == $password_confirm){
-            if($Check == 0){
-                // create user
-                $password_inSecured = $password;
-                //harshing password Here
-                $password = Hash::make($password_inSecured);
-                $User = new User;
-                $User->name = $request->name;
-                $User->email = $request->email;
-                $User->location = $request->address;
-                $User->mobile = $request->mobile;
-                $User->notes = " ";
-                $User->password = $password;
-                $User->save();
-
-                $user = User::where('email','=',$email)->first();
-                Auth::loginUsingId($user->id, TRUE);
-                return response()->json([
-                    "message" => "Success"
-                ]);
-            }else{
-                return response()->json([
-                    "message" => "That email is already in use by another person"
-                ]);
-            }
-        }else{
-            return response()->json([
-                "message" => "Password Did Not Match!"
-            ]);
-        }
-    }
     public function generateCode(){
         $num_str = sprintf(mt_rand(1000, 9999));
         $Codes = DB::table('codes')->where('code',$num_str)->get();
@@ -135,8 +94,11 @@ class MobileController extends Controller
     }
 
     public function send($Message,$mobile){
+        $phoneNumbers = str_replace(' ', '', $mobile);
+        $phoneNumber = str_replace('+', '', $phoneNumbers);
+        //
         $message = $Message;
-        $phone =$mobile;
+        $phone =$phoneNumber;
         $senderid = "DESIGNEKTA";
         //
         $url = 'https://bulk.cloudrebue.co.ke/api/v1/send-sms';
@@ -168,10 +130,29 @@ class MobileController extends Controller
 
         $response = curl_exec($ch);
         curl_close($ch);
-        // print_r($response);
-        // echo $response['status'];
-        // die();
     }
 
+    public function update_profile(Request $request){
+        $name = $request->name;
+        $email = $request->email;
+        $mobile = $request->mobile;
+        $address = $request->address;
+
+        $updateDetails = array(
+            'name' =>$name,
+            'email' =>$email,
+            'mobile' =>$mobile,
+            'location' =>$address,
+        );
+        DB::table('users')->where('id', Auth::User()->id)->update($updateDetails);
+        return response()->json([
+            "message" => "Success"
+        ]);
+    }
+
+    public function edit_profile_pic(){
+        $User = User::find(Auth::User()->id);
+        return view('mobile.edit-profile-pic', compact('User'));
+    }
 
 }

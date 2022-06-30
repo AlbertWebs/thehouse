@@ -259,6 +259,31 @@ ga('send', 'pageview');
         });
     });
 
+
+    $('#update-user').submit(function(e) {
+        e.preventDefault();
+        var actionurl = e.currentTarget.action;
+        $(".loading-img").show();
+        $.ajax({
+            url: actionurl,
+            type: 'post',
+            dataType: 'json',
+            data: $('#update-user').serialize(),
+            success: function(data) {
+               $(".loading-img").hide();
+               var host = window.location.protocol + "//" + window.location.host + "/mobile/edit-profile";
+               if(data['message'] == "Success"){
+                  window.location.replace(host);
+               }else{
+                  alert(data['message']);
+                  window.location.reload();
+               }
+            }
+        });
+    });
+
+
+
       var $main_nav = $('#main-nav');
       var $toggle = $('.toggle');
 

@@ -9,13 +9,13 @@
        ?>
        @foreach ($Categories as $item)
        <li>
-        <a href="#"><i class="mdi mdi-timeline-check-outline mr-2"></i>{{$item->cat}}</a>
+        <a href="{{url('/')}}/mobile/menu/{{$item->slung}}"><i class="mdi mdi-timeline-check-outline mr-2"></i>{{$item->cat}}</a>
         <ul>
             <?php
                     $Menu = DB::table('menus')->where('cat_id',$item->id)->get()
             ?>
             @foreach ($Menu as $menu)
-            <li><a href="cart1#html">{{$menu->title}}</a></li>
+            <li><a href="{{url('/')}}/mobile/menus/{{$menu->slung}}">{{$menu->title}}</a></li>
             @endforeach
 
 
@@ -35,6 +35,10 @@
           <a href="{{url('/')}}/mobile/profile"><i class="mdi mdi-account-circle-outline mr-2"></i>My Profile</a>
 
        </li>
+       <li>
+        <a target="new" href="https://tawk.to/chat/62b9a3dfb0d10b6f3e7981d9/1g6iig8kr"><i class="mdi mdi-comment mr-2"></i>Live Chat</a>
+
+     </li>
        <li>
         <a href="{{url('/')}}/mobile/logout"><i class="mdi mdi-power mr-2"></i>Logout</a>
 

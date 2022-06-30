@@ -1,4 +1,4 @@
-@extends('mobile.master')
+@extends('mobile.master-location')
 
 @section('content')
 <div class="padding_bottom">
@@ -19,7 +19,7 @@
           </div>
        </div>
        <div class="d-flex align-items-center">
-        <img src="{{asset('mobileTheme/img/albert.jpg')}}" class="img-fluid box_rounded profile_img">
+        <a onclick="return confirm('Edit Your Profile Picture?')" href="{{url('/')}}/mobile/edit-profile-pic"><img src="{{asset('mobileTheme/img/albert.jpg')}}" class="img-fluid box_rounded profile_img"></a>
         <div class="text-white ml-3">
            <p class="mb-1 fw-bold h6">Albert Muhatia</p>
            <p class="mb-0 small">Editing Profile</p>
@@ -28,26 +28,26 @@
     </section>
     <section class="p-3 bg-light body_rounded mt-n5">
        <p class="text-muted mb-4">Profile Details</p>
-       <form class="mb-5">
+       <form class="mb-5" action="{{url('/')}}/mobile/update-profile" id="update-user">
         @csrf
           <div class="d-flex align-items-center mb-3 border-bottom pb-2">
              <span class="mdi mdi-account-outline box_rounded py-1 px-2 shadow-sm btn bg-white mr-1 text-primary"></span>
              <div class="form-floating w-100">
-                <input type="text" class="form-control border-0 bg-light" id="floatingInputValue" placeholder="Albert Muhatia" value="Albert Muhatia">
+                <input type="text" class="form-control border-0 bg-light" id="floatingInputValue" placeholder="Albert Muhatia" name="name" value="{{Auth::User()->name}}">
                 <label for="floatingInputValue">FULL NAME</label>
              </div>
           </div>
           <div class="d-flex align-items-center mb-3 border-bottom pb-2">
              <span class="mdi mdi-email-outline box_rounded py-1 px-2 shadow-sm btn bg-white mr-1 text-primary"></span>
              <div class="form-floating w-100">
-                <input type="email" class="form-control border-0 bg-light" id="floatingInputValue" placeholder="albertmuhatia@gmail.com" value="albertmuhatia@gmail.com">
+                <input type="email" class="form-control border-0 bg-light" id="floatingInputValue" placeholder="albertmuhatia@gmail.com" name="email" value="{{Auth::User()->email}}">
                 <label for="floatingInputValue">EMAIL</label>
              </div>
           </div>
           <div class="d-flex align-items-center mb-3 border-bottom pb-2">
             <span class="mdi mdi-phone box_rounded py-1 px-2 shadow-sm btn bg-white mr-1 text-primary"></span>
             <div class="form-floating w-100">
-               <input type="text" class="form-control border-0 bg-light" id="floatingInputValue" placeholder="254723014032" value="254723014032">
+               <input type="text" class="form-control border-0 bg-light" id="floatingInputValue" placeholder="254723014032" name="mobile" value="{{Auth::User()->mobile}}">
                <label for="floatingInputValue">Mobile</label>
             </div>
          </div>
@@ -55,13 +55,16 @@
          <div class="d-flex align-items-center mb-3 border-bottom pb-2">
             <span class="mdi mdi-map box_rounded py-1 px-2 shadow-sm btn bg-white mr-1 text-primary"></span>
             <div class="form-floating w-100">
-               <input type="text" class="form-control border-0 bg-light" id="floatingInputValue" placeholder="Ongata Rongai" value="Ongata Rongai">
+               <input type="text" class="form-control border-0 bg-light" id="floatingInputValue" placeholder="Ongata Rongai" name="address" value="{{Auth::User()->location}}">
                <label for="floatingInputValue">Address</label>
             </div>
          </div>
 
          <button type="submit" class="mt-5 btn btn-primary py-3 box_rounded w-100"><span class="mdi mdi-pencil"></span> Update</button>
-
+         <br>
+         <div class="text-center">
+           <img width="30" src="{{asset('/mobileTheme/img/loading.gif')}}" class="loading-img">
+        </div>
        </form>
     </section>
  </div>
