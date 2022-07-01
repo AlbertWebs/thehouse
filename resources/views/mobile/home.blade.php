@@ -4,6 +4,7 @@
 <div class="padding_bottom">
     <section class="bg-warning p-3">
        <div class="location_search">
+          <p class="text-dark mb-1 fw-bold">Welcome Back {{Auth::User()->name}}</p>
           <p class="text-dark mb-1 fw-bold">DELIVERING TO</p>
           <p> {{Auth::User()->location}} <span class="mr-1 mdi mdi-chevron-down text-dark"></span></p>
        </div>

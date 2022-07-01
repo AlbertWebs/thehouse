@@ -15,11 +15,14 @@ class MobileLoginController extends Controller
 {
     public function sign_up(Request $request)
     {
-        // $ip = $request->ip();
-        $ip = '197.156.140.165';
-        $currentUserInfo = Location::get($ip);
-
-        return view('mobile.sign-up', compact('currentUserInfo'));
+        if(Auth::User()){
+            return redirect()->route('get-started');
+        }else{
+            // $ip = $request->ip();
+            $ip = '197.156.140.165';
+            $currentUserInfo = Location::get($ip);
+            return view('mobile.sign-up', compact('currentUserInfo'));
+        }
     }
 
     public function login(Request $request){
