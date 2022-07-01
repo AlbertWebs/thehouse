@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Darryldecode\Cart\CartServiceProvider::class,
         Stevebauman\Location\LocationServiceProvider::class,
+        Jenssegers\Agent\AgentServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -232,7 +233,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
-        'Location' => 'Stevebauman\Location\Facades\Location'
+        'Location' => 'Stevebauman\Location\Facades\Location',
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
 
     ],
 

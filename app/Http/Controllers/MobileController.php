@@ -9,6 +9,7 @@ use Hash;
 use DB;
 use App\Models\User;
 use App\Models\Code;
+use Jenssegers\Agent\Agent;
 
 class MobileController extends Controller
 {
@@ -23,6 +24,8 @@ class MobileController extends Controller
     }
 
     public function index(){
+        $agent = new Agent();
+
         return view('mobile.home');
     }
 
@@ -43,9 +46,7 @@ class MobileController extends Controller
         return view('mobile.profile');
     }
 
-    public function sign_in(){
-        return view('mobile.sign-in');
-    }
+
 
     public function offers(){
         return view('mobile.offers');

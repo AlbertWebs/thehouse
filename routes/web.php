@@ -309,10 +309,10 @@ Route::group(['prefix'=>'admin'], function(){
 
 Auth::routes();
 Route::group(['prefix'=>'mobile'], function(){
-    Route::get('/', [App\Http\Controllers\MobileController::class, 'index'])->name('index');
+    Route::get('/', [App\Http\Controllers\MobileLoginController::class, 'index'])->name('index');
     Route::get('/veryfy-number', [App\Http\Controllers\MobileController::class, 'veryfy_number'])->name('veryfy-number');
     Route::get('/verification-code', [App\Http\Controllers\MobileController::class, 'verification_code'])->name('verification-code');
-    Route::get('/sign-in', [App\Http\Controllers\MobileController::class, 'sign_in'])->name('sign-in');
+    Route::get('/sign-in', [App\Http\Controllers\MobileLoginController::class, 'sign_in'])->name('sign-in');
     Route::post('/update-profile', [App\Http\Controllers\MobileController::class, 'update_profile'])->name('update-profile');
     Route::post('/verify', [App\Http\Controllers\MobileController::class, 'verify'])->name('send-verify');
     Route::post('/send-verification', [App\Http\Controllers\MobileController::class, 'send_verification'])->name('send-verification');

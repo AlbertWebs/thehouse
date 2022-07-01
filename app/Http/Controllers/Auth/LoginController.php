@@ -14,6 +14,7 @@ use Auth;
 use Str;
 use Session;
 use Redirect;
+use Jenssegers\Agent\Agent;
 
 class LoginController extends Controller
 {
@@ -69,16 +70,25 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
+
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
             if (auth()->user()->is_admin == 1) {
                 return redirect()->route('admin.home');
             }else{
-                return redirect()->route('dashboard');
+                if($agent->isMobile()){
+                    return redirect()->route('get-started');
+                }else{
+                    return redirect()->route('dashboard');
+                }
             }
         }else{
             Session::flash('error', "email-address or password are wrong.");
-            return redirect()->route('loginRoute');
+            if($agent->isMobile()){
+                return redirect()->route('get-started');
+            }else{
+                return redirect()->route('loginRoute');
+            }
         }
 
     }
@@ -95,7 +105,11 @@ class LoginController extends Controller
         ]);
 
         Auth::login($user, true);
-        return redirect()->to('/apps/my-course');
+        if($agent->isMobile()){
+            return redirect()->to('/mobile/get-started');
+        }else{
+            return redirect()->to('/dashboard');
+        }
     }
 
     public function facebook(){
@@ -118,7 +132,11 @@ class LoginController extends Controller
         ]);
 
         Auth::login($user, true);
-        return redirect()->to('/apps/my-course');
+        if($agent->isMobile()){
+            return redirect()->to('/mobile/get-started');
+        }else{
+            return redirect()->to('/dashboard');
+        }
     }
 
 
@@ -126,6 +144,6 @@ class LoginController extends Controller
     {
         $user = $service->createOrGetUser(Socialite::driver('facebook')->user());
         auth()->login($user);
-        return redirect()->to('/apps/home');
+        return redirect()->to('/dashboard');
     }
 }

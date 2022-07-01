@@ -13,6 +13,18 @@ use App\Models\Code;
 
 class MobileLoginController extends Controller
 {
+    public function index(){
+        return view('mobile.index');
+    }
+
+    public function sign_in(){
+        if(Auth::User()){
+            return redirect()->route('get-started');
+        }else{
+            return view('mobile.sign-in');
+        }
+    }
+
     public function sign_up(Request $request)
     {
         if(Auth::User()){
@@ -83,6 +95,6 @@ class MobileLoginController extends Controller
 
     public function logouts(Request $request) {
         Auth::logout();
-        return redirect('/mobile');
+        return redirect('/mobile/sign-in');
       }
 }
