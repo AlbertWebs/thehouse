@@ -73,6 +73,7 @@ class LoginController extends Controller
 
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
+            $agent = new Agent();
             if (auth()->user()->is_admin == 1) {
                 return redirect()->route('admin.home');
             }else{
@@ -83,6 +84,7 @@ class LoginController extends Controller
                 }
             }
         }else{
+            $agent = new Agent();
             Session::flash('error', "email-address or password are wrong.");
             if($agent->isMobile()){
                 return redirect()->route('get-started');
@@ -104,6 +106,7 @@ class LoginController extends Controller
              'password' => Hash::make(Str::random(24))
         ]);
 
+        $agent = new Agent();
         Auth::login($user, true);
         if($agent->isMobile()){
             return redirect()->to('/mobile/get-started');
@@ -132,6 +135,7 @@ class LoginController extends Controller
         ]);
 
         Auth::login($user, true);
+        $agent = new Agent();
         if($agent->isMobile()){
             return redirect()->to('/mobile/get-started');
         }else{

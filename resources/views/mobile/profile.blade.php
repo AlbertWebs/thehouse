@@ -58,11 +58,16 @@
              <p class="ml-3 mb-0">Offers &amp; Promos</p>
              <p class="h5 ml-auto text-muted mb-0"><i class="mdi mdi-chevron-right"></i></p>
           </a>
-          <a href="{{url('/')}}/mobile/menu" class="shadow-sm text-dark d-flex align-items-center mb-1 p-2 bg-white rounded">
+          <a href="{{url('/')}}/mobile/get-started" class="shadow-sm text-dark d-flex align-items-center mb-1 p-2 bg-white rounded">
              <p class="h5 text-danger mb-0"><i class="mdi mdi-home"></i></p>
              <p class="ml-3 mb-0">Menu</p>
              <p class="h5 ml-auto text-muted mb-0"><i class="mdi mdi-chevron-right"></i></p>
           </a>
+          <a href="{{url('/')}}/mobile/logout" class="shadow-sm text-dark d-flex align-items-center mb-1 p-2 bg-white rounded">
+            <p class="h5 text-danger mb-0"><i class="mdi mdi-power"></i></p>
+            <p class="ml-3 mb-0">Log Out</p>
+            <p class="h5 ml-auto text-muted mb-0"><i class="mdi mdi-chevron-right"></i></p>
+         </a>
        </div>
     </section>
  </div>
