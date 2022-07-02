@@ -309,6 +309,13 @@ Route::group(['prefix'=>'admin'], function(){
 
 Auth::routes();
 Route::group(['prefix'=>'mobile'], function(){
+
+    // SocialMedia
+    Route::get('/facebook', [LoginController::class, 'facebook']);
+    Route::get('/facebook/redirect', [LoginController::class, 'facebookRedirect']);
+    Route::get('/google', [LoginController::class, 'google']);
+    Route::get('/google/redirect', [LoginController::class, 'googleRedirect']);
+
     Route::get('/', [App\Http\Controllers\MobileLoginController::class, 'index'])->name('index');
     Route::get('/veryfy-number', [App\Http\Controllers\MobileController::class, 'veryfy_number'])->name('veryfy-number');
     Route::get('/verification-code', [App\Http\Controllers\MobileController::class, 'verification_code'])->name('verification-code');
@@ -332,28 +339,10 @@ Route::group(['prefix'=>'mobile'], function(){
     Route::get('/checkout', [App\Http\Controllers\MobileController::class, 'checkout'])->name('checkout');
     Route::get('/offers', [App\Http\Controllers\MobileController::class, 'offers'])->name('offers');
 
-
     Route::group(['prefix'=>'profile'], function(){
         Route::get('/', [App\Http\Controllers\MobileController::class, 'profile'])->name('profile');
         Route::get('/edit-profile', [App\Http\Controllers\MobileController::class, 'edit_profile'])->name('edit-profile');
         Route::get('/transactions', [App\Http\Controllers\MobileController::class, 'transactions'])->name('transactions');
         Route::get('/orders', [App\Http\Controllers\MobileController::class, 'orders'])->name('orders');
-
-
-        Route::get('/', function () {
-            return view('mobile.profile');
-        });
-
-        Route::get('/edit-profile', function () {
-            return view('mobile.edit-profile');
-        });
-
-        Route::get('/transactions', function () {
-            return view('mobile.transactions');
-        });
-
-        Route::get('/orders', function () {
-            return view('mobile.orders');
-        });
     });
 });
