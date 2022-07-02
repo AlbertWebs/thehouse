@@ -22,39 +22,41 @@ use App\Http\Controllers\Auth\LoginControllers;
 |
 */
 
-// Route::get('/', function () {
-//     return view('front.index');
-// });
+Route::get('/', function () {
+    return view('shaqshouse.index');
+});
 
 
 
+Route::group(['prefix'=>'chomazone'], function(){
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
-Route::get('/menu', [App\Http\Controllers\HomeController::class, 'menu'])->name('menu');
-Route::get('/menu/{slung}', [App\Http\Controllers\HomeController::class, 'menus'])->name('menus');
-Route::get('/shopping-cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.list');
-Route::get('/shopping-cart/checkout', [App\Http\Controllers\CartController::class, 'checkout'])->name('checkout');
-Route::get('/shopping-cart/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('shopping-cart');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+    Route::get('/menu', [App\Http\Controllers\HomeController::class, 'menu'])->name('menu');
+    Route::get('/menu/{slung}', [App\Http\Controllers\HomeController::class, 'menus'])->name('menus');
+    Route::get('/shopping-cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart.list');
+    Route::get('/shopping-cart/checkout', [App\Http\Controllers\CartController::class, 'checkout'])->name('checkout');
+    Route::get('/shopping-cart/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('shopping-cart');
 
-Route::get('/shopping-cart/remove/{id}', [CartController::class, 'removeCart'])->name('cart.remove');
-Route::get('/shopping-cart/clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
+    Route::get('/shopping-cart/remove/{id}', [CartController::class, 'removeCart'])->name('cart.remove');
+    Route::get('/shopping-cart/clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 
-Route::get('/terms-and-conditions', [App\Http\Controllers\HomeController::class, 'terms'])->name('terms-and-conditions');
-Route::get('/privacy-policy', [App\Http\Controllers\HomeController::class, 'privacy'])->name('privacy-policy');
-Route::get('/copyright-statement', [App\Http\Controllers\HomeController::class, 'copyright'])->name('copyright');
-Route::get('/delivery-policy', [App\Http\Controllers\HomeController::class, 'delivery'])->name('delivery');
+    Route::get('/terms-and-conditions', [App\Http\Controllers\HomeController::class, 'terms'])->name('terms-and-conditions');
+    Route::get('/privacy-policy', [App\Http\Controllers\HomeController::class, 'privacy'])->name('privacy-policy');
+    Route::get('/copyright-statement', [App\Http\Controllers\HomeController::class, 'copyright'])->name('copyright');
+    Route::get('/delivery-policy', [App\Http\Controllers\HomeController::class, 'delivery'])->name('delivery');
 
 
-Auth::routes();
-Route::get('/shopping-cart/checkout', [App\Http\Controllers\CheckoutController::class, 'checkout'])->name('checkout');
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-Route::get('/dashboard', [App\Http\Controllers\ClientController::class, 'dashboard'])->name('dashboard');
+    Auth::routes();
+    Route::get('/shopping-cart/checkout', [App\Http\Controllers\CheckoutController::class, 'checkout'])->name('checkout');
+    Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+    Route::get('/dashboard', [App\Http\Controllers\ClientController::class, 'dashboard'])->name('dashboard');
 
-// SocialMedia
-Route::get('/facebook', [LoginController::class, 'facebook']);
-Route::get('/facebook/redirect', [LoginController::class, 'facebookRedirect']);
-Route::get('/google', [LoginController::class, 'google']);
-Route::get('/google/redirect', [LoginController::class, 'googleRedirect']);
+    // SocialMedia
+    Route::get('/facebook', [LoginController::class, 'facebook']);
+    Route::get('/facebook/redirect', [LoginController::class, 'facebookRedirect']);
+    Route::get('/google', [LoginController::class, 'google']);
+    Route::get('/google/redirect', [LoginController::class, 'googleRedirect']);
+});
 
 
 
