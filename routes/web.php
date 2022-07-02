@@ -341,6 +341,7 @@ Route::group(['prefix'=>'mobile'], function(){
     Route::get('/checkout', [App\Http\Controllers\MobileController::class, 'checkout'])->name('checkout');
     Route::get('/offers', [App\Http\Controllers\MobileController::class, 'offers'])->name('offers');
 
+    Route::get('/get-menu', [App\Http\Controllers\MobileController::class, 'getMenu'])->name('getMenu');
     Route::group(['prefix'=>'profile'], function(){
         Route::get('/', [App\Http\Controllers\MobileController::class, 'profile'])->name('profile');
         Route::get('/edit-profile', [App\Http\Controllers\MobileController::class, 'edit_profile'])->name('edit-profile');

@@ -9,6 +9,7 @@ use Hash;
 use DB;
 use App\Models\User;
 use App\Models\Code;
+use App\Models\Menu;
 use Jenssegers\Agent\Agent;
 
 class MobileController extends Controller
@@ -25,7 +26,32 @@ class MobileController extends Controller
 
     public function index(){
         $agent = new Agent();
+        $Menu = DB::table('menus')->limit(12)->get();
+        return view('mobile.home', compact('Menu'));
+    }
 
+    public function getMenu(Request $request)
+    {
+        $results = Menu::orderBy('id')->paginate(3);
+        $Menu = '';
+        if ($request->ajax()) {
+            foreach ($results as $result) {
+                $Menu.=
+                '
+                <span class="col-6 pr-2" href="detail1#html">
+                    <div class="bg-white box_rounded overflow-hidden mb-3 shadow-sm">
+                    <img width="100%" src="{{url('/')}}/uploads/menu/$result->thumbnail" class="img-fluid">
+                    <div class="p-2">
+                        <p class="text-dark mb-1 fw-bold">$result->title</p>
+                        <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> kes $result->price </span> <span class="bg-light d-inline-block font-weight-bold text-muted rounded-3 py-1 px-2">25-30 min</span></span></p>
+                        <p class="small mb-0 text-muted ml-auto"><a class="text-danger" href="{{url('/')}}/mobile/shopping-cart/add-to-cart/$result->id">Add to Basket <i class="mdi mdi-cart text-danger"></i></a></p>
+                    </div>
+                    </div>
+                </span>
+                ';
+            }
+            return $Menu;
+        }
         return view('mobile.home');
     }
 
@@ -45,8 +71,6 @@ class MobileController extends Controller
     public function profile(){
         return view('mobile.profile');
     }
-
-
 
     public function offers(){
         return view('mobile.offers');
@@ -71,7 +95,6 @@ class MobileController extends Controller
     public function checkout(){
         return view('mobile.checkout');
     }
-
 
     public function menu($menu){
         $Menu = DB::table('menus')->where('slung', $menu)->get();

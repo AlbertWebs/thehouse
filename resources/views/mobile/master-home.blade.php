@@ -3,6 +3,7 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       <meta name="description" content="Pilau, Hot Burgers, Nyama Choma, Mbuzi Choma, Beef, Pizza and More Powered By Shaq's House Limited">
       <meta name="author" content="Designekta Studios">
       <link rel="icon" type="image/png" href="{{asset('uploads/VENSHAQ001-41.png')}}">

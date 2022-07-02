@@ -14,7 +14,11 @@ use App\Models\Code;
 class MobileLoginController extends Controller
 {
     public function index(){
-        return view('mobile.index');
+        if(Auth::User()){
+            return redirect()->route('get-started');
+        }else{
+            return view('mobile.index');
+        }
     }
 
     public function sign_in(){
