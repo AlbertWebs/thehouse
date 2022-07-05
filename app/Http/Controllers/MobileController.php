@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Code;
 use App\Models\Menu;
 use Jenssegers\Agent\Agent;
+use Response;
 
 class MobileController extends Controller
 {
@@ -56,6 +57,23 @@ class MobileController extends Controller
     }
 
 
+    public function add_to_cart($id)
+    {
+        $Product = Menu::find($id);
+        \Cart::add([
+            'id' => $Product->id,
+            'name' => $Product->title,
+            'price' => $Product->price,
+            'quantity' => 1,
+            'attributes' => array(
+            'image' => $Product->thumbnail,
+            )
+        ]);
+        $data = $Product->title." has been added to basket";
+        return Response::json($data);
+    }
+
+
     public function orders(){
         return view('mobile.orders');
     }
@@ -89,11 +107,14 @@ class MobileController extends Controller
     }
 
     public function shopping_cart(){
-        return view('mobile.shopping-cart');
+        $cartItems = \Cart::getContent();
+
+        return view('mobile.shopping-cart', compact('cartItems'));
     }
 
     public function checkout(){
-        return view('mobile.checkout');
+        $cartItems = \Cart::getContent();
+        return view('mobile.checkout', compact('cartItems'));
     }
 
     public function menu($menu){
@@ -108,7 +129,10 @@ class MobileController extends Controller
 
     public function category($menu){
         $Menu = DB::table('category')->where('slung', $menu)->get();
-        return view('mobile.menu', compact('Menu'));
+        foreach ($Menu as $key => $value) {
+            $Products = DB::table('menus')->where('cat_id', $value->id)->get();
+        }
+        return view('mobile.menu', compact('Menu','Products'));
     }
 
     public function location(Request $request)
@@ -120,6 +144,13 @@ class MobileController extends Controller
         return view('mobile.location', compact('currentUserInfo'));
     }
 
+    public function removeCart($id)
+    {
+        \Cart::remove($id);
+        session()->flash('success', 'Item Cart Remove Successfully !');
+
+        return redirect()->route('cart.list.mobile');
+    }
 
 
     public function generateCode(){

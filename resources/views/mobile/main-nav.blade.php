@@ -23,9 +23,9 @@
      </li>
        @endforeach
 
-       <li>
-            <a href="{{url('/')}}/mobile/shopping-cart"><i class="mdi mdi-cart mr-2"></i>Your Cart(3)</a>
 
+        <li>
+            <a href="{{url('/')}}/mobile/shopping-cart"><i class="mdi mdi-cart mr-2"></i>Your Cart(@if(\Cart::isEmpty()) 0 @else <?php $cartCollection = \Cart::getContent(); $Counts = $cartCollection->count(); echo $Counts ;?> @endif)</a>
         </li>
         <li>
             <a href="{{url('/')}}/mobile/search"><i class="mdi mdi-magnify mr-2"></i>Search</a>

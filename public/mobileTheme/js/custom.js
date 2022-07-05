@@ -282,6 +282,27 @@ ga('send', 'pageview');
         });
     });
 
+    $(document).ready(function(){
+        $(".add-to-cart").click(function(e){
+            e.preventDefault();
+            var url = $(this).data('url');
+            $(".spinner-border", this).css("display","flex");
+            // alert(url);
+            $.ajax({
+                url: url,
+                type: 'GET',
+                dataType: 'html'
+            })
+            .done(function(data){
+                $("#display-none").css("display", "block");
+                $(".spinner-border").css("display","none");
+                $("#display-none").show().delay(5000).fadeOut("slow");
+            })
+            .fail(function(){
+                alert('Error Occured')
+            });
+        });
+     });
 
 
       var $main_nav = $('#main-nav');

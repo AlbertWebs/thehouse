@@ -6,8 +6,7 @@ use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Auth\LoginControllers;
-
-
+use App\Http\Controllers\MobileController;
 
 
 
@@ -337,9 +336,13 @@ Route::group(['prefix'=>'mobile'], function(){
     Route::get('/edit-profile-pic', [App\Http\Controllers\MobileController::class, 'edit_profile_pic'])->name('edit-profile-pic');
     Route::post('/edit-profile-pic', [App\Http\Controllers\MobileController::class, 'edit_profile_pic_post'])->name('edit-profile-pic-post');
     Route::get('/search', [App\Http\Controllers\MobileController::class, 'search'])->name('search');
-    Route::get('/shopping-cart', [App\Http\Controllers\MobileController::class, 'shopping_cart'])->name('shopping-cart');
+    Route::get('/shopping-cart', [App\Http\Controllers\MobileController::class, 'shopping_cart'])->name('cart.list.mobile');
+    Route::get('/shopping-cart/add-to-cart/{id}', [App\Http\Controllers\MobileController::class, 'add_to_cart'])->name('add-to-cart');
+    Route::get('/shopping-cart/remove/{id}', [MobileController::class, 'removeCart'])->name('cart.remove.mobile');
     Route::get('/checkout', [App\Http\Controllers\MobileController::class, 'checkout'])->name('checkout');
     Route::get('/offers', [App\Http\Controllers\MobileController::class, 'offers'])->name('offers');
+    Route::get('/offers', [App\Http\Controllers\MobileController::class, 'offers'])->name('offers');
+
 
     Route::get('/get-menu', [App\Http\Controllers\MobileController::class, 'getMenu'])->name('getMenu');
     Route::group(['prefix'=>'profile'], function(){

@@ -95,6 +95,11 @@
           <h6 class="mb-0 fw-bold">Offer Food</h6>
           <a href="near#html" class="ml-auto"><span class="text-primary">View All</span></a>
        </div>
+
+       <div style="display: none" id="display-none" class="alert alert-success alert-dismissible fade show" role="alert">
+         <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+       </div>
+
        <section class="bg-light body_rounded position-relative row">
           @foreach ($Menu as $menu)
           <span class="col-6 pr-2" href="detail1#html">
@@ -103,7 +108,7 @@
                <div class="p-2">
                   <p class="text-dark mb-1 fw-bold">{{$menu->title}}</p>
                   <p class="small mb-2"><i class="mdi mdi-star text-warning"></i> <span class="font-weight-bold text-dark ml-1 fw-bold">4.8</span> <span class="text-muted"> <span class="mdi mdi-circle-medium"></span> African <span class="mdi mdi-circle-medium"></span> kes {{$menu->price}} </span> <span class="bg-light d-inline-block font-weight-bold text-muted rounded-3 py-1 px-2">25-30 min</span></span></p>
-                  <p class="small mb-0 text-muted ml-auto"><a class="text-danger" href="{{url('/')}}/mobile/shopping-cart/add-to-cart/{{$menu->id}}">Add to Basket <i class="mdi mdi-cart text-danger"></i></a></p>
+                  <p class="small mb-0 text-muted ml-auto"><a class="text-danger add-to-cart" data-url="{{url('/')}}/mobile/shopping-cart/add-to-cart/{{$menu->id}}" href="#">Add to Basket <i class="mdi mdi-cart text-danger"></i> &nbsp; <span style="display: none" class="spinner-border spinner-border-sm" role="status"></span></a> </p>
                </div>
             </div>
          </span>

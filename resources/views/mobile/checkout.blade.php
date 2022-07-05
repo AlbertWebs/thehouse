@@ -28,35 +28,19 @@
        </a>
        <div class="details-page my-1">
           <p class="text-dark h5 mb-3">Shaq's House</p>
+          @foreach ($cartItems as $cartitems)
           <div class="d-flex align-items-center mb-3">
-             <div class="mr-2"><img src="{{asset('mobileTheme/img/cart1.jpg')}}" class="img-fluid box_rounded cart_img"></div>
-             <div class="small text-muted">1 x</div>
+             <div class="mr-2"><img src="{{url('/')}}/uploads/menu/{{ $cartitems->attributes->image }}" class="img-fluid box_rounded cart_img"></div>
+             <div class="small text-muted">{{$cartitems->quantity}} x</div>
              <div class="text-dark ml-2">
-                <p class="mb-0">Cheese pie</p>
-                <p class="mb-0 small">KES 15</p>
+                <p class="mb-0">{{$cartitems->name}}</p>
+                <p class="mb-0 small">KES {{$cartitems->price}}</p>
              </div>
-             <a href="#" class="ml-auto"><i class="bg-light text-danger p-2 mdi mdi-trash-can-outline box_rounded h6 mb-0"></i></a>
+             <a href="{{ url('mobile/shopping-cart') }}/remove/{{$cartitems->id}}" class="ml-auto"><i class="bg-light text-danger p-2 mdi mdi-trash-can-outline box_rounded h6 mb-0"></i></a>
           </div>
-          <div class="d-flex align-items-center mb-3">
-             <div class="mr-2"><img src="{{asset('mobileTheme/img/cart2.jpg')}}" class="img-fluid box_rounded cart_img"></div>
-             <div class="small text-muted">2 x</div>
-             <div class="text-dark ml-2">
-                <p class="mb-0">Peperoni pie</p>
-                <p class="mb-0 small">KES 23</p>
-             </div>
-             <a href="#" class="ml-auto"><i class="bg-light text-danger p-2 mdi mdi-trash-can-outline box_rounded h6 mb-0"></i></a>
-          </div>
-          <div class="d-flex align-items-center mb-3">
-             <div class="mr-2"><img src="{{asset('mobileTheme/img/cart3.jpg')}}" class="img-fluid box_rounded cart_img"></div>
-             <div class="small text-muted">1 x</div>
-             <div class="text-dark ml-2">
-                <p class="mb-0">Cheese Pizza</p>
-                <p class="mb-0 small">KES 12</p>
-             </div>
-             <a href="#" class="ml-auto"><i class="bg-light text-danger p-2 mdi mdi-trash-can-outline box_rounded h6 mb-0"></i></a>
-          </div>
-          <p><a href="{{url('/')}}/mobile/menu" class="text-primary"><i class="mdi mdi-plus mr-2"></i> Add more items</a></p>
-          <a href="select_address.html" class="d-flex align-items-center mb-3">
+          @endforeach
+          <p><a href="{{url('/')}}/mobile/search" class="text-primary"><i class="mdi mdi-plus mr-2"></i> Add more items</a></p>
+          <a href="{{url('/')}}/mobile/profile" class="d-flex align-items-center mb-3">
              <div class="m-0 h1"><i class="d-block mdi mdi-motorbike box_rounded bg-light text-warning px-3 py-1"></i></div>
              <div class="text-dark ml-3">
                 <p class="mb-0">Delivery</p>
@@ -81,7 +65,8 @@
 
 
            <div class="fixed-bottom p-3">
-            <button href="track.html" class="btn btn-danger text-left box_rounded w-100 py-3 d-flex align-items-center px-4">Pay Now <span class="ml-auto"></span>KES 53.60</span></button>
+            <button href="track.html" class="btn btn-danger text-left box_rounded w-100 py-3 d-flex align-items-center px-4">Pay Now <span class="ml-auto"></span>KES <?php $Shipping = 100; $Total = \Cart::getTotal(); ?>
+                KES {{$Total+$Shipping}}</span></button>
          </div>
         </form>
      </section>
