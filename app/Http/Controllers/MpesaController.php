@@ -132,7 +132,7 @@ class MpesaController extends Controller
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array("Authorization: Basic ".$credentials));
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array("Authorization: Bearer ".$credentials));
         curl_setopt($curl, CURLOPT_HEADER,false);
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
