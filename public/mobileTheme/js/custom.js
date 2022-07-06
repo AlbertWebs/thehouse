@@ -301,7 +301,11 @@ ga('send', 'pageview');
                   window.location.reload();
                }
             }
+
         });
+        //Prevent Firing Twice
+        e.stopImmediatePropagation();
+        return false;
     });
 
     $(document).ready(function(){
@@ -309,22 +313,27 @@ ga('send', 'pageview');
             e.preventDefault();
             var url = $(this).data('url');
             $(".spinner-border", this).css("display","flex");
-            // alert(url);
             $.ajax({
                 url: url,
                 type: 'GET',
-                dataType: 'html'
+                async: true,
+                dataType: 'json',
+                cache: false,
             })
             .done(function(data){
                 $("#display-none").css("display", "block");
                 $(".spinner-border").css("display","none");
                 $("#display-none").show().delay(5000).fadeOut("slow");
+                window.location.reload();
             })
             .fail(function(){
                 alert('Error Occured')
             });
+            //Prevent Firing Twice
+            e.stopImmediatePropagation();
+            return false;
         });
-     });
+    });
 
 
       var $main_nav = $('#main-nav');
