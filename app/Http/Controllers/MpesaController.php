@@ -59,15 +59,15 @@ class MpesaController extends Controller
             'PartyB' => env("STKPARTYB"),
             'PhoneNumber' => $phoneNumber, // replace this with your phone number
             'CallBackURL' => env("STK_CALLBACKURL"),
-            'AccountReference' => "ASTE COMPANY LIMITED",
-            'TransactionDesc' => "ASTE"
+            'AccountReference' => "SHAQ'S HOUSE",
+            'TransactionDesc' => "SHAQS CHOMA ZONE"
         ];
         $data_string = json_encode($curl_post_data);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
         $curl_response = curl_exec($curl);
-        // dd($curl_response);
+        dd($curl_response);
 
         // Insert MerchantRequestID
         $curl_content=json_decode($curl_response);
