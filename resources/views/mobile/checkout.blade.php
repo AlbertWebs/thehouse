@@ -68,7 +68,7 @@
 
            <div class="fixed-bottom p-3">
                 <button type="submit" class="btn btn-danger text-left box_rounded w-100 py-3 d-flex align-items-center px-4">Pay Now <span class="ml-auto"></span>KES <?php $Shipping = 100; $Total = \Cart::getTotal(); ?>
-                    KES {{$Total+$Shipping}}</span>
+                    {{$Total+$Shipping}}</span>
                 </button>
            </div>
         </form>
