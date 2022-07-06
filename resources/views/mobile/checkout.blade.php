@@ -51,24 +51,30 @@
        </div>
     </section>
     <section class="bg-white body_rounded mt-n5 position-relative p-4">
-        <form class="">
-
+        <form action="{{url('/')}}/api/v1/stk/push" method="post" id="initiate-stk">
+            @csrf
            <div class="d-flex align-items-center mb-3">
                 <span class="mdi mdi-phone box_rounded p-2 btn btn-light mr-3 text-primary"></span>
                 <div class="form-floating border-bottom w-100">
-                <input type="text" class="form-control border-0 pl-0" id="floatingInputValue"  placeholder="+254" required>
+                <input type="text" class="form-control border-0 pl-0" name="mobile" id="floatingInputValue" value="{{Auth::User()->mobile}}"  placeholder="+254" required>
                 <label for="floatingInputValue" class="pl-0">M-PESA Number</label>
                 </div>
            </div>
+           <?php $Shipping = 100; $Total = \Cart::getTotal(); ?>
+           <input type="hidden" name="amount" value="{{$Total+$Shipping}}">
 
 
 
 
            <div class="fixed-bottom p-3">
-            <button href="track.html" class="btn btn-danger text-left box_rounded w-100 py-3 d-flex align-items-center px-4">Pay Now <span class="ml-auto"></span>KES <?php $Shipping = 100; $Total = \Cart::getTotal(); ?>
-                KES {{$Total+$Shipping}}</span></button>
-         </div>
+                <button type="submit" class="btn btn-danger text-left box_rounded w-100 py-3 d-flex align-items-center px-4">Pay Now <span class="ml-auto"></span>KES <?php $Shipping = 100; $Total = \Cart::getTotal(); ?>
+                    KES {{$Total+$Shipping}}</span>
+                </button>
+           </div>
         </form>
+        <div class="text-center">
+            <img width="30" src="{{asset('/mobileTheme/img/loading.gif')}}" class="loading-img">
+         </div>
      </section>
  </div>
 
