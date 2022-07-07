@@ -29,6 +29,25 @@ class MobileLoginController extends Controller
         }
     }
 
+    public function forgot_password(){
+        if(Auth::User()){
+            return redirect()->route('get-started');
+        }else{
+            return view('mobile.forgot-password');
+        }
+    }
+
+    public function email_success(){
+        if(Auth::User()){
+            return redirect()->route('get-started');
+        }else{
+            return view('mobile.email-success');
+        }
+    }
+
+
+
+
     public function sign_up(Request $request)
     {
         if(Auth::User()){

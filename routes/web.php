@@ -329,6 +329,10 @@ Route::group(['prefix'=>'mobile'], function(){
     Route::get('/get-started', [App\Http\Controllers\MobileController::class, 'index'])->name('get-started');
     Route::get('/location', [App\Http\Controllers\MobileController::class, 'location'])->name('mobile.location');
     Route::get('/sign-up', [App\Http\Controllers\MobileLoginController::class, 'sign_up'])->name('mobile.sign-up');
+    Route::get('/forgot-password', [App\Http\Controllers\MobileLoginController::class, 'forgot_password'])->name('mobile.forgot-password');
+    Route::get('/email-success', [App\Http\Controllers\MobileLoginController::class, 'email_success'])->name('mobile.email-success');
+
+
     Route::get('/logout', [App\Http\Controllers\MobileLoginController::class, 'logouts']);
     Route::get('/menu', [App\Http\Controllers\MobileController::class, 'menus'])->name('menu');
     Route::get('/menus/{slung}', [App\Http\Controllers\MobileController::class, 'menu'])->name('menu');

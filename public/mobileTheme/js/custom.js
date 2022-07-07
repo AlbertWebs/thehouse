@@ -195,6 +195,27 @@ ga('send', 'pageview');
         });
     });
 
+    $('#forgot-password').submit(function(e) {
+        e.preventDefault();
+        var actionurl = e.currentTarget.action;
+        $(".loading-img").show();
+        $.ajax({
+            url: actionurl,
+            type: 'post',
+            dataType: 'json',
+            data: $('#forgot-password').serialize(),
+            success: function(data) {
+               $(".loading-img").hide();
+               var host = window.location.protocol + "//" + window.location.host + "/mobile/email-success";
+               if(data['message'] == "Success"){
+                  window.location.replace(host);
+               }else{
+                  alert('Wrong Username or Password');
+               }
+            }
+        });
+    });
+
     $('#submitSignUp').submit(function(e) {
         e.preventDefault();
         var actionurl = e.currentTarget.action;
