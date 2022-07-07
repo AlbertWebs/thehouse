@@ -61,6 +61,16 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    // public function homes(){
+    //     if(Auth::User())
+    //     $agent = new Agent();
+    //     if($agent->isMobile()){
+    //         return redirect()->route('get-started');
+    //     }else{
+    //         return redirect()->route('dashboard');
+    //     }
+    // }
+
     public function login(Request $request)
     {
         $input = $request->all();

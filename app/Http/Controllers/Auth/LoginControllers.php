@@ -60,6 +60,9 @@ class LoginControllers extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function home(){
+
+    }
 
 
     public function login(Request $request)

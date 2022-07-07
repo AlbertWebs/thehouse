@@ -26,6 +26,8 @@ Route::get('/', function () {
 });
 
 
+Route::get('/home', [App\Http\Controllers\Auth\LoginController::class, 'homes'])->name('mobile.authenticated');
+
 
 Route::group(['prefix'=>'chomazone'], function(){
 
