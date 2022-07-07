@@ -119,16 +119,11 @@ class MpesaController extends Controller
 
     public function generateAccessToken()
     {
-        $consumer_key= env("MPESA_CONSUMER_KEY");
-        $consumer_secret=env("MPESA_CONSUMER_SECRET");
+        $consumer_key="RUa9XTxj13QyNvcEuP3Kix1XqfiUH6lm";
+        $consumer_secret="yGn09xLw7KAArSo0";
         $credentials = base64_encode($consumer_key.":".$consumer_secret);
 
-        $url = env('MPESA_ENV') == 0
-        ? 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
-        : 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
-
         $url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
-
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -136,7 +131,6 @@ class MpesaController extends Controller
         curl_setopt($curl, CURLOPT_HEADER,false);
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
         $curl_response = curl_exec($curl);
         dd($curl_response);
         $access_token=json_decode($curl_response);
@@ -146,7 +140,7 @@ class MpesaController extends Controller
 
     /**
      * J-son Response to M-pesa API feedback - Success or Failure
-     */
+    **/
     public function createValidationResponse($result_code, $result_description){
         $result=json_encode(["ResultCode"=>$result_code, "ResultDesc"=>$result_description]);
         $response = new Response();
