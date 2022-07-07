@@ -207,8 +207,9 @@ ga('send', 'pageview');
             success: function(data) {
                $(".loading-img").hide();
                var host = window.location.protocol + "//" + window.location.host + "/mobile/email-success";
+               window.location.replace(host);
                if(data['message'] == "Success"){
-                  window.location.replace(host);
+
                }else{
                   alert('Wrong Username or Password');
                }
