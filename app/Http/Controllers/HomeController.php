@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Menu;
 use DB;
+use Jenssegers\Agent\Agent;
 
 class HomeController extends Controller
 {
@@ -19,6 +20,18 @@ class HomeController extends Controller
     {
         return view('front.menu');
     }
+
+    public function select_device()
+    {
+        $agent = new Agent();
+            if($agent->isMobile()){
+                return redirect()->route('get-started');
+            }else{
+                return redirect()->route('dashboard');
+            }
+    }
+
+
 
     public function menus($slung)
     {

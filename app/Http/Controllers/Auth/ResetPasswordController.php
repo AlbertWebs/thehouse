@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Jenssegers\Agent\Agent;
 
 class ResetPasswordController extends Controller
 {
@@ -27,7 +28,9 @@ class ResetPasswordController extends Controller
      * @var string
      */
 
-    protected $redirectTo = 'path/to/where';
+
+
+    protected $redirectTo = 'select-device';
 
     public function __construct()
     {
