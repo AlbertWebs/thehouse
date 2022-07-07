@@ -314,7 +314,7 @@ ga('send', 'pageview');
             data: $('#initiate-stk').serialize(),
             success: function(data) {
                $(".loading-img").hide();
-               var host = window.location.protocol + "//" + window.location.host + "/mobile/profile/edit-profile";
+               var host = window.location.protocol + "//" + window.location.host + "/mobile/profile/orders";
                if(data['message'] == "Success"){
                   window.location.replace(host);
                }else{
@@ -322,7 +322,6 @@ ga('send', 'pageview');
                   window.location.reload();
                }
             }
-
         });
         //Prevent Firing Twice
         e.stopImmediatePropagation();

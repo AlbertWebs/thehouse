@@ -18,7 +18,7 @@
     <section class="bg-white body_rounded mt-n5 position-relative p-4">
         <h5 class="mb-3">Forgot Password</h5>
         <p class="text-muted small mb-5">Please enter your email address. You will receive a link to create a new password via email.</p>
-        <form id="forgot-password" action="{{ route('password.email') }}">
+        <form id="forgot-password" action="{{ route('password.email') }}" method="POST">
             @csrf
            <input name="email" class="form-control bg-dark search_item p-3 box_rounded border-0 text-white" type="email" placeholder="Enter your email">
            <div class="p-4 fixed-bottom">

@@ -78,6 +78,10 @@ class MobileController extends Controller
         return view('mobile.orders');
     }
 
+    public function orders_details(){
+        return view('mobile.orders-details');
+    }
+
     public function transactions(){
         return view('mobile.transactions');
     }
