@@ -150,7 +150,7 @@
 						<div class="sec-title">
 							<div class="title">Freshly made. Quickly delivered</div>
 							<h2>Welcome To Shaq's House</h2>
-							<div class="text">Shaq's House Servers you with tasty fried Mbuzi and a wide range of other menu items including hand-cut chips freshly made daily, chicken burgers, slow roasted rotisserie chicken, beef burgers , Spicy Wings, Chicken Bites and other affordable friendly meals. Among others, Our Best Menus are based on </div>
+							<div class="text">Shaq's House Serves you with tasty fried Mbuzi and a wide range of other menu items including hand-cut chips freshly made daily, chicken burgers, slow roasted rotisserie chicken, beef burgers , Spicy Wings, Chicken Bites and other affordable friendly meals. Among others, Our Best Menus are based on </div>
 						</div>
 						<ul class="list-style-one">
 							<li>Goat Meat(Mbuzi Fry, Mbuzi Choma , Mbuzi Matumbo)</li>
