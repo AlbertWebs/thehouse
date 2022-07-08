@@ -340,7 +340,8 @@ ga('send', 'pageview');
                 $("#display-none").css("display", "block");
                 $(".spinner-border").css("display","none");
                 $("#display-none").show().delay(5000).fadeOut("slow");
-                window.location.reload();
+                var host = window.location.protocol + "//" + window.location.host + "/mobile/shopping-cart";
+                window.location.replace(host);
             })
             .fail(function(){
                 alert('Error Occured')

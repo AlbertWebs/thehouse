@@ -120,11 +120,11 @@
          </span>
           @endforeach
        </section>
-       <div class="text-center">
+       {{-- <div class="text-center">
         <div class="spinner-border spinner-border-sm" role="status">
            <span class="visually-hidden">Loading...</span>
         </div>
-     </div>
+     </div> --}}
     </div>
  </div>
  @include('mobile.horizontal-nav')
