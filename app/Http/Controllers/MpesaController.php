@@ -870,14 +870,18 @@ class MpesaController extends Controller
         $Transcode = $request->transcode;
         $GetData = DB::table('mobile_payments')->where('TransID',$Transcode)->where('status','0')->get();
         if($GetData->isEmpty()){
-            return 'Fail';
+            return response()->json([
+                'message' => 'fail',
+            ]);
         }else{
             $updateDetails = array(
                'status' => 1,
                'user_id' => $request->user_id,
             );
             DB::table('mobile_payments')->where('TransID',$Transcode)->update($updateDetails);
-            return 'Success';
+            return response()->json([
+                'message' => 'success',
+            ]);
         }
 
     }

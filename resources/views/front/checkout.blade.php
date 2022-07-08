@@ -26,7 +26,7 @@
         <!--Billing Details-->
         <div class="billing-details">
             <div class="shop-form">
-                <form method="post" action="https://codexlayer.com/html/comida_punto/checkout.html">
+
                     <div class="row clearfix">
                         <div class="col-lg-7 col-md-12 col-sm-12">
 
@@ -79,11 +79,11 @@
                                     <li>Product<span>TOTAL</span></li>
                                     <?php $cartItems = \Cart::getContent(); ?>
                                     @foreach ($cartItems as $cartitems)
-                                    <li style="color:#000000">{{$cartitems->name}}<span>KES {{$cartitems->price}}</span></li>
-                                    <hr>
+                                        <li style="color:#000000">{{$cartitems->name}}({{$cartitems->quantity}})<span>KES {{$cartitems->price}}</span></li>
+                                        <hr>
                                     @endforeach
                                     <li>Subtotal<span class="dark">KES {{\Cart::getSubTotal()}}</span></li>
-                                    <li>Shipping And Handling<span>Free Shipping</span></li>
+                                    <li>Shipping And Handling<span>100</span></li>
                                     <li class="total">TOTAL<span class="dark"><?php $Shipping = 100; $Total = \Cart::getTotal(); ?>
                                         KES {{$Total+$Shipping}}</span></li>
                                 </ul>
@@ -99,9 +99,19 @@
                                                     <input type="radio" name="payment-group" id="payment-2" checked>
                                                     <label for="payment-2"><strong>M-PESA Express</strong>
                                                         <span class="small-text">
-                                                            <input type="text" name="verify" placeholder="Enter Your M-PESA Number 254723000000">
-                                                            <br>
-                                                            <button type="button" class=" btn-style-two"><span class="txt">Pay Now</span></button>
+                                                            <form action="{{url('/')}}/api/v1/stk/push" method="post" id="initiate-stk-desktop">
+                                                                @csrf
+                                                                <input type="text" name="verify" value="{{Auth::User()->mobile}}" placeholder="Enter Your M-PESA Number 254723000000">
+                                                                <br>
+                                                                <?php $Shipping = 100; $Total = \Cart::getTotal(); ?>
+                                                                <input type="hidden" name="amount" value="{{$Total+$Shipping}}">
+                                                                <button type="submit" class="btn-style-two">
+                                                                    <span class="txt">Pay Now
+                                                                        <img width="50" src="{{asset('/mobileTheme/img/loading.gif')}}" class="loading-img">
+                                                                    </span>
+                                                                </button>
+                                                                <p class="text-success hide-check">Check your Phone....</p>
+                                                            </form>
                                                         </span>
                                                     </label>
                                                 </div>
@@ -119,9 +129,18 @@
                                                             <li>5. Enter Amount {{$Total+$Shipping}}</li>
                                                             <li>6. Enter your PIN to confirm</li>
                                                           </ol>
-                                                          <input type="text" name="verify" placeholder="Enter Transaction Code">
-                                                          <br>
-                                                            <button type="button" class=" btn-style-two"><span class="txt">Verify Payment</span></button>
+                                                          <form action="{{url('/')}}/api/v1/c2b" method="post" id="initiate-c2b-desktop">
+                                                            @csrf
+                                                            <input type="text" name="verify" placeholder="Enter Transaction Code" required>
+                                                            <input type="hidden" value="{{Auth::User()->id}}" name="user_id">
+                                                            <br>
+                                                                <button type="submit" class=" btn-style-two">
+                                                                    <span class="txt">
+                                                                        Verify Payment <img width="50" src="{{asset('/mobileTheme/img/loading.gif')}}" class="loading-imgs">
+                                                                        </span>
+                                                                    </button>
+                                                                <p class="text-success hide-checks">Checking Your Transaction</p>
+                                                          </form>
                                                         </span>
                                                     </label>
                                                 </div>
@@ -148,7 +167,7 @@
 
                         </div>
                     </div>
-                </form>
+
 
             </div>
 

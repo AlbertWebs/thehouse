@@ -46,6 +46,8 @@ Route::post('v1/b2c/callbacks',[MpesaController::class,'b2ccallback']);
 Route::post('v1/b2b',[MpesaController::class,'b2b']);
 // B2B CallBackURL
 Route::post('v1/b2b/callbacks',[MpesaController::class,'b2bcallback']);
+Route::post('v1/c2b',[MpesaController::class,'customerMpesaVerify']);
+
 
 // AccountBalance Send Request
 Route::post('v1/balance',[MpesaController::class,'balance']);
