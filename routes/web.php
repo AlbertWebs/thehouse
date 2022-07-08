@@ -54,6 +54,8 @@ Route::get('/google', [LoginController::class, 'google']);
 Route::get('/google/redirect', [LoginController::class, 'googleRedirect']);
 // End Duplicate
 
+
+
 Route::get('/', function () {
     return view('shaqshouse.index');
 });
