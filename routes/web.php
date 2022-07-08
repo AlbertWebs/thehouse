@@ -21,9 +21,7 @@ use App\Http\Controllers\MobileController;
 |
 */
 
-Route::get('/', function () {
-    return view('shaqshouse.index');
-});
+
 
 
 Route::get('/select-device', [App\Http\Controllers\HomeController::class, 'select_device'])->name('select-device');
@@ -55,6 +53,10 @@ Route::get('/facebook/redirect', [LoginController::class, 'facebookRedirect']);
 Route::get('/google', [LoginController::class, 'google']);
 Route::get('/google/redirect', [LoginController::class, 'googleRedirect']);
 // End Duplicate
+
+Route::get('/', function () {
+    return view('shaqshouse.index');
+});
 
 Route::group(['prefix'=>'chomazone'], function(){
 
