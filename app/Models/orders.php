@@ -4,11 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-use Gloudemans\Shoppingcart\Facades\Cart;
-
 use App\Models\orders;
 
-use App\Notifications;
+use App\Models\Notifications;
 
 use illuminate\support\Facades\Auth;
 
@@ -24,12 +22,12 @@ class orders extends Model
     public static function createOrder(){
 
         $user = Auth::user();
-        $order = $user->orders()->create(['total'=>Cart::total(),'status'=>'pending']);
+        $order = $user->orders()->create(['total'=>\Cart::getTotal(),'status'=>'pending']);
 
-        $cartItems = Cart::content();
+        $cartItems = \Cart::getContent();
         foreach($cartItems as $cartItem)
 
-            $order->orderFields()->attach($cartItem->id,['qty'=>$cartItem->qty, 'tax' =>Cart::tax(), 'total'=>Cart::total()]);
+            $order->orderFields()->attach($cartItem->id,['qty'=>$cartItem->qty, 'tax' =>0, 'total'=>\Cart::getTotal()]);
             //Insert Notification
             $Notifications = new Notifications;
             $Notifications->type = 'Order';

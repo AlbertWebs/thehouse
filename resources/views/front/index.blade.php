@@ -184,7 +184,7 @@
 				<h2>Our Customers' Top Picks</h2>
 			</div>
 			<div class="row clearfix">
-                <?php $Menu = DB::table('menus')->limit('6')->get() ?>
+                <?php $Menu = DB::table('product')->limit('6')->get() ?>
 
                 @foreach ($Menu as $menu)
 				<!-- Menu Block Two -->
@@ -252,7 +252,7 @@
                         <div class="tab @if($Counter==1) active-tab @endif" id="menu_{{$cat->id}}">
                             <div class="content">
                                 <div class="row clearfix">
-                                    <?php $Menu = DB::table('menus')->where('cat_id',$cat->id)->get() ?>
+                                    <?php $Menu = DB::table('product')->where('cat_id',$cat->id)->get() ?>
 
                                     @foreach ($Menu as $menu)
                                     <!-- Menu Block Three -->

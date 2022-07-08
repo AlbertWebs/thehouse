@@ -1193,7 +1193,7 @@ public function add_Product(Request $request){
 }
 
 public function Products(){
-    $Product = Menu::all();
+    $Product = Product::all();
     $page_title = 'list';
     $page_name = 'All in Menu';
     return view('admin.products',compact('page_title','Product','page_name'));
@@ -1290,7 +1290,7 @@ public function swap_status($id,$status){
 }
 
 public function editProduct($id){
-    $Product = Menu::find($id);
+    $Product = Product::find($id);
     $page_title = 'formfiletext';
     $page_name = 'Edit Product';
     return view('admin.editProduct',compact('page_title','Product','page_name'));
@@ -1362,7 +1362,7 @@ public function edit_Product(Request $request, $id){
         'meta' =>$request->meta,
         'price_raw'=>$request->price,
     );
-    DB::table('menus')->where('id',$id)->update($updateDetails);
+    DB::table('product')->where('id',$id)->update($updateDetails);
     Session::flash('message', "Changes have been saved");
     return Redirect::back();
 }

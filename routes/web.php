@@ -388,6 +388,7 @@ Route::group(['prefix'=>'mobile'], function(){
         Route::get('/orders', [App\Http\Controllers\MobileController::class, 'orders'])->name('orders');
         Route::get('/orders/place-orders', [App\Http\Controllers\MobileController::class, 'place_orders'])->name('place-orders');
         Route::get('/orders/details', [App\Http\Controllers\MobileController::class, 'orders_details'])->name('orders-details');
-
+        Route::get('/orders/re-order/{id}', [App\Http\Controllers\MobileController::class, 'orders_re_order'])->name('orders-re-order');
+        Route::get('/orders/mailClient', [App\Http\Controllers\MobileController::class, 'mailClient'])->name('orders-mailClient');
     });
 });

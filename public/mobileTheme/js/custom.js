@@ -351,6 +351,36 @@ ga('send', 'pageview');
         });
     });
 
+    $(document).ready(function(){
+        $(".re-order").click(function(e){
+            e.preventDefault();
+            var url = $(this).data('url');
+            $(".spinner-border", this).css("visibility","visible");
+            $.ajax({
+                url: url,
+                type: 'GET',
+                async: true,
+                dataType: 'json',
+                cache: false,
+            })
+            .done(function(data){
+               var host = window.location.protocol + "//" + window.location.host + "/mobile/shopping-cart";
+               if(data == "Success"){
+                  $(".spinner-border").css("visibility","hidden");
+                  window.location.replace(host);
+               }else{
+                  alert(data['message']);
+               }
+            })
+            .fail(function(){
+                alert('Error Occured')
+            });
+            //Prevent Firing Twice
+            e.stopImmediatePropagation();
+            return false;
+        });
+    });
+
 
       var $main_nav = $('#main-nav');
       var $toggle = $('.toggle');

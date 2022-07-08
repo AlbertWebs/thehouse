@@ -12,7 +12,7 @@
         <a href="{{url('/')}}/mobile/menu/{{$item->slung}}"><i class="mdi mdi-timeline-check-outline mr-2"></i>{{$item->cat}}</a>
         <ul>
             <?php
-                    $Menu = DB::table('menus')->where('cat_id',$item->id)->get()
+                    $Menu = DB::table('product')->where('cat_id',$item->id)->get()
             ?>
             @foreach ($Menu as $menu)
             <li><a href="{{url('/')}}/mobile/menus/{{$menu->slung}}">{{$menu->title}}</a></li>

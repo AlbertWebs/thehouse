@@ -17,81 +17,46 @@
        </a>
     </div>
  </div>
+
  <section class="p-3">
-    <p class="small text-muted mb-0 mb-2">29 AUG 2022</p>
-    <div class="order_detail order_detail-2 mb-2 bg-light p-3 box_rounded">
-       <a href="detail1.html" class="d-flex align-items-center pb-3">
-          <div class="bg-white box_rounded">
-             <img src="{{asset('mobileTheme/img/1.png')}}" class="img-fluid rounded">
-          </div>
-          <div class="ml-3 d-flex w-100">
-             <div class="text-dark">
-                <p class="mb-1 fw-bold">Oberoia Special</p>
-                <p class="small text-muted mb-0">July 06, 2022 <span class="ml-1"><i class="mdi mdi-circle-medium mr-1"></i>23:54</span></p>
-             </div>
-             <div class="badge bg-success ml-auto mb-auto">Completed</div>
-          </div>
-       </a>
-       <div class="d-flex justify-content-between">
-          <a href="#" class="btn btn-primary btn-block mr-1 box_rounded w-50 btn-sm py-2">Reorder</a>
-          <a href="{{url('/')}}/mobile/profile/orders/details" class="btn btn-outline-primary btn-block ml-1 box_rounded w-50 btn-sm py-2">Order Details</a>
-       </div>
-    </div>
-    <div class="order_detail order_detail-2 mb-2 bg-light p-3 box_rounded">
-       <a href="detail1.html" class="d-flex align-items-center pb-3">
-          <div class="bg-white box_rounded">
-             <img src="{{asset('mobileTheme/img/2.png')}}" class="img-fluid rounded">
-          </div>
-          <div class="ml-3 d-flex w-100">
-             <div class="text-dark">
-                <p class="mb-1 fw-bold">Eat Well Dhabas</p>
-                <p class="small text-muted mb-0">July 06, 2022 <span class="ml-1"><i class="mdi mdi-circle-medium mr-1"></i>23:54</span></p>
-             </div>
-             <div class="badge bg-success ml-auto mb-auto">Completed</div>
-          </div>
-       </a>
-       <div class="d-flex justify-content-between">
-          <a href="#" class="btn btn-primary btn-block mr-1 box_rounded w-50 btn-sm py-2">Reorder</a>
-          <a href="#" class="btn btn-outline-primary btn-block ml-1 box_rounded w-50 btn-sm py-2">Order Details</a>
-       </div>
-    </div>
-    <div class="order_detail order_detail-2 mb-2 bg-light p-3 box_rounded">
-       <a href="detail1.html" class="d-flex align-items-center pb-3">
-          <div class="bg-white box_rounded">
-             <img src="{{asset('mobileTheme/img/5.png')}}" class="img-fluid rounded">
-          </div>
-          <div class="ml-3 d-flex w-100">
-             <div class="text-dark">
-                <p class="mb-1 fw-bold">Pizzaa Places</p>
-                <p class="small text-muted mb-0">July 06, 2022 <span class="ml-1"><i class="mdi mdi-circle-medium mr-1"></i>23:54</span></p>
-             </div>
-             <div class="badge bg-success ml-auto mb-auto">Completed</div>
-          </div>
-       </a>
-       <div class="d-flex justify-content-between">
-          <a href="#" class="btn btn-primary btn-block mr-1 box_rounded w-50 btn-sm py-2">Reorder</a>
-          <a href="#" class="btn btn-outline-primary btn-block ml-1 box_rounded w-50 btn-sm py-2">Order Details</a>
-       </div>
-    </div>
-    <p class="small text-muted mb-0 mb-2 mt-5">28 AUG 2022</p>
-    <div class="order_detail order_detail-2 mb-2 bg-light p-3 box_rounded">
-       <a href="detail1.html" class="d-flex align-items-center pb-3">
-          <div class="bg-white box_rounded">
-             <img src="{{asset('mobileTheme/img/1.png')}}" class="img-fluid rounded">
-          </div>
-          <div class="ml-3 d-flex w-100">
-             <div class="text-dark">
-                <p class="mb-1 fw-bold">Oberoia Special</p>
-                <p class="small text-muted mb-0">July 06, 2022 <span class="ml-1"><i class="mdi mdi-circle-medium mr-1"></i>23:54</span></p>
-             </div>
-             <div class="badge bg-success ml-auto mb-auto">Completed</div>
-          </div>
-       </a>
-       <div class="d-flex justify-content-between">
-          <a href="#" class="btn btn-primary btn-block mr-1 box_rounded w-50 btn-sm py-2">Reorder</a>
-          <a href="#" class="btn btn-outline-primary btn-block ml-1 box_rounded w-50 btn-sm py-2">Order Details</a>
-       </div>
-    </div>
+    @if($Order->isEmpty())
+      <p class="small text-muted mb-0 mb-2">Today: <strong>{{date('D d M Y')}}</strong> You Have Not Made Any Orders, Go to <a href="{{url('/')}}/mobile/get-started"></a> to place an order</p>
+    @else
+    <p class="small text-muted mb-0 mb-2">Today: <strong>{{date('D d M Y')}}</strong> </p>
+        @foreach ($Order as $order)
+        <?php $Product = DB::table('orders_products')->where('orders_id',$order->id)->get();  ?>
+        @foreach ($Product as $item)
+        <?php $Products = DB::table('product')->where('id',$item->products_id)->get();  ?>
+            @foreach ($Products as $pro)
+            <div class="order_detail order_detail-2 mb-2 bg-light p-3 box_rounded">
+                <a href="{{url('/')}}/mobile/profile/orders/{{$order->id}}" class="d-flex align-items-center pb-3">
+                <div class="bg-white box_rounded">
+                    <img src="{{url('/')}}/uploads/menu/{{$pro->thumbnail}}" class="img-fluid rounded">
+                </div>
+                <div class="ml-3 d-flex w-100">
+                    <div class="text-dark">
+                        <p class="mb-1 fw-bold">{{$pro->title}}</p>
+                        <p class="small text-muted mb-0"> {{date('D' , strtotime($order->created_at))}} {{date('d' , strtotime($order->created_at))}} {{date('M' , strtotime($order->created_at))}}, {{date('Y' , strtotime($order->created_at))}} <span class="ml-1"><i class="mdi mdi-circle-medium mr-1"></i>{{date('H:i' , strtotime($order->created_at))}}</span></p>
+                    </div>
+                    @if($order->status == "pending")
+                        <div class="badge bg-primary ml-auto mb-auto"><span class="mdi mdi-clock"></span> Pending</div>
+                    @elseif($order->status == "confirmed")
+                        <div class="badge bg-danger ml-auto mb-auto"><span class="mdi mdi-check"></span> Confirmed</div>
+                    @else
+                    <div class="badge bg-success ml-auto mb-auto"><span class="mdi mdi-emoticon"></span> Completed</div>
+                    @endif
+                </div>
+                </a>
+                <div class="d-flex justify-content-between">
+                <a onclick="return confirm('Reorder This Now?')" data-url="{{url('/')}}/mobile/profile/orders/re-order/{{$order->id}}" class="btn btn-primary btn-block mr-1 box_rounded w-50 btn-sm py-2 re-order">Reorder <span style="visibility: hidden" class="spinner-border spinner-border-sm" role="status"></span></a>
+                <a href="{{url('/')}}/mobile/profile/orders/{{$order->id}}" class="btn btn-outline-primary btn-block ml-1 box_rounded w-50 btn-sm py-2">Order Details</a>
+                </div>
+            </div>
+            @endforeach
+        @endforeach
+        @endforeach
+    @endif
+
  </section>
 @include('mobile.main-nav')
 {{-- @include('mobile.horizontal-nav') --}}

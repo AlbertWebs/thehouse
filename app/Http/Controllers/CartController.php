@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Menu;
+use App\Models\Product;
 
 class CartController extends Controller
 {
@@ -19,7 +20,7 @@ class CartController extends Controller
     }
     public function addToCart($id)
     {
-        $Product = Menu::find($id);
+        $Product = Product::find($id);
         \Cart::add([
             'id' => $Product->id,
             'name' => $Product->title,

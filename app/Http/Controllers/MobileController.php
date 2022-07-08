@@ -10,6 +10,10 @@ use DB;
 use App\Models\User;
 use App\Models\Code;
 use App\Models\Menu;
+use App\Models\orders;
+use App\Models\Invoice;
+use App\Models\Product;
+use App\Models\ReplyMessage;
 use Jenssegers\Agent\Agent;
 use Response;
 
@@ -27,7 +31,7 @@ class MobileController extends Controller
 
     public function index(){
         $agent = new Agent();
-        $Menu = DB::table('menus')->limit(12)->get();
+        $Menu = DB::table('product')->limit(12)->get();
         return view('mobile.home', compact('Menu'));
     }
 
@@ -59,7 +63,7 @@ class MobileController extends Controller
 
     public function add_to_cart($id)
     {
-        $Product = Menu::find($id);
+        $Product = Product::find($id);
         \Cart::add([
             'id' => $Product->id,
             'name' => $Product->title,
@@ -73,9 +77,36 @@ class MobileController extends Controller
         return Response::json($data);
     }
 
+    public function orders_re_order($id)
+    {
+        $Order = DB::table('orders')->where('id',$id)->get();
+        foreach($Order as $order){
+           $OrderProducts = DB::table('orders_products')->where('orders_id',$order->id)->get();
+           foreach($OrderProducts as $orderproducts){
+               $products_id = $orderproducts->products_id;
+               $qty = $orderproducts->qty;
+               $Product = Product::find($products_id);
+                \Cart::add([
+                    'id' => $Product->id,
+                    'name' => $Product->title,
+                    'price' => $Product->price,
+                    'quantity' => 1,
+                    'attributes' => array(
+                    'image' => $Product->thumbnail,
+                    )
+                ]);
+           }
+        }
+        $data = "Success";
+        return Response::json($data);
+    }
+
+
+
 
     public function orders(){
-        return view('mobile.orders');
+        $Order = DB::table('orders')->where('user_id', Auth::User()->id)->get();
+        return view('mobile.orders', compact('Order'));
     }
 
     public function orders_details(){
@@ -122,19 +153,19 @@ class MobileController extends Controller
     }
 
     public function menu($menu){
-        $Menu = DB::table('menus')->where('slung', $menu)->get();
+        $Menu = DB::table('product')->where('slung', $menu)->get();
         return view('mobile.details', compact('Menu'));
     }
 
     public function menus($menu){
-        $Menu = DB::table('menus')->get();
+        $Menu = DB::table('product')->get();
         return view('mobile.menu', compact('Menu'));
     }
 
     public function category($menu){
         $Menu = DB::table('category')->where('slung', $menu)->get();
         foreach ($Menu as $key => $value) {
-            $Products = DB::table('menus')->where('cat_id', $value->id)->get();
+            $Products = DB::table('product')->where('cat_id', $value->id)->get();
         }
         return view('mobile.menu', compact('Menu','Products'));
     }
@@ -243,25 +274,47 @@ class MobileController extends Controller
     }
 
     public function place_orders(){
+        // Create Invoice
+        $Invoice = DB::table('invoices')->orderBy('id','DESC')->Limit('1')->get();
+        $count_mpesa = count($Invoice);
+        if($count_mpesa == 0){
+            $InvoiceNumber = 'SCZ01';
+        }else{
+            foreach($Invoice as $mpesa){
+                $LastID = $mpesa->id;
+                $Next = $LastID+1;
+                $InvoiceNumber = "SCZ0".$Next;
+            }
+        }
+        $Invoice = new Invoice;
+        $Invoice->number = $InvoiceNumber;
+        $Invoice->shipping = "100";
+        $Invoice->products = serialize(\Cart::getContent());
+        $Invoice->user_id = Auth::user()->id;
+        $Invoice->amount = \Cart::getTotal();
+        $Invoice->save();
+
         $name = Auth::user()->name;
         $email = Auth::user()->email;
         $phone = Auth::user()->mobile;
-        $InvoiceNumber = session()->get('Invoice');
-        $OrderNumberNumber = session()->get('Order');
-        $ShippingFee = session()->get('Shipping');
-        $TotalCost = session()->get('TotalCost');
+        $InvoiceNumber = $InvoiceNumber;
+        $ShippingFee = 100;
+        $TotalCost = \Cart::getTotal();
 
         if(\Cart::isEmpty()){
             return redirect()->route('get-started');
         }else{
             Orders::createOrder();
             // Send To Merchant
-            $this->send($Message,$mobile);
+            $date = date('h-i-s');
+            $MessageMerchant = "Order Number $InvoiceNumber, Has Been Placed at $date by $name, Email:$email and Phone:$phone";
+            $MerchantPhoneNumber = "254799071107";
+            $this->send($MessageMerchant,$MerchantPhoneNumber);
             // Send To Client
-            $this->send($Message,$mobile);
+            $Message = "Your Order #$InvoiceNumber has been Placed successfully";
+            $this->send($Message,$phone);
             ReplyMessage::mailclient($email,$name,$InvoiceNumber,$ShippingFee,$TotalCost);
-            ReplyMessage::mailmerchant($email,$name,$phone);
-            Cart::clear();
+            \Cart::clear();
             return redirect()->route('get-started');
         }
     }
@@ -288,6 +341,20 @@ class MobileController extends Controller
         $User = User::find(Auth::User()->id);
         return view('mobile.edit-profile-pic', compact('User'));
     }
+
+    public function mailClient(){
+        $User = User::find(Auth::User()->id);
+        $content = "Contents";
+        $subject = "Your Order Is Placed!";
+        $name = "Albert Muhatia";
+        $ShippingFee = 100;
+        $CartItems = \Cart::getContent();
+        $TotalCost = \Cart::getTotal();
+        $invoicenumber = "SHAQ001";
+        return view('mailClient', compact('User','content','subject','name','CartItems','ShippingFee','TotalCost','invoicenumber'));
+    }
+
+
 
     public function edit_profile_pic_post(Request $request){
         if($request->file('avatar')){

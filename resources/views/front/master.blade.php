@@ -79,7 +79,7 @@
         	<div class="outer-container clearfix">
 
 				<div class="pull-left logo-box">
-					<div class="logo"><a href="{{url('/')}}"><img width="120" src="{{asset('uploads/logo/logo.png')}}" alt="" title=""></a></div>
+					<div class="logo"><a href="{{url('/')}}/chomazone"><img width="120" src="{{asset('uploads/logo/logo.png')}}" alt="" title=""></a></div>
 				</div>
 
 				<div class="nav-outer clearfix">
@@ -180,7 +180,7 @@
             <div class="auto-container clearfix">
                 <!--Logo-->
                 <div class="logo pull-left">
-                    <a href="{{url('/')}}" title=""><img width="150" src="{{asset('uploads/logo/logo.png')}}" alt="" title=""></a>
+                    <a href="{{url('/')}}/chomazone" title=""><img width="150" src="{{asset('uploads/logo/logo.png')}}" alt="" title=""></a>
                 </div>
                 <!--Right Col-->
                 <div class="pull-right">

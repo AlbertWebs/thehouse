@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Menu;
+use App\Models\Product;
 use DB;
 use Jenssegers\Agent\Agent;
 
@@ -39,7 +40,7 @@ class HomeController extends Controller
         foreach ($Category as $key => $value) {
             $title = $value->cat;
         }
-        $Menu = Menu::where('cat_id',$value->id)->get();
+        $Menu = Product::where('cat_id',$value->id)->get();
         return view('front.menus', compact('title','Menu'));
     }
 
