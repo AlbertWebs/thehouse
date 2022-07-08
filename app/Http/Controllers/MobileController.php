@@ -242,6 +242,30 @@ class MobileController extends Controller
         curl_close($ch);
     }
 
+    public function place_orders(){
+        $name = Auth::user()->name;
+        $email = Auth::user()->email;
+        $phone = Auth::user()->mobile;
+        $InvoiceNumber = session()->get('Invoice');
+        $OrderNumberNumber = session()->get('Order');
+        $ShippingFee = session()->get('Shipping');
+        $TotalCost = session()->get('TotalCost');
+
+        if(\Cart::isEmpty()){
+            return redirect()->route('get-started');
+        }else{
+            Orders::createOrder();
+            // Send To Merchant
+            $this->send($Message,$mobile);
+            // Send To Client
+            $this->send($Message,$mobile);
+            ReplyMessage::mailclient($email,$name,$InvoiceNumber,$ShippingFee,$TotalCost);
+            ReplyMessage::mailmerchant($email,$name,$phone);
+            Cart::clear();
+            return redirect()->route('get-started');
+        }
+    }
+
     public function update_profile(Request $request){
         $name = $request->name;
         $email = $request->email;

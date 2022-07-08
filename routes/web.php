@@ -382,6 +382,7 @@ Route::group(['prefix'=>'mobile'], function(){
         Route::get('/edit-profile', [App\Http\Controllers\MobileController::class, 'edit_profile'])->name('edit-profile');
         Route::get('/transactions', [App\Http\Controllers\MobileController::class, 'transactions'])->name('transactions');
         Route::get('/orders', [App\Http\Controllers\MobileController::class, 'orders'])->name('orders');
+        Route::get('/orders/place-orders', [App\Http\Controllers\MobileController::class, 'place_orders'])->name('place-orders');
         Route::get('/orders/details', [App\Http\Controllers\MobileController::class, 'orders_details'])->name('orders-details');
 
     });
