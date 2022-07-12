@@ -25,7 +25,7 @@
           </span>
        </div>
 
-       <img src="{{url('/')}}/uploads/categories/{{$menu->image}}" class="img-fluid">
+       <img width="100%" src="{{url('/')}}/uploads/categories/{{$menu->image}}" class="img-fluid">
     </section>
     <section class="bg-light body_rounded mt-n5 position-relative p-3 row">
 
