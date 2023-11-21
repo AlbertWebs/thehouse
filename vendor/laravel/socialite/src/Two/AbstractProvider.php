@@ -3,6 +3,7 @@
 namespace Laravel\Socialite\Two;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\RequestOptions;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -238,14 +239,26 @@ abstract class AbstractProvider implements ProviderContract
 
         $response = $this->getAccessTokenResponse($this->getCode());
 
-        $this->user = $this->mapUserToObject($this->getUserByToken(
-            $token = Arr::get($response, 'access_token')
-        ));
+        $user = $this->getUserByToken(Arr::get($response, 'access_token'));
 
-        return $this->user->setToken($token)
-                    ->setRefreshToken(Arr::get($response, 'refresh_token'))
-                    ->setExpiresIn(Arr::get($response, 'expires_in'))
-                    ->setApprovedScopes(explode($this->scopeSeparator, Arr::get($response, 'scope', '')));
+        return $this->userInstance($response, $user);
+    }
+
+    /**
+     * Create a user instance from the given data.
+     *
+     * @param  array  $response
+     * @param  array  $user
+     * @return \Laravel\Socialite\Two\User
+     */
+    protected function userInstance(array $response, array $user)
+    {
+        $this->user = $this->mapUserToObject($user);
+
+        return $this->user->setToken(Arr::get($response, 'access_token'))
+            ->setRefreshToken(Arr::get($response, 'refresh_token'))
+            ->setExpiresIn(Arr::get($response, 'expires_in'))
+            ->setApprovedScopes(explode($this->scopeSeparator, Arr::get($response, 'scope', '')));
     }
 
     /**
@@ -286,11 +299,22 @@ abstract class AbstractProvider implements ProviderContract
     public function getAccessTokenResponse($code)
     {
         $response = $this->getHttpClient()->post($this->getTokenUrl(), [
-            'headers' => ['Accept' => 'application/json'],
-            'form_params' => $this->getTokenFields($code),
+            RequestOptions::HEADERS => $this->getTokenHeaders($code),
+            RequestOptions::FORM_PARAMS => $this->getTokenFields($code),
         ]);
 
         return json_decode($response->getBody(), true);
+    }
+
+    /**
+     * Get the headers for the access token request.
+     *
+     * @param  string  $code
+     * @return array
+     */
+    protected function getTokenHeaders($code)
+    {
+        return ['Accept' => 'application/json'];
     }
 
     /**

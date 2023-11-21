@@ -51,7 +51,7 @@
        </div>
     </section>
     <section class="bg-white body_rounded mt-n5 position-relative p-4">
-        <form action="{{url('/')}}/api/v1/stk/push" method="post" id="initiate-stks">
+        <form action="{{url('/')}}/api/v1/stk/push" method="post" id="initiate-stk">
             @csrf
            <div class="d-flex align-items-center mb-3">
                 <span class="mdi mdi-phone box_rounded p-2 btn btn-light mr-3 text-primary"></span>
@@ -62,10 +62,7 @@
            </div>
            <?php $Shipping = 100; $Total = \Cart::getTotal(); ?>
            <input type="hidden" name="amount" value="{{$Total+$Shipping}}">
-
-
-
-
+           <input type="hidden" name="user_id" value="{{Auth::User()->id}}">
            <div class="fixed-bottom p-3">
                 <button type="submit" class="btn btn-danger text-left box_rounded w-100 py-3 d-flex align-items-center px-4">Pay Now <span class="ml-auto"></span>KES <?php $Shipping = 100; $Total = \Cart::getTotal(); ?>
                     {{$Total+$Shipping}}</span>

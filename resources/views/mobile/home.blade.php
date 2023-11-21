@@ -20,6 +20,13 @@
           </a>
        </div>
     </section>
+    @if(Session::has('message'))
+        {{-- <div class="alert alert-success"> --}}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong> {{Auth::User()->name}}!</strong> {{ Session::get('message') }}
+            </div>
+        {{-- </div> --}}
+    @endif
     <section class="featured py-3 pl-3 bg-white body_rounded mt-n5">
        <div class="title mb-3">
           <h6 class="mb-0 fw-bold">Featured</h6>

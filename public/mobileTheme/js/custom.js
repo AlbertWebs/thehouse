@@ -310,7 +310,7 @@ ga('send', 'pageview');
             data: $('#initiate-stk').serialize(),
             success: function(data) {
                $(".loading-img").hide();
-               var host = window.location.protocol + "//" + window.location.host + "/mobile/profile/place-orders";
+               var host = window.location.protocol + "//" + window.location.host + "/mobile/profile/orders/place-orders";
                if(data['message'] == "Success"){
                   window.location.replace(host);
                }else{

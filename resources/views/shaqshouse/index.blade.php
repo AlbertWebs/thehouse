@@ -9,13 +9,23 @@
 <!-- Mirrored from www.11-76.com/themes/sky/index-HTML5-video-dark.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 02 Jul 2022 09:40:22 GMT -->
 <head>
         <meta charset="utf-8">
-        <title>
-            Shaq's House || Shaq's House Restaurant
-        </title>
-        <meta content="" name="description">
-        <meta content="" name="author">
-        <meta content="" name="keywords">
+        <meta name="title" content="Shaq's Choma Zone - Fries and Chiken Fast Food in Kiserian -Shaqs House">
+        <meta name="description" content="Indulge in irresistible flavors at Shaq's Choma Zone in Kiserian! Savor the perfect blend of crispy fries and succulent chicken at Shaq's House.">
+        <meta name="keywords" content="Shaq's Choma ZoneKiserian fast foodIrresistible flavorsCrispy friesSucculent chickenShaq's HouseFast food delightGo-to destinationFood indulgenceKiserian diningFlavorful experiencePerfect blendShaq's Choma Zone menuDelicious fries and chickenCulinary delight in KiserianShaq's Choma Zone experienceTasty fast food optionsShaq's Choma Zone KiserianGourmet fast foodSavory delights at Shaq's House">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="language" content="English">
+        <meta name="revisit-after" content=" days">
+        <meta name="author" content="Designekta Studios">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+        {{--  --}}
+        <meta property="og:title" content=Shaq's Choma Zone - Fries and Chiken Fast Food in Kiserian -Shaqs House>
+        <meta property="og:site_name" content=Shaqs Choma Zone>
+        <meta property="og:url" content=http://shaqshouse.co.ke/>
+        <meta property="og:description" content=Indulge in irresistible flavors at Shaq's Choma Zone in Kiserian! Savor the perfect blend of crispy fries and succulent chicken at Shaq's House. Your go-to destination for fast food delight in Kiserian. Taste the extraordinary at Shaq's Choma Zone>
+        <meta property="og:type" content="">
+        <meta property="og:image" content=https://shaqshouse.co.ke/soon/house.png>
+        {{--  --}}
         @include('favicon')
         <!-- Sky v1.3 || ex nihilo || November 2014 - April 2015 -->
         <!-- style start -->
@@ -108,12 +118,12 @@
                                 </div>
                                 <div class="eight columns column">
                                     <div id="intro-top">
-                                        Comming Soon
+                                        <!--Comming Soon-->
                                     </div>
                                 </div>
                                 <div class="sixteen columns">
                                     <div id="intro-title">
-                                        Shaq's House
+                                        Shaq's House Limited
                                     </div>
                                 </div>
                                 <div class="eight columns column">

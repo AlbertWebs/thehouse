@@ -16,6 +16,7 @@ use App\Models\Product;
 use App\Models\ReplyMessage;
 use Jenssegers\Agent\Agent;
 use Response;
+use Session;
 
 class MobileController extends Controller
 {
@@ -234,7 +235,7 @@ class MobileController extends Controller
         }
     }
 
-    public function send($Message,$mobile){
+    public function sends($Message,$mobile){
         $phoneNumbers = str_replace(' ', '', $mobile);
         $phoneNumber = str_replace('+', '', $phoneNumbers);
         //
@@ -273,6 +274,47 @@ class MobileController extends Controller
         curl_close($ch);
     }
 
+     public function send($Message,$phoneNumber){
+        $message = $Message;
+        $phone =$phoneNumber;
+        $senderid = "SHAQSHOUSE";
+        //
+        $url = 'https://portal.zettatel.com/SMSApi/send';
+        $token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYnVsay5jbG91ZHJlYnVlLmNvLmtlXC8iLCJhdWQiOiJodHRwczpcL1wvYnVsay5jbG91ZHJlYnVlLmNvLmtlXC8iLCJpYXQiOjE2NTM5Nzc0NTEsImV4cCI6NDgwOTczNzQ1MSwiZGF0YSI6eyJlbWFpbCI6ImluZm9AZGVzaWduZWt0YS5jb20iLCJ1c2VyX2lkIjoiMTQiLCJ1c2VySWQiOiIxNCJ9fQ.N3y4QhqTApKi46YSiHmkaoEctO9z6Poc4k1g44ToyjA";
+
+            $post_data=array(
+            'sender'=>$senderid,
+            'phone'=>$phone,
+            'correlator'=>'Verification',
+            'link_id'=>null,
+            'message'=>$message
+            );
+
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => "https://portal.zettatel.com/SMSApi/send",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "POST",
+                CURLOPT_POSTFIELDS => "userid=shaqshouse&password=vB4xy3eY&sendMethod=quick&mobile=+$phone&msg=$message&senderid=$senderid&msgType=text&duplicatecheck=true&output=json",
+                CURLOPT_HTTPHEADER => array(
+                    "apikey: e9d00bd511565ce0a7cfc40fe779bc9d33fdc737",
+                    "cache-control: no-cache",
+                    "content-type: application/x-www-form-urlencoded"
+                ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+            // dd($response);
+            return response()->json($response);
+    }
+
     public function place_orders(){
         // Create Invoice
         $Invoice = DB::table('invoices')->orderBy('id','DESC')->Limit('1')->get();
@@ -301,20 +343,23 @@ class MobileController extends Controller
         $ShippingFee = 100;
         $TotalCost = \Cart::getTotal();
 
-        if(\Cart::isEmpty()){
+        $CartItems = \Cart::getContent();
+        if($CartItems->isEmpty()){
             return redirect()->route('get-started');
         }else{
             Orders::createOrder();
             // Send To Merchant
-            $date = date('h-i-s');
+            $date = date('h:i:s');
             $MessageMerchant = "Order Number $InvoiceNumber, Has Been Placed at $date by $name, Email:$email and Phone:$phone";
-            $MerchantPhoneNumber = "254799071107";
+            $MerchantPhoneNumber = "254706788440";
             $this->send($MessageMerchant,$MerchantPhoneNumber);
             // Send To Client
             $Message = "Your Order #$InvoiceNumber has been Placed successfully";
             $this->send($Message,$phone);
             ReplyMessage::mailclient($email,$name,$InvoiceNumber,$ShippingFee,$TotalCost);
             \Cart::clear();
+            //add message to session
+            Session::flash('message', $Message);
             return redirect()->route('get-started');
         }
     }
