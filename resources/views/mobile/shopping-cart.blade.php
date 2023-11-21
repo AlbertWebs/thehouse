@@ -63,6 +63,16 @@
            <?php $Shipping = 100; $Total = \Cart::getTotal(); ?>
            <input type="hidden" name="amount" value="{{$Total+$Shipping}}">
            <input type="hidden" name="user_id" value="{{Auth::User()->id}}">
+           <?php
+
+                $cartCollection = \Cart::getContent();
+                $toJson = $cartCollection->toJson();
+
+           ?>
+           <input type="hidden" name="cartItems" value="
+           @foreach ($cartCollection as $cartCollections) {{$cartCollections->name}}[{{$cartCollections->quantity}}] <br> @endforeach
+           ">
+
            <div class="fixed-bottom p-3">
                 <button type="submit" class="btn btn-danger text-left box_rounded w-100 py-3 d-flex align-items-center px-4">Pay Now <span class="ml-auto"></span>KES <?php $Shipping = 100; $Total = \Cart::getTotal(); ?>
                     {{$Total+$Shipping}}</span>

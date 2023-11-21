@@ -17,10 +17,20 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use DB;
 use Auth;
+use Session;
 
 
 class MpesaController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
       /**
      * Lipa na M-PESA password
      * */
@@ -44,6 +54,8 @@ class MpesaController extends Controller
             $user->mobile = $request->mobile;
             $user->save();
         }
+
+
 
         $phoneNumber = str_replace("+","",$request->mobile);
         $AmountSTK = $request->amount;
@@ -84,11 +96,14 @@ class MpesaController extends Controller
          $mpesa_transaction->Amount =  $AmountSTK;
          $mpesa_transaction->save();
 
+
          $STKMpesaTransaction = new STKMpesaTransaction;
          $STKMpesaTransaction->user_id = $request->user_id;
          $STKMpesaTransaction->CheckoutRequestID = $curl_content->CheckoutRequestID;
          $STKMpesaTransaction->MerchantRequestID = $MerchantRequestID;
          $STKMpesaTransaction->PhoneNumber = $phoneNumber;
+         $STKMpesaTransaction->Amount = $AmountSTK;
+         $STKMpesaTransaction->checkout = $request->cartItems;
          $STKMpesaTransaction->save();
 
          Log::info($curl_response);

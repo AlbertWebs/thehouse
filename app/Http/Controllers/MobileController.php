@@ -115,8 +115,12 @@ class MobileController extends Controller
     }
 
     public function transactions(){
-        return view('mobile.transactions');
+        // Get all from table lnmo_api_response where status is 1 for the logged in user
+
+        $lnmo_api_response = DB::table('lnmo_api_response')->where('user_id', Auth::User()->id)->where('status', 1)->get();
+        return view('mobile.transactions', compact('lnmo_api_response'));
     }
+
 
     public function edit_profile(){
         return view('mobile.edit-profile');
@@ -144,6 +148,7 @@ class MobileController extends Controller
 
     public function shopping_cart(){
         $cartItems = \Cart::getContent();
+        // dd($cartItems);
 
         return view('mobile.shopping-cart', compact('cartItems'));
     }
@@ -235,44 +240,7 @@ class MobileController extends Controller
         }
     }
 
-    public function sends($Message,$mobile){
-        $phoneNumbers = str_replace(' ', '', $mobile);
-        $phoneNumber = str_replace('+', '', $phoneNumbers);
-        //
-        $message = $Message;
-        $phone =$phoneNumber;
-        $senderid = "DESIGNEKTA";
-        //
-        $url = 'https://bulk.cloudrebue.co.ke/api/v1/send-sms';
-        $token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYnVsay5jbG91ZHJlYnVlLmNvLmtlXC8iLCJhdWQiOiJodHRwczpcL1wvYnVsay5jbG91ZHJlYnVlLmNvLmtlXC8iLCJpYXQiOjE2NTM5Nzc0NTEsImV4cCI6NDgwOTczNzQ1MSwiZGF0YSI6eyJlbWFpbCI6ImluZm9AZGVzaWduZWt0YS5jb20iLCJ1c2VyX2lkIjoiMTQiLCJ1c2VySWQiOiIxNCJ9fQ.N3y4QhqTApKi46YSiHmkaoEctO9z6Poc4k1g44ToyjA";
 
-            $post_data=array(
-            'sender'=>$senderid,
-            'phone'=>$phone,
-            'correlator'=>'Whatever',
-            'link_id'=>null,
-            'message'=>$message
-            );
-
-        $data_string = json_encode($post_data);
-        $ch = curl_init( $url );
-        curl_setopt( $ch, CURLOPT_POST, 1);
-        curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string);
-        curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt( $ch, CURLOPT_HEADER, 0);
-        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HTTPHEADER,
-            array(
-                'Content-Type: application/json',
-                'Accept: application/json',
-                'Authorization:Bearer '.$token,
-                'Content-Length: ' . strlen($data_string)
-                )
-            );
-
-        $response = curl_exec($ch);
-        curl_close($ch);
-    }
 
      public function send($Message,$phoneNumber){
         $message = $Message;
