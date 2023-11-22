@@ -15,7 +15,7 @@
     RewriteCond %{HTTP_USER_AGENT} "wapp|wapr|webc|winw|winw|xda|xda-" [NC,OR]
     RewriteCond %{HTTP_USER_AGENT} "up.browser|up.link|windowssce|iemobile|mini|mmp" [NC,OR]
     RewriteCond %{HTTP_USER_AGENT} "symbian|midp|wap|phone|pocket|mobile|pda|psp" [NC]
-    RewriteRule ^$ http://shaqshouse.co.ke/mobile/ [L,R=302]
+    RewriteRule ^$ https://shaqshouse.co.ke/mobile/ [L,R=302]
 
     # Handle Authorization MemberHeader
     RewriteCond %{HTTP:Authorization} .

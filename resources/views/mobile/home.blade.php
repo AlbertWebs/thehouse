@@ -87,7 +87,7 @@
        </div>
 
        <div style="display: none" id="display-none" class="alert alert-success alert-dismissible fade show" role="alert">
-         <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+         <strong>Holy guacamole!</strong> Your shopping Basket has been updated!
        </div>
 
        <section class="bg-light body_rounded position-relative row">

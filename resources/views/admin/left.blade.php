@@ -54,7 +54,7 @@
                 <li><a href="{{url('admin/addAdmin')}}"><i class="icon-plus"></i>  <i class="icon-user-md"></i> Add Admin </a></li>
                 <li><a href="{{url('admin/addUser')}}"><i class="icon-plus"></i>  <i class="icon-user"></i> Add User </a></li>
                 <li><a href="{{url('admin/sitesettings')}}"><i class="icon-cog"></i> Site Settings </a></li>
-                <li><a href="{{url('admin/logout')}}"><i class="icon-signin"></i> Log Out </a></li>
+                <li><a href="{{ route('logout') }}"><i class="icon-signin"></i> Log Out </a></li>
 
 
             </ul>
