@@ -11,6 +11,12 @@ class Menu extends Model
     protected $fillable = [
         'title',
         'price',
+        'name',
         'thumbnail'
     ];
+
+    public function categories(){
+
+        return $this->belongsTo('Categories','pro_cat');
+    }
 }

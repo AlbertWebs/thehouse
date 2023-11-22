@@ -32,8 +32,12 @@ class MobileController extends Controller
 
     public function index(){
         $agent = new Agent();
-        $Menu = DB::table('product')->limit(12)->get();
-        return view('mobile.home', compact('Menu'));
+        $Menu = DB::table('menus')->limit(12)->get();
+        $category = DB::table('category')->get();
+        $Orders = DB::table('orders')->where('user_id', Auth::User()->id)->get();
+
+
+        return view('mobile.home', compact('Menu','category','Orders'));
     }
 
     public function getMenu(Request $request)
@@ -64,7 +68,7 @@ class MobileController extends Controller
 
     public function add_to_cart($id)
     {
-        $Product = Product::find($id);
+        $Product = Menu::find($id);
         \Cart::add([
             'id' => $Product->id,
             'name' => $Product->title,
@@ -82,11 +86,11 @@ class MobileController extends Controller
     {
         $Order = DB::table('orders')->where('id',$id)->get();
         foreach($Order as $order){
-           $OrderProducts = DB::table('orders_products')->where('orders_id',$order->id)->get();
+           $OrderProducts = DB::table('menu_orders')->where('orders_id',$order->id)->get();
            foreach($OrderProducts as $orderproducts){
-               $products_id = $orderproducts->products_id;
+               $products_id = $orderproducts->menu_id;
                $qty = $orderproducts->qty;
-               $Product = Product::find($products_id);
+               $Product = Menu::find($products_id);
                 \Cart::add([
                     'id' => $Product->id,
                     'name' => $Product->title,
@@ -110,9 +114,13 @@ class MobileController extends Controller
         return view('mobile.orders', compact('Order'));
     }
 
-    public function orders_details(){
-        return view('mobile.orders-details');
+    public function orders_details($id){
+        $Order = DB::table('orders')->where('id', $id)->get();
+        $OrderProducts = DB::table('menu_orders')->where('orders_id', $id)->get();
+
+        return view('mobile.orders-details', compact('Order', 'OrderProducts'));
     }
+
 
     public function transactions(){
         // Get all from table lnmo_api_response where status is 1 for the logged in user
@@ -143,7 +151,14 @@ class MobileController extends Controller
     }
 
     public function search(){
-        return view('mobile.search');
+        $Menu = DB::table('menus')->where('title','0')->get();
+        return view('mobile.search', compact('Menu'));
+    }
+
+    public function food(){
+        $Menu = DB::table('menus')->get();
+        return view('mobile.food', compact('Menu'));
+
     }
 
     public function shopping_cart(){
@@ -164,14 +179,14 @@ class MobileController extends Controller
     }
 
     public function menus($menu){
-        $Menu = DB::table('product')->get();
+        $Menu = DB::table('menus')->get();
         return view('mobile.menu', compact('Menu'));
     }
 
     public function category($menu){
         $Menu = DB::table('category')->where('slung', $menu)->get();
         foreach ($Menu as $key => $value) {
-            $Products = DB::table('product')->where('cat_id', $value->id)->get();
+            $Products = DB::table('menus')->where('cat_id', $value->id)->get();
         }
         return view('mobile.menu', compact('Menu','Products'));
     }
@@ -315,7 +330,7 @@ class MobileController extends Controller
         if($CartItems->isEmpty()){
             return redirect()->route('get-started');
         }else{
-            Orders::createOrder();
+            Orders::createOrder($InvoiceNumber);
             // Send To Merchant
             $date = date('h:i:s');
             $MessageMerchant = "Order Number $InvoiceNumber, Has Been Placed at $date by $name, Email:$email and Phone:$phone";
@@ -326,7 +341,6 @@ class MobileController extends Controller
             $this->send($Message,$phone);
             ReplyMessage::mailclient($email,$name,$InvoiceNumber,$ShippingFee,$TotalCost);
             \Cart::clear();
-            //add message to session
             Session::flash('message', $Message);
             return redirect()->route('get-started');
         }
@@ -386,5 +400,13 @@ class MobileController extends Controller
         $User = User::find(Auth::User()->id);
         return view('mobile.edit-profile-pic', compact('User'));
     }
+
+    // Search method to search menu
+    public function search_menu(Request $request){
+        $search = $request->search;
+        $Menu = DB::table('menus')->where('title','LIKE','%'.$search.'%')->get();
+        return view('mobile.search', compact('Menu'));
+    }
+
 
 }

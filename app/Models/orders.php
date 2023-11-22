@@ -12,17 +12,17 @@ use illuminate\support\Facades\Auth;
 
 class orders extends Model
 {
-    protected $fillable=['total', 'status'];
+    protected $fillable=['total', 'status','order_number'];
     public function orderFields(){
 
-        return $this->belongsToMany(products::class)->withPivot('qty', 'total');
+        return $this->belongsToMany(Menu::class)->withPivot('qty', 'total');
 
     }
 
-    public static function createOrder(){
+    public static function createOrder($order_number){
 
         $user = Auth::user();
-        $order = $user->orders()->create(['total'=>\Cart::getTotal(),'status'=>'pending']);
+        $order = $user->orders()->create(['total'=>\Cart::getTotal(),'status'=>'pending', 'order_number'=>$order_number]);
 
         $cartItems = \Cart::getContent();
         foreach($cartItems as $cartItem)
@@ -33,8 +33,6 @@ class orders extends Model
             $Notifications->type = 'Order';
             $Notifications->content = 'You have a new Order';
             $Notifications->save();
-
-
 
        }
 

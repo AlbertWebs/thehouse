@@ -21,7 +21,7 @@
        <div class="osahan-banner">
           <span class="position-absolute title_sign text-white text-center">
              <h1>{{$menu->cat}}</h1>
-             <p class="text-white-50 m-0">+<?php echo count(DB::table('product')->where('cat_id',$menu->id)->get()) ?> Options</p>
+             <p class="text-white-50 m-0">+<?php echo count(DB::table('menus')->where('cat_id',$menu->id)->get()) ?> Options</p>
           </span>
        </div>
 

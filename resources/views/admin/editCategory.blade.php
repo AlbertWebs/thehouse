@@ -68,21 +68,41 @@
                     </div>
 
 
-                   <center>
-                    <div class="form-group col-lg-12">
-                        <label class="control-label">Image</label>
-                        <div class="">
-                            <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="{{url('/')}}/uploads/categories/{{$Category->image}}" alt="" /></div>
-                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-                                <div>
-                                    <span class="btn btn-file btn-primary"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="image" type="file" /></span>
-                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+
+
+                    <center>
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label class="control-label"> Mobile Thumbnail</label>
+                                <div class="">
+                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                        <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="{{url('/')}}/uploads/categories/{{$Category->thumbnail}}" alt="" /></div>
+                                        <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                        <div>
+                                            <span class="btn btn-file btn-primary"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="thumbnail" type="file" /></span>
+                                            <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="form-group col-lg-6">
+                                <label class="control-label"> Featured Image</label>
+                                <div class="">
+                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                        <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="{{url('/')}}/uploads/categories/{{$Category->image}}" alt="" /></div>
+                                        <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                        <div>
+                                            <span class="btn btn-file btn-primary"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="image" type="file" /></span>
+                                            <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
-                    </div>
-                    </center>
+                        </center>
 
 
                     <br><br>
@@ -91,6 +111,7 @@
                     </div>
 
                     <input type="hidden" name="image_cheat" value="{{$Category->image}}">
+                    <input type="hidden" name="thumbnail_cheat" value="{{$Category->thumbnail}}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <form>

@@ -24,5 +24,7 @@ class Order extends Model
     /**
      * @var array
      */
-    protected $fillable = ['transaction_id', 'amount', 'payment_status'];
+    protected $fillable = ['transaction_id', 'amount', 'payment_status','order_number'];
+
+
 }

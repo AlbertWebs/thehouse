@@ -20,40 +20,55 @@
 
  <section class="p-3">
     @if($Order->isEmpty())
-      <p class="small text-muted mb-0 mb-2">Today: <strong>{{date('D d M Y')}}</strong> You Have Not Made Any Orders, Go to <a href="{{url('/')}}/mobile/get-started"></a> to place an order</p>
+      <p class="small text-muted mb-0 mb-2">Today:  <strong>{{date('D d M Y')}}</strong> You Have Not Made Any Orders, Go to <a href="{{url('/')}}/mobile/get-started"></a> to place an order</p>
     @else
     <p class="small text-muted mb-0 mb-2">Today: <strong>{{date('D d M Y')}}</strong> </p>
         @foreach ($Order as $order)
-        <?php $Product = DB::table('orders_products')->where('orders_id',$order->id)->get();  ?>
-        @foreach ($Product as $item)
-        <?php $Products = DB::table('product')->where('id',$item->products_id)->get();  ?>
-            @foreach ($Products as $pro)
-            <div class="order_detail order_detail-2 mb-2 bg-light p-3 box_rounded">
-                <a href="{{url('/')}}/mobile/profile/orders/{{$order->id}}" class="d-flex align-items-center pb-3">
-                <div class="bg-white box_rounded">
-                    <img src="{{url('/')}}/uploads/menu/{{$pro->thumbnail}}" class="img-fluid rounded">
-                </div>
-                <div class="ml-3 d-flex w-100">
-                    <div class="text-dark">
-                        <p class="mb-1 fw-bold">{{$pro->title}}</p>
-                        <p class="small text-muted mb-0"> {{date('D' , strtotime($order->created_at))}} {{date('d' , strtotime($order->created_at))}} {{date('M' , strtotime($order->created_at))}}, {{date('Y' , strtotime($order->created_at))}} <span class="ml-1"><i class="mdi mdi-circle-medium mr-1"></i>{{date('H:i' , strtotime($order->created_at))}}</span></p>
-                    </div>
-                    @if($order->status == "pending")
-                        <div class="badge bg-primary ml-auto mb-auto"><span class="mdi mdi-clock"></span> Pending</div>
-                    @elseif($order->status == "confirmed")
-                        <div class="badge bg-danger ml-auto mb-auto"><span class="mdi mdi-check"></span> Confirmed</div>
-                    @else
-                    <div class="badge bg-success ml-auto mb-auto"><span class="mdi mdi-emoticon"></span> Completed</div>
-                    @endif
-                </div>
-                </a>
-                <div class="d-flex justify-content-between">
-                <a onclick="return confirm('Reorder This Now?')" data-url="{{url('/')}}/mobile/profile/orders/re-order/{{$order->id}}" class="btn btn-primary btn-block mr-1 box_rounded w-50 btn-sm py-2 re-order">Reorder <span style="visibility: hidden" class="spinner-border spinner-border-sm" role="status"></span></a>
-                <a href="{{url('/')}}/mobile/profile/orders/{{$order->id}}" class="btn btn-outline-primary btn-block ml-1 box_rounded w-50 btn-sm py-2">Order Details</a>
-                </div>
+            <div class="order_detail col-2 order_detail-2 mb-2 bg-dark p-1 box_rounded text-white text-center">
+                <strong>
+                    {{$order->order_number}}
+                </strong>
             </div>
+            <?php $Product = DB::table('menu_orders')->where('orders_id',$order->id)->get();  ?>
+            @foreach ($Product as $item)
+                <?php $Products = DB::table('menus')->where('id',$item->menu_id)->get();  ?>
+                @foreach ($Products as $pro)
+                <div class="order_detail order_detail-2 mb-2 bg-light p-3 box_rounded">
+                    <a href="{{url('/')}}/mobile/profile/orders/{{$order->id}}" class="d-flex align-items-center pb-3">
+                    <div class="bg-white box_rounded">
+                        <img src="{{url('/')}}/uploads/menu/{{$pro->thumbnail}}" class="img-fluid rounded">
+                    </div>
+                    <div class="ml-3 d-flex w-100">
+                        <div class="text-dark">
+                            <p class="mb-1 fw-bold">{{$pro->title}}</p>
+                            <p class="small text-muted mb-0"> {{date('D' , strtotime($order->created_at))}} {{date('d' , strtotime($order->created_at))}} {{date('M' , strtotime($order->created_at))}}, {{date('Y' , strtotime($order->created_at))}} <span class="ml-1"><i class="mdi mdi-circle-medium mr-1"></i>{{date('H:i' , strtotime($order->created_at))}}</span></p>
+                        </div>
+
+                    </div>
+                    </a>
+
+                </div>
+                @endforeach
             @endforeach
-        @endforeach
+
+            <div class="d-flex justify-content-between">
+                {{-- Only Show Reorder When Status is Completed --}}
+                @if($order->status == "completed")
+                   <a onclick="return confirm('Reorder This Now?')" data-url="{{url('/')}}/mobile/profile/orders/re-order/{{$order->id}}" class="btn btn-primary btn-block mr-1 box_rounded w-50 btn-sm py-2 re-order">Reorder <span style="visibility: hidden" class="spinner-border spinner-border-sm" role="status"></span></a>
+                @elseif($order->status == "confirmed")
+                <a href="whatsapp://send?text=Tracking My Order Number:{{$order->order_number}}&phone=+254706788440" class="btn btn-outline-primary btn-block ml-1 box_rounded w-50 btn-sm py-2"><span class="mdi mdi-whatsapp"></span> Track Order</a>
+                @endif
+
+
+                @if($order->status == "pending")
+                   <a href="#" class="btn btn-outline-danger btn-block ml-1 box_rounded w-50 btn-sm py-2"><span class="mdi mdi-clock"></span> Pending</a>
+                @elseif($order->status == "confirmed")
+                   <a href="#" class="btn btn-outline-warning btn-block ml-1 box_rounded w-50 btn-sm py-2"><span class="mdi mdi-clock"></span> Confirmed</a>
+                @else
+                   <a href="#" class="btn btn-outline-success btn-block ml-1 box_rounded w-50 btn-sm py-2 re-order"><span class="mdi mdi-check"></span> <strong>Completed</strong></a>
+                @endif
+            </div>
+            <hr>
         @endforeach
     @endif
 

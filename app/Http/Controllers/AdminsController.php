@@ -1039,17 +1039,30 @@ public function editCategories($id){
 
 public function edit_Category(Request $request, $id){
     $path = 'uploads/categories';
-        if(isset($request->image)){
-            $file = $request->file('image');
-            $filename = $file->getClientOriginalName();
-            $file->move($path, $filename);
-            $image = $filename;
-        }else{
-            $image = $request->image_cheat;
-        }
+
+    if(isset($request->image)){
+        $file = $request->file('image');
+        $filename = $file->getClientOriginalName();
+        $file->move($path, $filename);
+        $image = $filename;
+    }else{
+        $image = $request->image_cheat;
+    }
+
+    if(isset($request->thumbnail)){
+        $file = $request->file('thumbnail');
+        $filename = $file->getClientOriginalName();
+        $file->move($path, $filename);
+        $thumbnail = $filename;
+    }else{
+        $thumbnail = $request->thumbnail_cheat;
+    }
+
+
     $updateDetails = array(
         'cat'=>$request->name,
         'image'=>$image,
+        'thumbnail'=>$thumbnail,
         'slung'=>\Str::slug($request->name),
 
     );

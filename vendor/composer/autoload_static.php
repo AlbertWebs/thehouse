@@ -36,6 +36,7 @@ class ComposerStaticInit6d3d9b03a0c2ba9f0e0e1b44bdd538d3
         'c72349b1fe8d0deeedd3a52e8aa814d8' => __DIR__ . '/..' . '/mockery/mockery/library/helpers.php',
         'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
+        '1a4ace50cacdbd74bb2c015823d15b30' => __DIR__ . '/../..' . '/app/Models/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -342,8 +343,8 @@ class ComposerStaticInit6d3d9b03a0c2ba9f0e0e1b44bdd538d3
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -632,6 +633,8 @@ class ComposerStaticInit6d3d9b03a0c2ba9f0e0e1b44bdd538d3
         'App\\Models\\Rating' => __DIR__ . '/../..' . '/app/Models/Rating.php',
         'App\\Models\\ReplyMessage' => __DIR__ . '/../..' . '/app/Models/ReplyMessage.php',
         'App\\Models\\Review' => __DIR__ . '/../..' . '/app/Models/Review.php',
+        'App\\Models\\STKMpesaTransaction' => __DIR__ . '/../..' . '/app/Models/STKMpesaTransaction.php',
+        'App\\Models\\STKRequest' => __DIR__ . '/../..' . '/app/Models/STKRequest.php',
         'App\\Models\\Service_Rendered' => __DIR__ . '/../..' . '/app/Models/Service_Rendered.php',
         'App\\Models\\Services' => __DIR__ . '/../..' . '/app/Models/Services.php',
         'App\\Models\\Slider' => __DIR__ . '/../..' . '/app/Models/Slider.php',

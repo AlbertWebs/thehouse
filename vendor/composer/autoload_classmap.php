@@ -59,6 +59,8 @@ return array(
     'App\\Models\\Rating' => $baseDir . '/app/Models/Rating.php',
     'App\\Models\\ReplyMessage' => $baseDir . '/app/Models/ReplyMessage.php',
     'App\\Models\\Review' => $baseDir . '/app/Models/Review.php',
+    'App\\Models\\STKMpesaTransaction' => $baseDir . '/app/Models/STKMpesaTransaction.php',
+    'App\\Models\\STKRequest' => $baseDir . '/app/Models/STKRequest.php',
     'App\\Models\\Service_Rendered' => $baseDir . '/app/Models/Service_Rendered.php',
     'App\\Models\\Services' => $baseDir . '/app/Models/Services.php',
     'App\\Models\\Slider' => $baseDir . '/app/Models/Slider.php',

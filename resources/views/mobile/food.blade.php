@@ -31,68 +31,18 @@
             </div>
         {{-- </div> --}}
     @endif
-    <section class="featured py-3 pl-3 bg-white body_rounded mt-n5">
-       <div class="title mb-3">
-          <h6 class="mb-0 fw-bold">Featured</h6>
-       </div>
-       <div class="featured_slider">
-          @foreach ($category as $cat)
-          <a href="{{url('/')}}/mobile/menu/{{$cat->slung}}">
-            <div class="featured_item mr-2">
-               <span class="position-absolute pb-2 pl-3">
-                  <p class="text-white mb-1">{{$cat->cat}}</p>
-                  <span class="text-muted"></span>
-               </span>
-               <img src="{{url('/')}}/uploads/categories/{{$cat->thumbnail}}" class="img-fluid box_rounded">
-            </div>
-         </a>
-          @endforeach
-       </div>
-    </section>
-    @if($Orders->isEmpty())
 
-    @else
-    <section class="near py-3 pl-3 bg-light">
-       <div class="title mb-2 pb-1 d-flex align-items-center">
-          <h6 class="mb-0 fw-bold">Your Picks</h6>
-          <a href="{{url('/')}}/mobile/profile/orders" class="ml-auto pr-3"><span class="text-primary">View All</span></a>
-       </div>
-       <div class="near_slider">
-          @foreach($Orders as $order)
-          <?php
-             $MenuOrders = DB::table('menu_orders')->where('orders_id',$order->id)->distinct('menu_id')->get();
-          ?>
-            @foreach ($MenuOrders as $menus)
-                <?php
-                    $Menus = App\Models\Menu::where('id',$menus->menu_id)->limit(10)->get();
-                ?>
-                @foreach ($Menus as $menu)
-                    <a href="detail2#html">
-                        <div class="near_item bg-white box_rounded mr-2 p-3 text-center my-1 shadow-sm">
-                        <img style="max-width:60px" src="{{url('/')}}/uploads/menu/{{$menu->thumbnail}}" class="img-fluid mx-auto mb-2 rounded-pill">
-                        <p class="mb-2 text-dark">{{$menu->title}}</p>
-                        <span class="bg-light px-2 py-1 text-dark text-muted rounded-3">40 min</span>
-                        </div>
-                    </a>
-                @endforeach
-            @endforeach
-          @endforeach
-       </div>
-    </section>
-    @endif
-    <div class="px-3">
+
+    <div class="px-3 p-3">
        <div class="title mb-3 d-flex align-items-center">
           <h6 class="mb-0 fw-bold">Menu</h6>
-          <a href="{{route('food')}}" class="ml-auto"><span class="text-primary">View All</span></a>
+          <a href="{{url('/')}}/menu/shopping-cart" class="ml-auto"><span class="text-primary">Shopping Cart <i class="mdi mdi-cart text-danger"></i> &nbsp;</span></a>
        </div>
 
-       <div style="display: none" id="display-none" class="alert alert-success alert-dismissible fade show" role="alert">
-         <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-       </div>
 
        <section class="bg-light body_rounded position-relative row">
           @foreach ($Menu as $menu)
-          <span class="col-6 pr-2" href="detail1#html">
+          <span class="col-4 pr-2" href="detail1#html">
             <div class="bg-white box_rounded overflow-hidden mb-3 shadow-sm">
                <img width="100%" src="{{url('/')}}/uploads/menu/{{$menu->thumbnail}}" class="img-fluid">
                <div class="p-2">

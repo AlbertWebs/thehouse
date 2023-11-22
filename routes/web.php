@@ -350,6 +350,8 @@ Route::group(['prefix'=>'mobile'], function(){
     Route::get('/google/redirect', [LoginController::class, 'googleRedirect']);
 
     Route::get('/', [App\Http\Controllers\MobileLoginController::class, 'index'])->name('index');
+    // search post route
+    Route::post('/search', [App\Http\Controllers\MobileController::class, 'search_menu'])->name('search-menu');
     Route::get('/veryfy-number', [App\Http\Controllers\MobileController::class, 'veryfy_number'])->name('veryfy-number');
     Route::get('/verification-code', [App\Http\Controllers\MobileController::class, 'verification_code'])->name('verification-code');
     Route::get('/sign-in', [App\Http\Controllers\MobileLoginController::class, 'sign_in'])->name('sign-in');
@@ -376,9 +378,9 @@ Route::group(['prefix'=>'mobile'], function(){
     Route::get('/shopping-cart/add-to-cart/{id}', [App\Http\Controllers\MobileController::class, 'add_to_cart'])->name('add-to-cart');
     Route::get('/shopping-cart/remove/{id}', [MobileController::class, 'removeCart'])->name('cart.remove.mobile');
     Route::get('/checkout', [App\Http\Controllers\MobileController::class, 'checkout'])->name('checkout');
-    Route::get('/offers', [App\Http\Controllers\MobileController::class, 'offers'])->name('offers');
-    Route::get('/offers', [App\Http\Controllers\MobileController::class, 'offers'])->name('offers');
-
+    Route::get('/offers', [App\Http\Controllers\MobileController::class, 'index'])->name('offers');
+    Route::get('/offers', [App\Http\Controllers\MobileController::class, 'index'])->name('offers');
+    Route::get('/food', [App\Http\Controllers\MobileController::class, 'food'])->name('food');
 
     Route::get('/get-menu', [App\Http\Controllers\MobileController::class, 'getMenu'])->name('getMenu');
     Route::group(['prefix'=>'profile'], function(){
@@ -387,7 +389,7 @@ Route::group(['prefix'=>'mobile'], function(){
         Route::get('/transactions', [App\Http\Controllers\MobileController::class, 'transactions'])->name('transactions');
         Route::get('/orders', [App\Http\Controllers\MobileController::class, 'orders'])->name('orders');
         Route::get('/orders/place-orders', [App\Http\Controllers\MobileController::class, 'place_orders'])->name('place-orders');
-        Route::get('/orders/details', [App\Http\Controllers\MobileController::class, 'orders_details'])->name('orders-details');
+        Route::get('/orders/{id}', [App\Http\Controllers\MobileController::class, 'orders_details'])->name('orders-details');
         Route::get('/orders/re-order/{id}', [App\Http\Controllers\MobileController::class, 'orders_re_order'])->name('orders-re-order');
         Route::get('/orders/mailClient', [App\Http\Controllers\MobileController::class, 'mailClient'])->name('orders-mailClient');
     });

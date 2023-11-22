@@ -21,13 +21,13 @@
        <a href="{{url('/')}}/mobile/profile" class="text-dark d-flex align-items-center mb-3">
           <div class="mb-3">
              <p class="mb-1 text-danger">Delivered to</p>
-             <p class="mb-0 text-dark">300 Post Street Ongata Rongai, NBO</p>
+             <p class="mb-0 text-dark">{{Auth::User()->location}}</p>
              <p class="small text-muted mb-0">Office 26</p>
           </div>
           <div class="ml-auto"><i class="mdi mdi-chevron-right bg-light p-2 text-muted box_rounded h4 mb-0"></i></div>
        </a>
        <div class="details-page my-1">
-          <p class="text-dark h5 mb-3">Shaq's House</p>
+          <p class="text-dark h5 mb-3">Shaq's Chomazone</p>
           @foreach ($cartItems as $cartitems)
           <div class="d-flex align-items-center mb-3">
              <div class="mr-2"><img src="{{url('/')}}/uploads/menu/{{ $cartitems->attributes->image }}" class="img-fluid box_rounded cart_img"></div>
