@@ -161,11 +161,11 @@
 						<div class="author-box">
 							<div class="box-inner">
 								<div class="author-image">
-									<img src="{{asset('theme/images/resource/author-1.jpg')}}" alt="" />
+									<img style="height:70px; width:70px;"  src="{{asset('theme/images/resource/chief-chef.jpeg')}}" alt="" />
 								</div>
 								<div class="signature"><img src="{{asset('theme/images/icons/signature.png')}}" alt="" /></div>
-								<h5>Mike Ochieng</h5>
-								<div class="designation">Master Chef</div>
+								<h5>Salim Badi</h5>
+								<div class="designation">Chief Chef</div>
 							</div>
 						</div>
 					</div>
